@@ -5,6 +5,7 @@ import { LoginComponent } from './Pages/login.component';
 import { MyEventComponent } from './Pages/my-event.component';
 import { EventComponent } from './Pages/event.component';
 import { JoinEventComponent } from './Pages/join-event.component';
+import { SearchEventComponent } from './Pages/search-event.component';
 
 
 export const MainComponent: React.FC = () => { 
@@ -24,6 +25,9 @@ export const MainComponent: React.FC = () => {
                     </Route>
                     <Route  path="/joinevent">
                         <JoinEventComponent />
+                    </Route>
+                    <Route  path="/searchevent">
+                        <SearchEventComponent />
                     </Route>
                 </Switch>
             </main>
