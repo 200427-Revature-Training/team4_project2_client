@@ -33,4 +33,5 @@ export const MainComponent: React.FC = () => {
             </main>
         </BrowserRouter>
     </div>
-}
+  );
+};

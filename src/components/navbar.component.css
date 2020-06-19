@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+#navbar-custom {
+  background: #010101;
+  background: -webkit-radial-gradient(center, #010101, #313131);
+  background: -moz-radial-gradient(center, #010101, #313131);
+  background: radial-gradient(ellipse at center, #010101, #313131);
+  height: 6vh;
+}
+
+#logo {
+  font-style: italic;
+  font-family: "Parisienne", cursive;
+  font-size: 2rem;
+  opacity: 1;
+}
+#nav-buttons {
+  color: white;
+  font-size: 1.2rem;
+  font-family: "Titillium Web", sans-serif;
+}
