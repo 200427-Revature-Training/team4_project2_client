@@ -9,7 +9,7 @@ import { SearchEventComponent } from './Pages/search-event.component';
 
 
 export const MainComponent: React.FC = () => { 
-    return <div id="main-component">
+    return( <div id="main-component">
         <BrowserRouter>
             <NavBarComponent></NavBarComponent>
             <main>
@@ -33,5 +33,5 @@ export const MainComponent: React.FC = () => {
             </main>
         </BrowserRouter>
     </div>
-  );
-};
+
+    )};
