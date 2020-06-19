@@ -1,4 +1,3 @@
-import Axios from 'axios';
 import { Login } from '../models/login';
 import { internalAxios } from './internal-Axios';
 
