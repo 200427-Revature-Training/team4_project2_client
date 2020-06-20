@@ -8,63 +8,64 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { TextField } from '@material-ui/core';
-import { findByLabelText } from '@testing-library/react';
+import { SocialEvent } from '../../../models/Event';
+
 
 const useStyles = makeStyles({
     container: {
         display: 'flex',
+        paddingTop: 40,
+        
     },
     root: {
         maxWidth: 345,
-        padding: 50,
+        maxHeight:500,
+        margin: 'auto',
+        
+        
 
     },
     media: {
         height: 140,
         minWidth: 300,
     },
-
 });
 
-export const SearchEventComponent: React.FC = () => {
+interface CategoryListComponentProps {
+    setView: (str: 'SEARCHED_LIST' | 'CATEGORY_LIST' | 'JOIN_LIST') => void;
+    setSocialEventType: (str:'OUTDOORS' | 'ARTS_CRAFTS' | 'BOARD_VIDEO_GAMES' | 'EXERCISE' |
+                            'CONVENTIONS' | 'MOVIES_TV' | 'TALK_DISCUSSION' | 'OTHER' | '') => void;
+}
+
+export const CategoryListComponent: React.FC<CategoryListComponentProps> = (props) => {
     const classes = useStyles();
+
+    const setViewAndType = (e: any) => {
+        props.setSocialEventType(e);
+        props.setView('JOIN_LIST')
+    }
 
     return (
         <div>
-            <form noValidate autoComplete="off">
-                <TextField id="standard-basic" label="Search" />
-            </form>
-
             <div className={classes.container}>
-                <Card className={classes.root} id="event-card">
+                <Card className={classes.root} id="event-card" onClick={() => setViewAndType('OUTDOORS')}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
                             image="/static/images/cards/contemplative-reptile.jpg"
-                            title="Contemplative Reptile"
+                            title="Outdoor Activities"
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                                Event Catgeory
+                                Outdoor Activities
                         </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 Event category description
                         </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            explore
-                    </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                    </Button>
-                    </CardActions>
                 </Card>
-
-
-
-                <Card className={classes.root} id="event-card">
+                <Card className={classes.root} id="event-card" onClick={() => setViewAndType('ARTS_CRAFTS')}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
@@ -73,24 +74,15 @@ export const SearchEventComponent: React.FC = () => {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                                Event Catgeory
+                                Arts and Crafts
                         </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 Event category description
                         </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            explore
-                    </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                    </Button>
-                    </CardActions>
                 </Card>
-
-                <Card className={classes.root} id="event-card">
+                <Card className={classes.root} id="event-card" onClick={() => setViewAndType('BOARD_VIDEO_GAMES')}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
@@ -99,24 +91,15 @@ export const SearchEventComponent: React.FC = () => {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                                Event Catgeory
+                                Board and Video Games
                         </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 Event category description
                         </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            explore
-                    </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                    </Button>
-                    </CardActions>
                 </Card>
-
-                <Card className={classes.root} id="event-card">
+                <Card className={classes.root} id="event-card" onClick={() => setViewAndType('EXERCISE')}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
@@ -125,26 +108,17 @@ export const SearchEventComponent: React.FC = () => {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                                Event Catgeory
+                                Exercise Activities
                         </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 Event category description
                         </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            explore
-                    </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                    </Button>
-                    </CardActions>
                 </Card>
             </div>
-
             <div className={classes.container}>
-                <Card className={classes.root} id="event-card">
+                <Card className={classes.root} id="event-card" onClick={() => setViewAndType('CONVENTIONS')}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
@@ -153,26 +127,15 @@ export const SearchEventComponent: React.FC = () => {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                                Event Catgeory
+                                Conventions
                         </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 Event category description
                         </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            explore
-                    </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                    </Button>
-                    </CardActions>
                 </Card>
-
-
-
-                <Card className={classes.root} id="event-card">
+                <Card className={classes.root} id="event-card" onClick={() => setViewAndType('MOVIES_TV')}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
@@ -181,24 +144,15 @@ export const SearchEventComponent: React.FC = () => {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                                Event Catgeory
+                                Movies and TV
                         </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 Event category description
                         </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            explore
-                    </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                    </Button>
-                    </CardActions>
                 </Card>
-
-                <Card className={classes.root} id="event-card">
+                <Card className={classes.root} id="event-card" onClick={() => setViewAndType('TALKS_DISCUSSIONS')}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
@@ -207,24 +161,15 @@ export const SearchEventComponent: React.FC = () => {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                                Event Catgeory
+                                Talks and Discussions
                         </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 Event category description
                         </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            explore
-                    </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                    </Button>
-                    </CardActions>
                 </Card>
-
-                <Card className={classes.root} id="event-card">
+                <Card className={classes.root} id="event-card" onClick={() => setViewAndType('OTHER')}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
@@ -233,23 +178,15 @@ export const SearchEventComponent: React.FC = () => {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                                Event Catgeory
+                                Other
                         </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 Event category description
                         </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                            explore
-                    </Button>
-                        <Button size="small" color="primary">
-                            Learn More
-                    </Button>
-                    </CardActions>
                 </Card>
             </div>
         </div>
-    );
+    )
 }

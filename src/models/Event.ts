@@ -3,7 +3,7 @@ export interface SocialEvent {
     title: string;
     image: string;
     price: number;
-    type: string;
+    type_id: string;
     startTime: Date;
     maxPeople: number;
     description: string;
