@@ -8,26 +8,27 @@ import { SearchEventComponent } from './Pages/search-events-component/search-eve
 
 
 export const MainComponent: React.FC = () => {
-    return (<div id="main-component">
-        <BrowserRouter>
-            <NavBarComponent></NavBarComponent>
-            <main>
-                <Switch>
-                    <Route exact path="/">
-                        <LoginComponent />
-                    </Route>
-                    <Route path="/myevent">
-                        <MyEventComponent />
-                    </Route>
-                    <Route path="/event">
-                        <EventComponent />
-                    </Route>
-                    <Route path="/searchevent">
-                        <SearchEventComponent />
-                    </Route>
-                </Switch>
-            </main>
-        </BrowserRouter>
-    </div>
-    );
+    return (
+        <div id="main-component">
+            <BrowserRouter>
+                <NavBarComponent></NavBarComponent>
+                <main>
+                    <Switch>
+                        <Route exact path="/">
+                            <LoginComponent />
+                        </Route>
+                        <Route path="/myevent">
+                            <MyEventComponent />
+                        </Route>
+                        <Route path="/event">
+                            <EventComponent />
+                        </Route>
+                        <Route path="/searchevent">
+                            <SearchEventComponent />
+                        </Route>
+                    </Switch>
+                </main>
+            </BrowserRouter>
+        </div>
+    )
 };
