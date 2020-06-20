@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { NavBarComponent } from './navbar.component';
-import { LoginComponent } from './Pages/login.component';
+import { LoginComponent } from './Pages/login.component/login.component';
 import { MyEventComponent } from './Pages/my-event.component';
 import { EventComponent } from './Pages/event.component';
 import { JoinEventComponent } from './Pages/join-event.component';
 import { SearchEventComponent } from './Pages/search-event.component';
+import { SignUpComponent } from './Pages/signup.component/signup.component';
 
 
 export const MainComponent: React.FC = () => { 
@@ -14,8 +15,11 @@ export const MainComponent: React.FC = () => {
             <NavBarComponent></NavBarComponent>
             <main>
                 <Switch>
-                    <Route exact path="/">
+                    <Route path="/login">
                         <LoginComponent />
+                    </Route>
+                    <Route path ="/signup">
+                        <SignUpComponent />
                     </Route>
                     <Route  path="/myevent">
                         <MyEventComponent />

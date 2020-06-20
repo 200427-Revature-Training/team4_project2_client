@@ -1,36 +1,14 @@
 import React from 'react';
-import './login.component.css';
+import './signup.component.css';
+import { Link } from 'react-router-dom';
 
-export const LoginComponent: React.FC = () => {
+export const SignUpComponent: React.FC = () => {
     return (
         <div className="wrapper">
 
             <div className="form-wrapper">
-                <h1> Sign in </h1>
-                <form>
-                    <div className="loginUsername">
-                        <label htmlFor="username">Username</label>
-                        <input
-                            placeholder="Username"
-                            type="text"
-                            name="loginUsername"
-                        />
-                    </div>
-                    <div className="loginPassword">
-                        <label htmlFor="loginPassword">Password</label>
-                        <input
+    
 
-                            placeholder="Password"
-                            type="password"
-                            name="loginPassword"
-                            />
-                    </div>
-                    </form>
-                
-                <div className="signIn">
-                    <button type="submit">Sign In</button>
-                </div>
-                
                 <h1>Create Account</h1>
                 <form>
                     <div className="firstName">
@@ -49,17 +27,17 @@ export const LoginComponent: React.FC = () => {
                             placeholder="Last Name"
                             type="text"
                             name="lastName"
-                            />
+                        />
                     </div>
-                        <div className="username">
-                            <label htmlFor="username">Username</label>
-                            <input
-                                placeholder="Username"
-                                type="text"
-                                name="username"
-                            />
-                        </div>
-                    
+                    <div className="username">
+                        <label htmlFor="username">Username</label>
+                        <input
+                            placeholder="Username"
+                            type="text"
+                            name="username"
+                        />
+                    </div>
+
                     <div className="email">
                         <label htmlFor="email">Email</label>
                         <input
@@ -79,6 +57,16 @@ export const LoginComponent: React.FC = () => {
                         />
                     </div>
 
+                    <div className="confirmPassword">
+                        <label htmlFor="confirmPassword">Confirm Password</label>
+                        <input
+
+                            placeholder="Confirm Password"
+                            type="password"
+                            name="confirmPassword"
+                        />
+                    </div>
+
                     <div className="address">
                         <label htmlFor="address">Address</label>
                         <input
@@ -88,10 +76,15 @@ export const LoginComponent: React.FC = () => {
                             name="address"
                         />
                     </div>
-                            <div className="createAccount">
-                        <button type="submit">Create Account</button>
-                    </div>
                 </form>
+                <div className="createAccount">
+                    <button type="submit">Sign Up</button>
+                    <small>
+                        <Link to="/login">
+                            Already Have an Account?
+                        </Link>
+                        </small>
+                </div>
             </div>
         </div>
     )
