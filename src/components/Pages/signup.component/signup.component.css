@@ -53,98 +53,61 @@ input::placeholder {
     color: #999;
 }
 
-.loginUsername,
-.loginPassword {
+.firstName {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
-}
-
-.loginUsername {
     margin-right: 1%;
-}
-
-.loginPassword {
-    margin-left: 1%;
-}
-
-.signIn {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.signIn button {
-    background-color: #184dad;
-    color: #fff;
-    border: 2px solid #fff;
-    width: 100%;
-    margin-top: 1em;
-    padding: 8px 0px;
-    font-size: 1em;
-    font-weight: lighter;
-    letter-spacing: 1px;
-    margin-bottom: 0.25em;
-}
-
-.signIn button:hover {
-    color: #184dad;
-    background-color: #fff;
-    border: 2px solid #184dad;
-}
-
-
-
-.firstName {
-    margin-right: 1%;
+    width: 49%;
 }
 
 .lastName {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
     margin-left: 1%;
+    width: 49%
 }
 
-.email{
+.email {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.username {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.password {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
     margin-right: 1%;
+    width: 49%;
 }
 
-.password{
-    margin-left: 1%
+
+.confirmPassword {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    margin-left: 1%;
+    width: 49%;
 }
 
-.firstName,
-.lastName,
-.username,
-.email,
-.password,
 .address {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
-}
-
-.firstName,
-.lastName {
-    width: 49%;
-}
-
-.email,
-.password {
-    width: 49%;
-}
-
-.username{
     width: 100%;
-    display: flex;
-    flex-direction: column;
-
 }
 
-.address{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
+
 .createAccount {
     width: 100%;
     display: flex;
@@ -170,5 +133,3 @@ input::placeholder {
     background-color: #fff;
     border: 2px solid #184dad;
 }
-
-

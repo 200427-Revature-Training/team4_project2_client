@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import "./navbar.component.css";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -48,20 +49,27 @@ export const NavBarComponent: React.FC = () => {
           </Button>
           {!isLoggedIn && (
             <div>
+              
+              <Link to="/login">
               <Button color="inherit" id="nav-buttons">
-                Login
-              </Button>
+                  Login
+                </Button>
+              </Link>
+
+              <Link to="/signup">
               <Button color="inherit" id="nav-buttons">
                 SignUp
               </Button>
+              </Link>
+            
             </div>
           )}
           {isLoggedIn && (
             <div>
-              <Button color="inherit" id="nav-buttons">
+              <Button>
                 My Events
               </Button>
-              <Button color="inherit" id="nav-buttons">
+              <Button>
                 Join Event
               </Button>
             </div>
