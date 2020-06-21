@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import "./navbar.component.css";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,15 +32,17 @@ export const NavBarComponent: React.FC = () => {
     <div>
       <AppBar position="static" id="navbar-custom">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-          >
-            <Typography variant="h6" className={classes.title} id="logo">
-              TempestSociety
-            </Typography>
-          </IconButton>
+          <Link to="/" id="nav-links">
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+            >
+              <Typography variant="h6" className={classes.title} id="logo">
+                TempestSociety
+              </Typography>
+            </IconButton>
+          </Link>
           <Typography variant="h6" className={classes.title} id="logo">
             {user != "" ? `Welcome ${user}` : "PlaceHolder for user's name"}
           </Typography>
@@ -48,22 +51,23 @@ export const NavBarComponent: React.FC = () => {
           </Button>
           {!isLoggedIn && (
             <div>
-              <Button color="inherit" id="nav-buttons">
-                Login
-              </Button>
-              <Button color="inherit" id="nav-buttons">
-                SignUp
-              </Button>
+              <Link to="/login" id="nav-links">
+                <Button color="inherit" id="nav-buttons">
+                  Login
+                </Button>
+              </Link>
+
+              <Link to="/signup" id="nav-links">
+                <Button color="inherit" id="nav-buttons">
+                  SignUp
+                </Button>
+              </Link>
             </div>
           )}
           {isLoggedIn && (
             <div>
-              <Button color="inherit" id="nav-buttons">
-                My Events
-              </Button>
-              <Button color="inherit" id="nav-buttons">
-                Join Event
-              </Button>
+              <Button>My Events</Button>
+              <Button>Join Event</Button>
             </div>
           )}
         </Toolbar>
