@@ -1,4 +1,5 @@
 import React from "react";
+import { CreateEventModal } from "./create-event-modal.component";
 
 export const MyEventComponent: React.FC = () => {
   return (
