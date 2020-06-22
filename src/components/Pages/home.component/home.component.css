@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+
 .container {
   position: relative;
   height: 90vh;
@@ -18,7 +19,7 @@
   right: 0px;
   bottom: 0px;
   left: 0px;
-  opacity: 0.85;
+  opacity: 0.8;
   z-index: -1;
 }
 
@@ -31,7 +32,7 @@ main > div {
 
 main > div#content-container {
   position: relative;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgb(255, 255, 255, 0.8);
 }
 
 #copyright {
@@ -39,4 +40,40 @@ main > div#content-container {
   color: #006272;
   font-size: 1rem;
   font-family: "Titillium Web", sans-serif;
+}
+
+#tag-line {
+  margin-top: 1%;
+  font-family: "Titillium Web", sans-serif;
+  color: #006272;
+}
+
+section {
+  display: flex;
+  margin-top: 2%;
+}
+#card-section {
+  margin: auto;
+}
+#text-display {
+  font-family: "Titillium Web", sans-serif;
+  color: #006272;
+}
+#event-button {
+  background-color: white;
+  color: #006272;
+  font-family: "Titillium Web", sans-serif;
+  min-width: 20vw;
+  height: 5vh;
+  font-size: 1.5rem;
+}
+
+#event-button-container {
+  align-items: center;
+  justify-content: center;
+}
+
+#nav-links {
+  text-decoration: none;
+  text-decoration-style: none;
 }
