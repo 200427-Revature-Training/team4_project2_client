@@ -7,6 +7,7 @@ import { EventComponent } from "./Pages/event.component";
 import { SearchEventComponent } from "./Pages/search-events-component/search-event.component";
 import { SignUpComponent } from "./Pages/signup.component/signup.component";
 import { HomeComponent } from "./Pages/home.component/home.component";
+import { ForumComponent } from "./Pages/forum.component/forum.component";
 export const MainComponent: React.FC = () => {
   return (
     <div id="main-component">
@@ -32,6 +33,9 @@ export const MainComponent: React.FC = () => {
               </Route>
               <Route path="/searchevent">
                 <SearchEventComponent />
+              </Route>
+              <Route path="/forum">
+                <ForumComponent />
               </Route>
             </Switch>
           </div>
