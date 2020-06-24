@@ -3,21 +3,21 @@ import { makeStyles, createStyles, Theme, Card, CardActionArea, CardMedia, CardC
 import { SocialEvent } from '../../../models/Event';
 
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            maxWidth: 345,
-            padding: 30,
-        },
-        media: {
-            height: 140,
-        },
-        formControl: {
-            margin: theme.spacing(1),
-            minWidth: 120,
-        },
-    }),
-);
+const useStyles = makeStyles({
+    containerk: {
+        display: 'flex',
+        paddingTop: 40,
+    },
+    rootk: {
+        maxWidth: 345,
+        maxHeight:500,
+        margin: 'auto',
+    },
+    mediak: {
+        height: 140,
+        minWidth: 300,
+    },
+});
 
 interface EventCardComponentProps {
     socialEvent: SocialEvent;
@@ -27,10 +27,10 @@ export const EventCardComponent: React.FC<EventCardComponentProps> = ({ socialEv
     const classes = useStyles();
 
     return (
-        <Card className={classes.root} id="event-card">
+        <Card className={classes.rootk} id="event-card">
             <CardActionArea>
                 <CardMedia
-                    className={classes.media}
+                    className={classes.mediak}
                 // image="/static/images/cards/contemplative-reptile.jpg"
                 // title="Contemplative Reptile"
                 />

@@ -4,6 +4,7 @@ import { SocialEvent } from '../../../models/Event';
 import { JoinEventComponent } from './join-event.component';
 import { CategoryListComponent } from './category-list.component';
 import { SearchListComponent } from './search-list.component';
+import * as eventRemote from '../../../remotes/event.remote';
 
 
 export const childViews = {
@@ -25,27 +26,32 @@ export const SearchEventComponent: React.FC = () => {
 
     const getCurrentView = () => {
         switch (view) {
-            case childViews.categoryList: return <CategoryListComponent setView={setView}
-                setSocialEventType={setSocialEventType} />;
+            case childViews.categoryList: return <CategoryListComponent setView={setView} socialEvents={socialEvents}
+                setSocialEventType={setSocialEventType} socialEventType={socialEventType} setSocialEvents={setSocialEvents}  />;
             case childViews.joinList: return <JoinEventComponent setView={setView} socialEvents={socialEvents} 
-                                        socialEventType={socialEventType} setSocialEventType={setSocialEventType} />
+                                        socialEventType={socialEventType} setSocialEventType={setSocialEventType}/>
             case childViews.searchedList: return <SearchListComponent setView={setView} socialEvents={socialEvents} 
                                                     inputSocialEventKey={inputSocialEventKey}/>
             default: return <React.Fragment />
         }
     }
 
-    const searchOnEnter = (e: any) => {
+    const searchOnEnter = async (e: any) => {
         if (e.key === 'Enter') {
-            setView('SEARCHED_LIST');
+        // props.setSocialEventType(e);
+        // const socialEventHolder = props.socialEventType
+        const retrievedSocialEvents = await eventRemote.getSocialEventByTitle(inputSocialEventKey)
+        console.log(retrievedSocialEvents);
+        setSocialEvents(retrievedSocialEvents);
+        setView('SEARCHED_LIST');
         }
     }
 
     return (
-        <main>
+        <React.Fragment>
             <TextField id="standard-basic" label="Search" value={inputSocialEventKey} 
                         onChange={(e) => setInputSocialEventKey(e.target.value)} onKeyPress={(e) => searchOnEnter(e)} />
             {getCurrentView()}
-        </main>
+        </React.Fragment>
     );
 }
