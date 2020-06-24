@@ -86,7 +86,7 @@ export const ForumComponent: React.FC = () => {
               <Typography
                 variant="h5"
                 className={classe.title}
-                id="forum-rules-text"
+                id="forum-main-text"
               >
                 Sample post <br />
                 <span id="post-date">April 27, 2020 by Muffin Man</span>
@@ -140,7 +140,7 @@ export const ForumComponent: React.FC = () => {
               <Typography
                 variant="h5"
                 className={classe.title}
-                id="forum-rules-text"
+                id="forum-main-text"
               >
                 Sample post <br />
                 <span id="post-date">April 27, 2020 by Muffin Man</span>
