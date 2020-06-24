@@ -1,7 +1,10 @@
 import React from 'react'
 import { makeStyles,
     Grid, Typography,
-    Container, Button } from '@material-ui/core';
+    Container} from '@material-ui/core';
+import { RedirectModalComponent } from '../../sub-components/redirect-modal-component';
+import { CreateEventModal } from '../create-event-modal.component';
+import { FallbackAvatars } from '../../sub-components/user-avatar.component';
 
 /*
     - Header Component for display Image
@@ -52,25 +55,17 @@ export const UserHeaderEventComponent: React.FC = () => {
     return (
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Album layout
-            </Typography>
-            <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
+            <FallbackAvatars />
+            <Typography component="h3" variant="h3" align="center" color="textPrimary" gutterBottom>
+              "User Profile"
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
+                  <CreateEventModal />
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
-                  </Button>
+                  <RedirectModalComponent />
                 </Grid>
               </Grid>
             </div>
