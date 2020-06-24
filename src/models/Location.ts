@@ -3,5 +3,5 @@ export interface Location {
     state: string;
     city: string;
     street: string;
-    street_number: number;
+    streetNumber: number;
 }
