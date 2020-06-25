@@ -3,6 +3,6 @@ import { internalAxios } from './internal-Axios';
 
 
 export const checkLoginCredentials = async (login: Login) => {
-    const response = await internalAxios.post('/authenticate/login', login);
+    const response = await internalAxios.post('/authentication/login', login);
     return response;
 }
