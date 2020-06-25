@@ -18,11 +18,7 @@ export const LoginComponent: React.FC = () => {
         setInputUsername('');
         setInputUserPassword('');
         const authToken = response.data.accessToken;
-        const userId = response.data.userId;
-        const userRoleId = response.data.userRoleId;
         localStorage.setItem('accessToken', authToken);
-        localStorage.setItem('userId', userId);
-        localStorage.setItem('userRoleId', userRoleId)
         history.push('/myevent');
     }
 
