@@ -23,7 +23,7 @@ export const LoginComponent: React.FC = () => {
         localStorage.setItem('accessToken', authToken);
         localStorage.setItem('userId', userId);
         localStorage.setItem('userRoleId', userRoleId)
-        history.push('/');
+        history.push('/myevent');
     }
 
     const addLoginCredentials = async () => {

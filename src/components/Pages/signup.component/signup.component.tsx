@@ -1,8 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './signup.component.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import * as  signupRemote from '../../../remotes/signup.remote'
+import { createNewAccount } from '../../../remotes/signup.remote';
+import { Alert } from '@material-ui/lab';
+
+
 
 export const SignUpComponent: React.FC = () => {
+    
+    const history = useHistory();
+    const [enteruserFirstName, setEnteruserFirstName] = useState('');
+    const [enteruserLastName, setEnteruserLastName] = useState('');
+    const [enterUsername, setEnterUsername] = useState('');
+    const [enteruserEmail, setEnteruserEmail] = useState('');
+    const [enteruserPassword, setEnteruserPassword] = useState('');
+    const [verifyPassword, setVerifyPassword] = useState('');
+    const [alertSetting, setAlert] = useState(false);
+
+    
+    useEffect(() =>{
+    }, []);
+
+    let response: any;
+    const setInfo = async () =>{
+        setEnteruserFirstName('');
+        setEnteruserLastName('');
+        setEnterUsername('');
+        setEnteruserEmail('');
+        setEnteruserPassword('');
+        history.push('/myevent');
+    }
+    
+    const inputNewAccountInfo = async () =>{
+
+        
+        if (enteruserPassword !==verifyPassword){
+            alert('password do not match');
+        }
+    
+        const payload ={
+            userFirstName: enteruserFirstName,
+            userLastName: enteruserLastName,
+            username: enterUsername,
+            userEmail: enteruserEmail,
+            userPassword: enteruserPassword
+        };
+
+        try{
+            response = await signupRemote.createNewAccount(payload);
+            console.log(response);
+            await setInfo();
+        } catch {setAlert(true)};
+    }
+    
+    
+    
     return (
         <div className="wrapper">
 
@@ -17,6 +70,10 @@ export const SignUpComponent: React.FC = () => {
                             placeholder="First Name"
                             type="text"
                             name="firstName"
+
+                            value={enteruserFirstName} onChange={
+                                (e) => setEnteruserFirstName(e.target.value)}
+                        
                         />
                     </div>
 
@@ -27,6 +84,9 @@ export const SignUpComponent: React.FC = () => {
                             placeholder="Last Name"
                             type="text"
                             name="lastName"
+                            
+                            value={enteruserLastName} onChange={
+                                (e) => setEnteruserLastName(e.target.value)}
                         />
                     </div>
                     <div className="username">
@@ -35,6 +95,9 @@ export const SignUpComponent: React.FC = () => {
                             placeholder="Username"
                             type="text"
                             name="username"
+
+                            value={enterUsername} onChange={
+                                (e) => setEnterUsername(e.target.value)}
                         />
                     </div>
 
@@ -45,6 +108,9 @@ export const SignUpComponent: React.FC = () => {
                             placeholder="Email"
                             type="email"
                             name="email"
+
+                            value={enteruserEmail} onChange={
+                                (e) => setEnteruserEmail(e.target.value)}
                         />
                     </div>
                     <div className="password">
@@ -54,6 +120,9 @@ export const SignUpComponent: React.FC = () => {
                             placeholder="Password"
                             type="password"
                             name="password"
+
+                            value={enteruserPassword} onChange={
+                                (e) => setEnteruserPassword(e.target.value)}
                         />
                     </div>
 
@@ -64,7 +133,10 @@ export const SignUpComponent: React.FC = () => {
                             placeholder="Confirm Password"
                             type="password"
                             name="confirmPassword"
-                        />
+
+                            onChange={(e) => setVerifyPassword(e.target.value)}
+                            value={verifyPassword}
+                            />
                     </div>
 
                     <div className="address">
@@ -78,7 +150,7 @@ export const SignUpComponent: React.FC = () => {
                     </div>
                 </form>
                 <div className="createAccount">
-                    <button type="submit">Sign Up</button>
+                    <button type="submit" onClick={() => inputNewAccountInfo()}>Sign Up</button>
                     <small>
                         <Link to="/login">
                             Already Have an Account?
