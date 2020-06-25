@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import { TextField, FormControl, InputLabel, Select, MenuItem, createStyles, Theme, Grid } from '@material-ui/core';
+import React from 'react';
 import { SocialEvent } from '../../../models/Event';
 import { EventCardComponent } from './event-card.component';
-import { getSocialEventByType } from '../../../remotes/event.remote';
+import { Grid } from '@material-ui/core';
 
 
 interface JoinEventComponentProps {
     setView: (str: 'SEARCHED_LIST' | 'CATEGORY_LIST' | 'JOIN_LIST') => void;
     socialEvents: SocialEvent[];
-    socialEventType: string ;
+    socialEventType: string;
     setSocialEventType: (str: 'OUTDOORS' | 'ARTS_CRAFTS' | 'BOARD_VIDEO_GAMES' | 'EXERCISE' |
-                            'CONVENTIONS' | 'MOVIES_TV' | 'TALK_DISCUSSION' | 'OTHER' | '') => void;
+        'CONVENTIONS' | 'TECH' | 'TALK_DISCUSSION' | 'OTHER' | '') => void;
 }
 
 export const JoinEventComponent: React.FC<JoinEventComponentProps> = (props) => {
-    const renderEventCardComponents =  () => {
+    const renderEventCardComponents = () => {
         // props.setSocialEvents(retrievedSocialEvents);
         return props.socialEvents.map(socialEvent => {
-            return (<EventCardComponent key={socialEvent.id} socialEvent={socialEvent}></EventCardComponent>)
+            return (
+                <Grid item xl={3} sm={3}>
+                    <EventCardComponent key={socialEvent.id} socialEvent={socialEvent}></EventCardComponent>
+                    </Grid>)
         })
     }
 
@@ -27,7 +27,9 @@ export const JoinEventComponent: React.FC<JoinEventComponentProps> = (props) => 
         <div>
             <h2>{props.socialEventType}</h2>
             <section>
-            {renderEventCardComponents()}
+                <Grid container direction="row" spacing={4} alignItems="flex-start">
+                        {renderEventCardComponents()}
+                </Grid>
             </section>
         </div>
     );

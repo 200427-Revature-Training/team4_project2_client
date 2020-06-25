@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 interface CategoryListComponentProps {
     setView: (str: 'SEARCHED_LIST' | 'CATEGORY_LIST' | 'JOIN_LIST') => void;
     setSocialEventType: (str:'OUTDOORS' | 'ARTS_CRAFTS' | 'BOARD_VIDEO_GAMES' | 'EXERCISE' |
-                            'CONVENTIONS' | 'MOVIES_TV' | 'TALK_DISCUSSION' | 'OTHER' | '') => void;
+                            'CONVENTIONS' | 'TECH' | 'TALK_DISCUSSION' | 'OTHER' | '') => void;
     socialEvents: SocialEvent[];
     socialEventType: string;
     setSocialEvents: (DBSE: any) => void;}
@@ -103,7 +103,7 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                     <CardActionArea>
                         <CardMedia
                             className={classes.mediak}
-                            image="/static/images/cards/contemplative-reptile.jpg"
+                            image={require ("../../../images/exercise.png")}
                             title="Contemplative Reptile"
                         />
                         <CardContent>
@@ -122,7 +122,7 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                     <CardActionArea>
                         <CardMedia
                             className={classes.mediak}
-                            image="/static/images/cards/contemplative-reptile.jpg"
+                            image={require ("../../../images/convention.jpg")}
                             title="Contemplative Reptile"
                         />
                         <CardContent>
@@ -135,16 +135,16 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('MOVIES_TV')}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('TECH')}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.mediak}
-                            image="/static/images/cards/contemplative-reptile.jpg"
+                            image={require ("../../../images/tech.jpg")}
                             title="Contemplative Reptile"
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                                Movies and TV
+                                Technology
                         </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
                                 Event category description
@@ -156,7 +156,7 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                     <CardActionArea>
                         <CardMedia
                             className={classes.mediak}
-                            image="/static/images/cards/contemplative-reptile.jpg"
+                            image={require ("../../../images/talk.jpeg")}
                             title="Contemplative Reptile"
                         />
                         <CardContent>
@@ -173,7 +173,7 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                     <CardActionArea>
                         <CardMedia
                             className={classes.mediak}
-                            image="/static/images/cards/contemplative-reptile.jpg"
+                            image={require ("../../../images/other.jpg")}
                             title="Contemplative Reptile"
                         />
                         <CardContent>
