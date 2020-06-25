@@ -7,7 +7,6 @@ export const getSocialEventByType = async (socialEventType: string) => {
     const response = await internalAxios
     .get<SocialEvent[]>(`/attend/event/type/${socialEventType}`);
     return response.data.map(socialEvent => {
-        // Replace string birthdate with Date object
         socialEvent.startTime = new Date(socialEvent.startTime);
         return socialEvent;
     });
@@ -18,7 +17,14 @@ export const getSocialEventByTitle = async (socialEventTitle: string) => {
     const response = await internalAxios
     .get<SocialEvent[]>(`/attend/event/title/${socialEventTitle}`);
     return response.data.map(socialEvent => {
-        // Replace string birthdate with Date object
+        socialEvent.startTime = new Date(socialEvent.startTime);
+        return socialEvent;
+    });
+}
+
+export const getAllSocialEvents = async () => {
+    const response = await internalAxios.get<SocialEvent[]>(`/event/allevents`);
+    return response.data.map(socialEvent => {
         socialEvent.startTime = new Date(socialEvent.startTime);
         return socialEvent;
     });
