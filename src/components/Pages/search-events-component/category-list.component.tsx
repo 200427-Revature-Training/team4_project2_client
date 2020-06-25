@@ -2,30 +2,24 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { TextField } from '@material-ui/core';
 import { SocialEvent } from '../../../models/Event';
+import * as eventRemote from '../../../remotes/event.remote';
 
 
 const useStyles = makeStyles({
-    container: {
+    containerk: {
         display: 'flex',
         paddingTop: 40,
-        
     },
-    root: {
+    rootk: {
         maxWidth: 345,
         maxHeight:500,
         margin: 'auto',
-        
-        
-
     },
-    media: {
+    mediak: {
         height: 140,
         minWidth: 300,
     },
@@ -35,24 +29,30 @@ interface CategoryListComponentProps {
     setView: (str: 'SEARCHED_LIST' | 'CATEGORY_LIST' | 'JOIN_LIST') => void;
     setSocialEventType: (str:'OUTDOORS' | 'ARTS_CRAFTS' | 'BOARD_VIDEO_GAMES' | 'EXERCISE' |
                             'CONVENTIONS' | 'MOVIES_TV' | 'TALK_DISCUSSION' | 'OTHER' | '') => void;
-}
+    socialEvents: SocialEvent[];
+    socialEventType: string;
+    setSocialEvents: (DBSE: any) => void;}
 
 export const CategoryListComponent: React.FC<CategoryListComponentProps> = (props) => {
     const classes = useStyles();
 
-    const setViewAndType = (e: any) => {
+    const setViewAndType = async (e: any) => {
         props.setSocialEventType(e);
+        const socialEventHolder = props.socialEventType
+        console.log(socialEventHolder)
+        const retrievedSocialEvents = await eventRemote.getSocialEventByType(e)
+        props.setSocialEvents(retrievedSocialEvents);
         props.setView('JOIN_LIST')
     }
 
     return (
         <div>
-            <div className={classes.container}>
-                <Card className={classes.root} id="event-card" onClick={() => setViewAndType('OUTDOORS')}>
+            <div className={classes.containerk}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('OUTDOORS')}>
                     <CardActionArea>
-                        <CardMedia
-                            className={classes.media}
-                            image="/static/images/cards/contemplative-reptile.jpg"
+                        <CardMedia 
+                            className={classes.mediak}
+                            image={require ("../../../images/outdoor.jpeg")}
                             title="Outdoor Activities"
                         />
                         <CardContent>
@@ -65,11 +65,11 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card className={classes.root} id="event-card" onClick={() => setViewAndType('ARTS_CRAFTS')}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('ARTS_CRAFTS')}>
                     <CardActionArea>
                         <CardMedia
-                            className={classes.media}
-                            image="/static/images/cards/contemplative-reptile.jpg"
+                            className={classes.mediak}
+                            image={require ("../../../images/artscrafts.jpg")}
                             title="Contemplative Reptile"
                         />
                         <CardContent>
@@ -82,11 +82,11 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card className={classes.root} id="event-card" onClick={() => setViewAndType('BOARD_VIDEO_GAMES')}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('BOARD_VIDEO_GAMES')}>
                     <CardActionArea>
                         <CardMedia
-                            className={classes.media}
-                            image="/static/images/cards/contemplative-reptile.jpg"
+                            className={classes.mediak}
+                            image={require ("../../../images/games.jpg")}
                             title="Contemplative Reptile"
                         />
                         <CardContent>
@@ -99,10 +99,10 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card className={classes.root} id="event-card" onClick={() => setViewAndType('EXERCISE')}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('EXERCISE')}>
                     <CardActionArea>
                         <CardMedia
-                            className={classes.media}
+                            className={classes.mediak}
                             image="/static/images/cards/contemplative-reptile.jpg"
                             title="Contemplative Reptile"
                         />
@@ -117,11 +117,11 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                     </CardActionArea>
                 </Card>
             </div>
-            <div className={classes.container}>
-                <Card className={classes.root} id="event-card" onClick={() => setViewAndType('CONVENTIONS')}>
+            <div className={classes.containerk}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('CONVENTIONS')}>
                     <CardActionArea>
                         <CardMedia
-                            className={classes.media}
+                            className={classes.mediak}
                             image="/static/images/cards/contemplative-reptile.jpg"
                             title="Contemplative Reptile"
                         />
@@ -135,10 +135,10 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card className={classes.root} id="event-card" onClick={() => setViewAndType('MOVIES_TV')}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('MOVIES_TV')}>
                     <CardActionArea>
                         <CardMedia
-                            className={classes.media}
+                            className={classes.mediak}
                             image="/static/images/cards/contemplative-reptile.jpg"
                             title="Contemplative Reptile"
                         />
@@ -152,10 +152,10 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card className={classes.root} id="event-card" onClick={() => setViewAndType('TALKS_DISCUSSIONS')}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('TALKS_DISCUSSIONS')}>
                     <CardActionArea>
                         <CardMedia
-                            className={classes.media}
+                            className={classes.mediak}
                             image="/static/images/cards/contemplative-reptile.jpg"
                             title="Contemplative Reptile"
                         />
@@ -169,10 +169,10 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card className={classes.root} id="event-card" onClick={() => setViewAndType('OTHER')}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('OTHER')}>
                     <CardActionArea>
                         <CardMedia
-                            className={classes.media}
+                            className={classes.mediak}
                             image="/static/images/cards/contemplative-reptile.jpg"
                             title="Contemplative Reptile"
                         />

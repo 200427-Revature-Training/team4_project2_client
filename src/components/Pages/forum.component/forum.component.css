@@ -1,0 +1,87 @@
+#forum-rules {
+  max-height: 40vh;
+  width: 80vw;
+  background-image: url(../../../images/n.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
+  min-width: 20vw;
+}
+
+#forum-rules-text {
+  margin-top: 1%;
+  font-family: "Titillium Web", sans-serif;
+  color: #006272;
+  position: relative;
+  background: rgb(255, 255, 255, 0.9);
+  padding: 2%;
+  max-height: 40vh;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  overflow: hidden;
+}
+
+#forum-proper {
+  margin: none;
+  margin: auto;
+  margin-top: 2%;
+  width: 82vw;
+}
+
+#copyright {
+  margin-top: 10px;
+  color: #006272;
+  font-size: 1rem;
+  font-family: "Titillium Web", sans-serif;
+}
+#forum-main {
+  text-align: left;
+  margin-top: 2%;
+  min-width: 20vw;
+}
+
+#forum-main-text {
+  margin-top: 1%;
+  font-family: "Titillium Web", sans-serif;
+  color: #006272;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  overflow: hidden;
+}
+
+#forum-post-container {
+  margin-left: auto;
+  margin-top: 0.8%;
+  margin-right: 8%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 1;
+}
+
+#other-forum-links {
+  font-size: 1.2rem;
+  list-style: square;
+}
+#post-date {
+  font-size: 0.9rem;
+}
+
+#comment-panel {
+  width: 40vw;
+  min-width: 15vw;
+  margin-left: auto;
+}
+
+#interact-pane {
+  align-items: center;
+  justify-content: center;
+}
+
+#comments {
+  color: #006272;
+  font-size: 1.2rem;
+}
+#c {
+  margin: 0;
+}
