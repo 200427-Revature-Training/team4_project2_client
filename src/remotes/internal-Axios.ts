@@ -1,15 +1,17 @@
-import Axios from 'axios';
+import Axios from "axios";
 
-const server = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ?
-    'http://localhost:3000' : 'http://localhost:3000';
+const server =
+  !process.env.NODE_ENV || process.env.NODE_ENV === "development"
+    ? "http://localhost:3001"
+    : "http://localhost:3001";
 
 export const internalAxios = Axios.create({
-    baseURL: server
+  baseURL: server,
 });
 
 export const authAxios = Axios.create({
-    baseURL: server,
-    headers: {
-        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-    }
-})
+  baseURL: server,
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  },
+});
