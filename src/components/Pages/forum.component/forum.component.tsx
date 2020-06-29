@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -10,7 +10,12 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Fab from "@material-ui/core/Fab";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import "./forum.component.css";
-
+import {
+  getForumPost,
+  getForumEvent,
+  getForumComment,
+} from "../../../remotes/forum.remote";
+import { Event, Post, Comment } from "../../../models/Forum";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -54,6 +59,23 @@ export const ForumComponent: React.FC = () => {
   const classes = useStyles();
   const classe = useStyle();
   const clas = useStyl();
+  const [id, setId] = useState("1");
+  const [event, setEvent] = useState<Event[]>();
+  const [post, setPost] = useState<Post[]>();
+  const [comment, setComment] = useState<Comment[]>();
+
+  const handleClick = async () => {
+    const temp = await getForumEvent(id);
+    setEvent(temp);
+    const temp1 = await getForumPost(id);
+    setPost(temp1);
+  };
+
+  const handleComment = async (id: number) => {
+    const temp = await getForumComment(id.toString());
+    setComment(temp);
+  };
+
   return (
     <div className={classes.root} id="forum-container">
       <Grid container spacing={0}>
@@ -79,115 +101,77 @@ export const ForumComponent: React.FC = () => {
           </Paper>
         </Grid>
       </Grid>
+      <Grid container spacing={0}>
+        <Grid item xs={12}>
+          {event?.map((e) => {
+            return (
+              <Paper className={classes.paper} id="event-box" key={e.id}>
+                <Typography
+                  variant="h5"
+                  className={classe.title}
+                  id="event-text"
+                >
+                  {e.title}
+                  <article>{e.description}</article>
+                  <table cellPadding="5" cellSpacing="2" id="event-table">
+                    <tr>
+                      <td>Price: {e.price}</td>
+                      <td>Max Attendees: {e.maxPeople}</td>
+                      <td>Start Date: {e.startTime}</td>
+                    </tr>
+                  </table>
+                </Typography>
+              </Paper>
+            );
+          })}
+        </Grid>
+      </Grid>
       <section id="c">
         <Grid container spacing={0} id="forum-proper">
           <Grid item xs={7}>
-            <Paper className={classes.paper} id="forum-main">
-              <Typography
-                variant="h5"
-                className={classe.title}
-                id="forum-main-text"
-              >
-                Sample post <br />
-                <span id="post-date">April 27, 2020 by Muffin Man</span>
-                <article>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Nesciunt voluptatum ad, nulla nihil accusamus perspiciatis
-                  ullam delectus, nemo quibusdam reiciendis amet eaque! Quia
-                  voluptate, quas voluptatem id debitis maiores aliquam.
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Sapiente incidunt quos quasi laboriosam officia rerum ipsum
-                    exercitationem amet. Tempore doloribus adipisci quam id odio
-                    quae in error aliquid nihil pariatur.
-                  </p>
-                  <ul id="other-forum-links">
-                    <li>Because Science</li>
-                    <li>YOLO</li>
-                    <li>Muffin Man Did what now?</li>
-                    <li>G-Max One Blow</li>
-                    <li>Potato AI</li>
-                  </ul>
-                </article>
-              </Typography>
-            </Paper>
-            <section id="interact-pane">
-              <Fab aria-label="like" color="secondary">
-                <FavoriteIcon />
-              </Fab>
-              <ExpansionPanel id="comment-panel">
-                <ExpansionPanelSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <Typography className={clas.heading} id="comments">
-                    Comments
-                  </Typography>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                  <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
-                  </Typography>
-                </ExpansionPanelDetails>
-              </ExpansionPanel>
-            </section>
-          </Grid>
-          <Grid item xs={7}>
-            <Paper className={classes.paper} id="forum-main">
-              <Typography
-                variant="h5"
-                className={classe.title}
-                id="forum-main-text"
-              >
-                Sample post <br />
-                <span id="post-date">April 27, 2020 by Muffin Man</span>
-                <article>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Nesciunt voluptatum ad, nulla nihil accusamus perspiciatis
-                  ullam delectus, nemo quibusdam reiciendis amet eaque! Quia
-                  voluptate, quas voluptatem id debitis maiores aliquam.
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Sapiente incidunt quos quasi laboriosam officia rerum ipsum
-                    exercitationem amet. Tempore doloribus adipisci quam id odio
-                    quae in error aliquid nihil pariatur.
-                  </p>
-                  <ul id="other-forum-links">
-                    <li>Because Science</li>
-                    <li>YOLO</li>
-                    <li>Muffin Man Did what now?</li>
-                    <li>G-Max One Blow</li>
-                    <li>Potato AI</li>
-                  </ul>
-                </article>
-              </Typography>
-            </Paper>
-            <section id="interact-pane">
-              <Fab aria-label="like" color="secondary">
-                <FavoriteIcon />
-              </Fab>
-              <ExpansionPanel id="comment-panel">
-                <ExpansionPanelSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <Typography className={clas.heading} id="comments">
-                    Comments
-                  </Typography>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                  <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
-                  </Typography>
-                </ExpansionPanelDetails>
-              </ExpansionPanel>
-            </section>
+            {post?.map((p) => {
+              return (
+                <React.Fragment key={p.id}>
+                  <Paper className={classes.paper} id="forum-main">
+                    <Typography
+                      variant="h5"
+                      className={classe.title}
+                      id="forum-main-text"
+                    >
+                      Title <br />
+                      <span id="post-date">{p.creationTime}</span>
+                      <article>{p.postContent}</article>
+                    </Typography>
+                  </Paper>
+                  <section id="interact-pane">
+                    <Fab aria-label="like" color="secondary">
+                      <FavoriteIcon />
+                    </Fab>
+                    <ExpansionPanel id="comment-panel">
+                      <ExpansionPanelSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        onClick={() => handleComment(p.id)}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        <Typography className={clas.heading} id="comments">
+                          Comments
+                        </Typography>
+                      </ExpansionPanelSummary>
+                      {comment?.map((c) => {
+                        return (
+                          <ExpansionPanelDetails key={c.id}>
+                            <Typography>
+                              {c.creationTime} {c.commentContent}
+                            </Typography>
+                          </ExpansionPanelDetails>
+                        );
+                      })}
+                    </ExpansionPanel>
+                  </section>
+                </React.Fragment>
+              );
+            })}
           </Grid>
           <Grid item xs={4} id="forum-post-container">
             <Paper className={classes.paper} id="forum-side">
@@ -209,9 +193,18 @@ export const ForumComponent: React.FC = () => {
           </Grid>
         </Grid>
       </section>
+      <Fab aria-label="like" color="secondary" onClick={() => handleClick()}>
+        <FavoriteIcon />
+      </Fab>
       <footer id="copyright">
         &copy; 2020 TempestSociety Inc- All Right Reserved
       </footer>
     </div>
   );
 };
+/*
+{posts?.map((p) => {
+  return (
+);
+})}
+*/
