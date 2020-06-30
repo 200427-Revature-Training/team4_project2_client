@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -56,15 +56,15 @@ const useStyl = makeStyles((theme: Theme) =>
 );
 
 interface ForumProps {
-  event: any;
+  eventId: any;
 }
 
 export const ForumComponent: React.FC<ForumProps> = (props) => {
-  console.log(props.event);
+  //console.log(props.eventId);
   const classes = useStyles();
   const classe = useStyle();
   const clas = useStyl();
-  const [id, setId] = useState(props.event);
+  const [id, setId] = useState(props.eventId);
   const [event, setEvent] = useState<Event[]>();
   const [post, setPost] = useState<Post[]>();
   const [comment, setComment] = useState<Comment[]>();
@@ -78,6 +78,10 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
       setPost(temp1);
     }
   };
+
+  useEffect(() => {
+    handleClick();
+  }, []);
 
   const handleComment = async (id: number) => {
     const temp = await getForumComment(id.toString());

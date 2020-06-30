@@ -9,11 +9,12 @@ import { SignUpComponent } from "./Pages/signup.component/signup.component";
 import { HomeComponent } from "./Pages/home.component/home.component";
 import { ForumComponent } from "./Pages/forum.component/forum.component";
 import { MainFeedComponent } from "./Pages/feed.component/main-feed.component";
-const [eventId, setEventId] = useState(0);
-const getEvent = (input: number) => {
-  setEventId(input);
-};
+
 export const MainComponent: React.FC = () => {
+  const [eventId, setEventId] = useState(0);
+  const getEvent = (input: number) => {
+    setEventId(input);
+  };
   return (
     <div id="main-component">
       <BrowserRouter>
