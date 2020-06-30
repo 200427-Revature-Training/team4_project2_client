@@ -24,8 +24,12 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
+interface SearchEventComponentProps {
+getEvent: (eventId: number) => void;
+}
 
-export const SearchEventComponent: React.FC = () => {
+
+export const SearchEventComponent: React.FC<SearchEventComponentProps> = (props) => {
     const classes = useStyles();
     const [view, setView] = useState<'SEARCHED_LIST' | 'CATEGORY_LIST' | 'JOIN_LIST'>('CATEGORY_LIST');
     const [socialEvents, setSocialEvents] = useState<SocialEvent[]>([]);
