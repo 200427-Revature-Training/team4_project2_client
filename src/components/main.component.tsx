@@ -8,11 +8,12 @@ import { SearchEventComponent } from "./Pages/search-events-component/search-eve
 import { SignUpComponent } from "./Pages/signup.component/signup.component";
 import { HomeComponent } from "./Pages/home.component/home.component";
 import { ForumComponent } from "./Pages/forum.component/forum.component";
+import { MainFeedComponent } from "./Pages/feed.component/main-feed.component";
+const [eventId, setEventId] = useState(0);
+const getEvent = (input: number) => {
+  setEventId(input);
+};
 export const MainComponent: React.FC = () => {
-  const [event, setEvent] = useState("");
-  const getEvent = (input: string) => {
-    setEvent(input);
-  };
   return (
     <div id="main-component">
       <BrowserRouter>
@@ -36,10 +37,13 @@ export const MainComponent: React.FC = () => {
                 <EventComponent />
               </Route>
               <Route path="/searchevent">
-                <SearchEventComponent /*getEvent={getEvent}*/ />
+                <SearchEventComponent getEvent={getEvent} />
               </Route>
               <Route path="/forum">
-                <ForumComponent event={event} />
+                <ForumComponent eventId={eventId} />
+              </Route>
+              <Route path="/feed">
+                <MainFeedComponent />
               </Route>
             </Switch>
           </div>

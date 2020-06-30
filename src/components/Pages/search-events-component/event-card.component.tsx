@@ -32,9 +32,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface EventCardComponentProps {
     socialEvent: SocialEvent;
+    getEvent: (eventId: number) => void;
 }
 
-export const EventCardComponent: React.FC<EventCardComponentProps> = ({ socialEvent }) => {
+export const EventCardComponent: React.FC<EventCardComponentProps> = ({ socialEvent, getEvent }) => {
     const classes = useStyles();
     const history = useHistory();
     const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
@@ -63,14 +64,14 @@ export const EventCardComponent: React.FC<EventCardComponentProps> = ({ socialEv
 
     const handleRedirect = (e: number) => {
         //pass the social event id to the next page
-        const cache = {}
+        getEvent(e);
         // navigating to detail
         // cache["user"] = user;
         // history.push("/template");
 
         // rendering /template
         // const user = cache["user"] // also handle an empty cache?
-        
+
         history.push('/forum');
         //history push to the next page? and use a cache to store values or local storage. 
     }
