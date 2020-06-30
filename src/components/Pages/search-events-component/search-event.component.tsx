@@ -46,9 +46,9 @@ export const SearchEventComponent: React.FC<SearchEventComponentProps> = (props)
             case childViews.categoryList: return <CategoryListComponent setView={setView} socialEvents={socialEvents}
                 setSocialEventType={setSocialEventType} socialEventType={socialEventType} setSocialEvents={setSocialEvents} />;
             case childViews.joinList: return <JoinEventComponent setView={setView} socialEvents={socialEvents}
-                socialEventType={socialEventType} setSocialEventType={setSocialEventType} />
+                socialEventType={socialEventType} setSocialEventType={setSocialEventType} getEvent={props.getEvent} />
             case childViews.searchedList: return <SearchListComponent setView={setView} socialEvents={socialEvents}
-                inputSocialEventKey={inputSocialEventKey} />
+                inputSocialEventKey={inputSocialEventKey} getEvent={props.getEvent}/>
             default: return <React.Fragment />
         }
     }
