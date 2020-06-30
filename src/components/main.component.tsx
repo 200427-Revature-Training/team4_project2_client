@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { NavBarComponent } from "./navbar.component";
 import { LoginComponent } from "./Pages/login.component/login.component";
@@ -9,6 +9,10 @@ import { SignUpComponent } from "./Pages/signup.component/signup.component";
 import { HomeComponent } from "./Pages/home.component/home.component";
 import { ForumComponent } from "./Pages/forum.component/forum.component";
 export const MainComponent: React.FC = () => {
+  const [event, setEvent] = useState("");
+  const getEvent = (input: string) => {
+    setEvent(input);
+  };
   return (
     <div id="main-component">
       <BrowserRouter>
@@ -32,10 +36,10 @@ export const MainComponent: React.FC = () => {
                 <EventComponent />
               </Route>
               <Route path="/searchevent">
-                <SearchEventComponent />
+                <SearchEventComponent /*getEvent={getEvent}*/ />
               </Route>
               <Route path="/forum">
-                <ForumComponent />
+                <ForumComponent event={event} />
               </Route>
             </Switch>
           </div>

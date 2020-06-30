@@ -55,20 +55,28 @@ const useStyl = makeStyles((theme: Theme) =>
   })
 );
 
-export const ForumComponent: React.FC = () => {
+interface ForumProps {
+  event: any;
+}
+
+export const ForumComponent: React.FC<ForumProps> = (props) => {
+  console.log(props.event);
   const classes = useStyles();
   const classe = useStyle();
   const clas = useStyl();
-  const [id, setId] = useState("1");
+  const [id, setId] = useState(props.event);
   const [event, setEvent] = useState<Event[]>();
   const [post, setPost] = useState<Post[]>();
   const [comment, setComment] = useState<Comment[]>();
 
   const handleClick = async () => {
-    const temp = await getForumEvent(id);
-    setEvent(temp);
-    const temp1 = await getForumPost(id);
-    setPost(temp1);
+    if (id != "") {
+      const temp = await getForumEvent(id);
+      setEvent(temp);
+
+      const temp1 = await getForumPost(id);
+      setPost(temp1);
+    }
   };
 
   const handleComment = async (id: number) => {
