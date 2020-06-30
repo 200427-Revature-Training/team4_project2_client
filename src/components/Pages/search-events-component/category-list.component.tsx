@@ -37,10 +37,10 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
     const classes = useStyles();
 
     const setViewAndType = async (e: any) => {
-        props.setSocialEventType(e);
-        const socialEventHolder = props.socialEventType
-        console.log(socialEventHolder)
-        const retrievedSocialEvents = await eventRemote.getSocialEventByType(e)
+        // props.setSocialEventType(e);
+        // const socialEventHolder = props.socialEventType
+        // console.log(socialEventHolder)
+        const retrievedSocialEvents = await eventRemote.getSocialEventByTypeId(e)
         props.setSocialEvents(retrievedSocialEvents);
         props.setView('JOIN_LIST')
     }
@@ -48,7 +48,7 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
     return (
         <div>
             <div className={classes.containerk}>
-                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('OUTDOORS')}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType(1)}>
                     <CardActionArea>
                         <CardMedia 
                             className={classes.mediak}
@@ -65,7 +65,7 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('ARTS_CRAFTS')}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType(2)}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.mediak}
@@ -82,7 +82,7 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('BOARD_VIDEO_GAMES')}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType(3)}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.mediak}
@@ -99,7 +99,7 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('EXERCISE')}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType(4)}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.mediak}
@@ -118,7 +118,7 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                 </Card>
             </div>
             <div className={classes.containerk}>
-                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('CONVENTIONS')}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType(5)}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.mediak}
@@ -135,7 +135,7 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('TECH')}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType(6)}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.mediak}
@@ -152,7 +152,7 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('TALKS_DISCUSSIONS')}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType(7)}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.mediak}
@@ -169,7 +169,7 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType('OTHER')}>
+                <Card className={classes.rootk} id="event-card" onClick={() => setViewAndType(8)}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.mediak}
