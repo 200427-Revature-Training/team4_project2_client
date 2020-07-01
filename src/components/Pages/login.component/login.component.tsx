@@ -4,17 +4,15 @@ import { Link, useHistory } from 'react-router-dom';
 import * as loginRemote from '../../../remotes/login.remote';
 
 export const LoginComponent: React.FC = () => {
+const history = useHistory();
+const [inputUsername, setInputUsername] = useState('');
+const [inputUserPassword, setInputUserPassword] = useState('');
     
-    const history = useHistory();
-    const [inputUsername, setInputUsername] = useState('');
-    const [inputUserPassword, setInputUserPassword] = useState('');
-    const [alert, setAlert] = useState(false);
 
-    useEffect(() => {
-    }, [])
+useEffect(() => {}, [])
 
-    let response: any;
-    const setInformation = async () => {
+let response: any;
+const setInformation = async () => {
         setInputUsername('');
         setInputUserPassword('');
         // const authToken = response.data.accessToken;
@@ -38,13 +36,16 @@ export const LoginComponent: React.FC = () => {
             username: inputUsername,
             userPassword: inputUserPassword
         };
-
+  
         try {
             response = await loginRemote.checkLoginCredentials(payload);
-            console.log(response);
+            console.log(response)
             await setInformation();
-        } catch { setAlert(true) };
-    }
+        } catch { 
+            alert('Incorrect username and/or password')
+            }
+        } 
+
 return (
         <div className="wrapper">
 

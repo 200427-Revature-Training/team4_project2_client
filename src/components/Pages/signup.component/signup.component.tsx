@@ -3,12 +3,32 @@ import './signup.component.css';
 import { Link, useHistory } from 'react-router-dom';
 import * as  signupRemote from '../../../remotes/signup.remote'
 import { createNewAccount } from '../../../remotes/signup.remote';
-import { Alert } from '@material-ui/lab';
+import TextField from '@material-ui/core/TextField';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'; 
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            display: 'flex',
+            flexWrap: 'wrap',
+            '& .MuiTextField-root': {
+                margin: theme.spacing(1),
+                width: 200,
+            },
+        },
+        textField: {
+            marginLeft: theme.spacing(1),
+            marginRight: theme.spacing(1),
+            width: '25ch',
+        },
+    }),
+);
 
 
 
 export const SignUpComponent: React.FC = () => {
-    
+    const classes = useStyles();
+
     const history = useHistory();
     const [enteruserFirstName, setEnteruserFirstName] = useState('');
     const [enteruserLastName, setEnteruserLastName] = useState('');
@@ -18,12 +38,12 @@ export const SignUpComponent: React.FC = () => {
     const [verifyPassword, setVerifyPassword] = useState('');
     const [alertSetting, setAlert] = useState(false);
 
-    
-    useEffect(() =>{
+
+    useEffect(() => {
     }, []);
 
     let response: any;
-    const setInfo = async () =>{
+    const setInfo = async () => {
         setEnteruserFirstName('');
         setEnteruserLastName('');
         setEnterUsername('');
@@ -31,15 +51,16 @@ export const SignUpComponent: React.FC = () => {
         setEnteruserPassword('');
         history.push('/myevent');
     }
-    
-    const inputNewAccountInfo = async () =>{
 
-        
-        if (enteruserPassword !==verifyPassword){
+    const inputNewAccountInfo = async () => {
+
+
+        if (enteruserPassword !== verifyPassword) {
             alert('password do not match');
+            return
         }
-    
-        const payload ={
+
+        const payload = {
             userFirstName: enteruserFirstName,
             userLastName: enteruserLastName,
             username: enterUsername,
@@ -47,117 +68,81 @@ export const SignUpComponent: React.FC = () => {
             userPassword: enteruserPassword
         };
 
-        try{
+        try {
             response = await signupRemote.createNewAccount(payload);
             console.log(response);
             await setInfo();
-        } catch {setAlert(true)};
+        } catch { setAlert(true) };
     }
     
-    
-    
+
     return (
+        
         <div className="wrapper">
-
             <div className="form-wrapper">
-    
-
-                <h1>Create Account</h1>
-                <form>
-                    <div className="firstName">
-                        <label htmlFor="firstName">First Name</label>
-                        <input
-                            placeholder="First Name"
-                            type="text"
+            <form className={classes.root} noValidate autoComplete="off">
+                <div className={classes.root}>
+                    <div>
+                        <h1>Create an Account </h1>
+                        <TextField id="outlined-margin-dense"
+                            className={classes.textField}
+                            margin="dense"
+                            variant="outlined" label="First Name"
                             name="firstName"
-
-                            value={enteruserFirstName} onChange={
-                                (e) => setEnteruserFirstName(e.target.value)}
+                            value={enteruserFirstName} 
+                            onChange={(e) => setEnteruserFirstName(e.target.value)}/>
                         
-                        />
-                    </div>
-
-                    <div className="lastName">
-                        <label htmlFor="lastName">Last Name</label>
-                        <input
-
-                            placeholder="Last Name"
-                            type="text"
-                            name="lastName"
-                            
-                            value={enteruserLastName} onChange={
-                                (e) => setEnteruserLastName(e.target.value)}
-                        />
-                    </div>
-                    <div className="username">
-                        <label htmlFor="username">Username</label>
-                        <input
-                            placeholder="Username"
-                            type="text"
-                            name="username"
-
-                            value={enterUsername} onChange={
-                                (e) => setEnterUsername(e.target.value)}
-                        />
-                    </div>
-
-                    <div className="email">
-                        <label htmlFor="email">Email</label>
-                        <input
-
-                            placeholder="Email"
+                        <TextField id="outlined-margin-dense"
+                            className={classes.textField}
+                            margin="dense"
+                            variant="outlined" label="Last Name" 
+                            value={enteruserLastName} 
+                            onChange={(e) => setEnteruserLastName(e.target.value)}/>
+                        
+                        <TextField id="outlined-margin-dense"
+                            className={classes.textField}
+                            margin="dense"
                             type="email"
-                            name="email"
+                            variant="outlined" label="Email Address"
+                            value={enteruserEmail} 
+                            onChange={(e) => setEnteruserEmail(e.target.value)}/>
 
-                            value={enteruserEmail} onChange={
-                                (e) => setEnteruserEmail(e.target.value)}
-                        />
-                    </div>
-                    <div className="password">
-                        <label htmlFor="password">Password</label>
-                        <input
+                        <TextField id="outlined-margin-dense"
+                            className={classes.textField}
+                            margin="dense"
+                            variant="outlined" 
+                            label="Username"  
+                            value={enterUsername} 
+                            onChange={(e) => setEnterUsername(e.target.value)}/>
 
-                            placeholder="Password"
-                            type="password"
-                            name="password"
+                        <TextField type="password" id="outlined-margin-dense"
+                            className={classes.textField}
+                            margin="dense"
+                            variant="outlined"label="Password" 
+                            value={enteruserPassword} 
+                            onChange={(e) => setEnteruserPassword(e.target.value)}/>
 
-                            value={enteruserPassword} onChange={
-                                (e) => setEnteruserPassword(e.target.value)}
-                        />
-                    </div>
-
-                    <div className="confirmPassword">
-                        <label htmlFor="confirmPassword">Confirm Password</label>
-                        <input
-
-                            placeholder="Confirm Password"
-                            type="password"
-                            name="confirmPassword"
-
+                        <TextField type="password" id="outlined-margin-dense"
+                            className={classes.textField}
+                            margin="dense"
+                            variant="outlined" 
+                            label="Confirm Password"
                             onChange={(e) => setVerifyPassword(e.target.value)}
-                            value={verifyPassword}
-                            />
-                    </div>
-
-                    <div className="address">
-                        <label htmlFor="address">Address</label>
-                        <input
-
-                            placeholder="Street Adrress, City, State, Zip Code"
-                            type="text"
-                            name="address"
-                        />
-                    </div>
+                            value={verifyPassword}/>
+                        </div>
+                
+                </div>
                 </form>
+                
                 <div className="createAccount">
                     <button type="submit" onClick={() => inputNewAccountInfo()}>Sign Up</button>
-                    <small>
-                        <Link to="/login">
-                            Already Have an Account?
-                        </Link>
-                        </small>
                 </div>
-            </div>
+                <small>
+                    <Link to="/login">
+                        Already Have an Account?
+                        </Link>
+                </small>
         </div>
-    )
+        </div>
+    );
 }
