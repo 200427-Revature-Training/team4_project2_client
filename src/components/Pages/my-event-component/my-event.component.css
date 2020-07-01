@@ -1,0 +1,28 @@
+#event-pic{
+    background-image: url(../../../images/Events\ with\ Confetti\ &\ My\ Favorite.jpg);
+    margin:auto;
+    height:30vh;
+    width:90vw;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+#grid-layout{
+    
+}
+
+#button-layout{
+    width:92.5vw;
+    margin:auto;
+}
+
+#table-layout{
+    width:93vw;
+    margin:auto;
+    margin-top:2%;
+}
+
+#host-container, #attend-container, #button-margin{
+   margin: 1%
+}
