@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { NavBarComponent } from "./navbar.component";
 import { LoginComponent } from "./Pages/login.component/login.component";
-import { MyEventComponent } from "./Pages/my-event.component";
+import { MyEventComponent } from "./Pages/my-event-component/my-event.component";
 import { EventComponent } from "./Pages/event.component";
 import { SearchEventComponent } from "./Pages/search-events-component/search-event.component";
 import { SignUpComponent } from "./Pages/signup.component/signup.component";
