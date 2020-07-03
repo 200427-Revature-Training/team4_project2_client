@@ -1,4 +1,3 @@
-import { Login } from '../models/login';
 import { internalAxios } from './internal-Axios';
 import { SocialEvent } from '../models/Event';
 import { Post } from '../models/Post';
@@ -6,7 +5,7 @@ import { Post } from '../models/Post';
 export const getSocialEventByTypeId = async (socialEventTypeId: number) => {
     console.log(socialEventTypeId);
     const response = await internalAxios
-    .get<SocialEvent[]>(`/event?eventTypeId=${socialEventTypeId}`);
+    .get<SocialEvent[]>(`/event/external/eventTypeId/${socialEventTypeId}`);
     return response.data.map(socialEvent => {
         socialEvent.startTime = new Date(socialEvent.startTime);
         return socialEvent;
@@ -26,7 +25,7 @@ export const getSocialEventByTypeId = async (socialEventTypeId: number) => {
 export const getSocialEventByTitle = async (socialEventTitle: string) => {
     console.log(socialEventTitle);
     const response = await internalAxios
-    .get<SocialEvent[]>(`/attend/event/title/${socialEventTitle}`);
+    .get<SocialEvent[]>(`/event/external/eventTitle/${socialEventTitle}`);
     return response.data.map(socialEvent => {
         socialEvent.startTime = new Date(socialEvent.startTime);
         return socialEvent;
@@ -52,7 +51,7 @@ export const getAttendSocialEventByUserId = async (userId: number) => {
 
 export const getHostSocialEventByUserId = async (userId: number) => {
     const response = await internalAxios
-    .get<SocialEvent[]>(`/host/${userId}/event/`);
+    .get<SocialEvent[]>(`event/external?hostId=${userId}`);
     return response.data.map(socialEvent => {
         socialEvent.startTime = new Date(socialEvent.startTime);
         return socialEvent;
@@ -61,7 +60,7 @@ export const getHostSocialEventByUserId = async (userId: number) => {
 
 export const getPostsByUserId = async (userId: number) => {
     const response = await internalAxios
-    .get<Post[]>(`/event/${userId}/post/`);
+    .get<Post[]>(`/post?userId=${userId}`);
     return response.data.map(post => {
         post.createDate = new Date(post.createDate);
         return post;
@@ -92,9 +91,4 @@ export const getPostsByLikeUserId = async (userId: number) => {
         post.createDate = new Date(post.createDate);
         return post;
     });
-}
-
-export const hostNewSocialEvent = async (payload: any) => {
-    const response = await internalAxios.post('/host/host/newevent', payload);
-    return response;
 }

@@ -24,11 +24,11 @@ export const LoginComponent: React.FC = () => {
         const lastName = response.data.lastName;
         const email = response.data.email;
         // localStorage.setItem('accessToken', authToken);
-        localStorage.setItem('accessToken', username);
-        localStorage.setItem('accessToken', userId);
-        localStorage.setItem('accessToken', firstName);
-        localStorage.setItem('accessToken', lastName);
-        localStorage.setItem('accessToken', email);
+        localStorage.setItem('username', username);
+        localStorage.setItem('userId', userId);
+        localStorage.setItem('firstName', firstName);
+        localStorage.setItem('lastname', lastName);
+        localStorage.setItem('email', email);
         console.log(response.data)
         history.push('/myevent');
     }
