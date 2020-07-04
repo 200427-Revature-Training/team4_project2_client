@@ -53,7 +53,6 @@ export const PostFeedComponent: React.FC<PostFeedComponentProps> = (props) => {
         const retrievedPosts = await eventRemote.getPostsByUserId(userId);
         setPosts(retrievedPosts);
         setView(e);
-
     }
 
     const renderPostBoxComponents = () => {

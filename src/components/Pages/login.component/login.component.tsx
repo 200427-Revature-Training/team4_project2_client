@@ -17,13 +17,13 @@ export const LoginComponent: React.FC = () => {
     const setInformation = async () => {
         setInputUsername('');
         setInputUserPassword('');
-        // const authToken = response.data.accessToken;
+        const authToken = response.data.token;
         const username = response.data.username;
         const userId = response.data.userId;
         const firstName = response.data.firstName;
         const lastName = response.data.lastName;
         const email = response.data.email;
-        // localStorage.setItem('accessToken', authToken);
+        localStorage.setItem('accessToken', authToken);
         localStorage.setItem('username', username);
         localStorage.setItem('userId', userId);
         localStorage.setItem('firstName', firstName);
@@ -36,10 +36,11 @@ export const LoginComponent: React.FC = () => {
     const addLoginCredentials = async () => {
         const payload = {
             username: inputUsername,
-            userPassword: inputUserPassword
+            password: inputUserPassword
         };
 
         try {
+            console.log(payload);
             response = await loginRemote.checkLoginCredentials(payload);
             console.log(response);
             await setInformation();
