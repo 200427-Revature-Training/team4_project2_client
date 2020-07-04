@@ -7,6 +7,7 @@ import { PostFeedComponent } from './post-feed.component';
 import { FeedProfileComponent } from './feed-profile.component';
 import { FeedHostComponent } from './feed-host-event.component';
 import * as feedRemote from '../../../remotes/feed.remote';
+import { red } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -20,6 +21,8 @@ const useStyles = makeStyles((theme: Theme) =>
             paddingLeft: 40,
             flexGrow: 1,
         },
+        containerL: {
+        }
     }),
 );
 
@@ -47,8 +50,8 @@ export const MainFeedComponent: React.FC = () => {
     }
 
     return (
-        <React.Fragment>
-            <Container  maxWidth="xl" disableGutters > 
+        <React.Fragment >
+            <Container  maxWidth="xl" disableGutters className={classes.containerL} >
             <section className={classes.rootk} >
                 <FeedProfileComponent userId={userId} />
                 <div className={classes.fragmentk}>

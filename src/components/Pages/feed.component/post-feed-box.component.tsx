@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles, createStyles, Theme, Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button, Popover } from '@material-ui/core';
-import { SocialEvent } from '../../../models/Event';
 import { useHistory } from 'react-router';
-import { Post } from '../../../models/Post';
+import GradeRoundedIcon from '@material-ui/icons/GradeRounded';
 
 
 const useStyles = makeStyles({
@@ -10,11 +9,10 @@ const useStyles = makeStyles({
         minWidth: 600,
         display: "flex",
         flexGrow: 1,
+        margin: "auto",
     },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
+    root2: {
+        padding:30,
     },
     title: {
         fontSize: 14,
@@ -24,25 +22,33 @@ const useStyles = makeStyles({
     },
 });
 
+//!Change Post Model to return postCotent
 interface PostFeedBoxComponentProps {
-    post: Post;
+    post: any;
     userId: number;
 }
 
 export const PostFeedBoxComponent: React.FC<PostFeedBoxComponentProps> = (props) => {
     const classes = useStyles();
     const history = useHistory();
-    const bull = <span className={classes.bullet}>•</span>;
 
+    console.log(props.post);
 
     return (
-        <Card className={classes.root}>
-            <CardActionArea>
-            <CardContent>
-                <Typography variant="h5" component="h2">
-                    be{bull}nev{bull}o{bull}lent
-                </Typography>
-            </CardContent>
+        <Card className={classes.root} >
+            <CardActionArea className={classes.root2}>
+                <CardContent>
+                    <Typography variant="h5" component="h2">
+                        <GradeRoundedIcon />
+                        {props.post.user.username}
+                    </Typography>
+                    <Typography variant="h5" component="h2">
+                        {props.post.postContent}
+                    </Typography>
+                    <Typography variant="h5" component="h2">
+                        {props.post.event.title}
+                    </Typography>
+                </CardContent>
             </CardActionArea>
         </Card>
     )
