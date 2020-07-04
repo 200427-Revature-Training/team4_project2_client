@@ -1,6 +1,5 @@
 import React from "react";
-import { List, ListItemText, ListItem, ListItemIcon, makeStyles, Theme, createStyles } from "@material-ui/core";
-import { teal, red } from "@material-ui/core/colors";
+import { List, ListItem, makeStyles, Theme, createStyles } from "@material-ui/core";
 import { SocialEvent } from "../../../models/Event";
 import { useHistory } from "react-router";
 
@@ -12,7 +11,6 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundColor: theme.palette.background.paper,
             color: "teal",
             fontSize: 20,
-            padding: 10,
         },
     }),
 );
@@ -43,7 +41,7 @@ export const EventListBoxComponent: React.FC<EventListBoxComponentProps> = (prop
     }
 
     const renderAttendListComponent = () => {
-        return props.hostSocialEvents.map(socialEvent => {
+        return props.attendSocialEvents.map(socialEvent => {
             return (
                 <ListItem button onClick={() => redirectToEventForum(socialEvent.id)}>
                     {socialEvent.title}
@@ -55,10 +53,10 @@ export const EventListBoxComponent: React.FC<EventListBoxComponentProps> = (prop
     return (
         <React.Fragment>
             <div className={classes.rootk}>
-            <List component="nav" aria-label="main mailbox folders"> HOST
+            <List component="nav" aria-label="main mailbox folders"> HOSTED EVENTS
                 {renderHostListComponent()}
             </List>
-            <List component="nav" aria-label="main mailbox folders"> ATTEND
+            <List component="nav" aria-label="main mailbox folders"> ATTENDING EVENTS
                 {renderAttendListComponent()}
             </List>
             </div>

@@ -1,0 +1,12 @@
+#containerk {
+    background-image: url(../../../images/back.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: -1;
+
+}

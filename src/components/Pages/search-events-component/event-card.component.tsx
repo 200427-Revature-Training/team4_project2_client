@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles, createStyles, Theme, Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button, Popover } from '@material-ui/core';
 import { SocialEvent } from '../../../models/Event';
 import { useHistory } from 'react-router';
+import * as attendRemote from '../../../remotes/attend.remote';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -9,6 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
         containerk: {
             display: 'flex',
             paddingTop: 40,
+            
         },
         rootk: {
             maxWidth: 345,
@@ -50,17 +52,25 @@ export const EventCardComponent: React.FC<EventCardComponentProps> = ({ socialEv
 
     const handleJoin = async (socialEventId: number) => {
         // const userId = localStorage.getItem('userId')
-        // if (!userId || !socialEventId) {
-        //activate alert
-        // } else {
-        // payload = {
-        //     socialEventId: socialEventId,
-        //     userId: userId
-        // }
-        // const addedSocialEvent = await attendRemote.addSocialEventToAttendingList(socialEventId, UserId)
-        // activate alert
-        // }
+        const userId = 1;
+        if (!userId) {
+        alert("please login to join events")
+        } else if (!userId && !socialEventId) {
+        alert("This Social Event Doesnt Exist Anymore")
+        } else {
+        const payload = {
+            id: userId,
+            events: [{id: socialEventId}]
+        }
+        console.log(payload);
+        try {
+            const addedSocialEvent = await attendRemote.addSocialEventToAttendingList(payload);
+            alert("add was sucessful")
+        } catch {
+        alert("Oops You enconuntered and Error that has nothing to do with us")
+        }
     }
+}
 
     const handleRedirect = (e: number) => {
         //pass the social event id to the next page

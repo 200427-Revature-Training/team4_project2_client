@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { TextField, Link, Typography, createStyles, makeStyles, Theme, Button } from '@material-ui/core';
+import { TextField, Link, Typography, createStyles, makeStyles, Theme, Button, Container, CardMedia } from '@material-ui/core';
 import { SocialEvent } from '../../../models/Event';
 import { JoinEventComponent } from './join-event.component';
 import { CategoryListComponent } from './category-list.component';
 import { SearchListComponent } from './search-list.component';
 import * as eventRemote from '../../../remotes/event.remote';
+import "./search-event.component.css";
 
 
 export const childViews = {
@@ -21,6 +22,8 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontSize: 20,
             },
         },
+        
+
     }),
 );
 
@@ -69,15 +72,18 @@ export const SearchEventComponent: React.FC<SearchEventComponentProps> = (props)
 
     return (
         <React.Fragment>
-            
-            <section className={classes.root}>
-                <Button color="inherit" onClick={() => setView('CATEGORY_LIST')}>
+            <Container className={classes.root} maxWidth="xl" disableGutters> 
+            <section  id="containerk" />
+            <Button color="inherit" onClick={() => setView('CATEGORY_LIST')}>
                     Categories
             </Button>
             <TextField  id="standard-basic" label="Search" value={inputSocialEventKey}
                 onChange={(e) => setInputSocialEventKey(e.target.value)} onKeyPress={(e) => searchOnEnter(e)} />
-                </section>
             {getCurrentView()}
+            </Container>
         </React.Fragment>
     );
 }
+
+// backgroundImage: `url(${"../../../images/back.jpeg"})`,
+// image={require ("../../../images/back.jpg")}

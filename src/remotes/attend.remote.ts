@@ -1,7 +1,7 @@
-import { internalAxios } from './internal-Axios';
+import { internalAxios, authAxios } from './internal-Axios';
 
 export const addSocialEventToAttendingList = async (payload: any) => {
-    const response = await internalAxios.post('/event/attend', payload);
+    const response = await authAxios.put('/user', payload);
     return response;
 }
 
