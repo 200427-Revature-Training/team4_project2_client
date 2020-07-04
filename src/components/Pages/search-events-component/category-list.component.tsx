@@ -40,6 +40,7 @@ export const CategoryListComponent: React.FC<CategoryListComponentProps> = (prop
         // props.setSocialEventType(e);
         // const socialEventHolder = props.socialEventType
         // console.log(socialEventHolder)
+        console.log(localStorage.getItem("accessToken"))
         const retrievedSocialEvents = await eventRemote.getSocialEventByTypeId(e)
         props.setSocialEvents(retrievedSocialEvents);
         props.setView('JOIN_LIST')
