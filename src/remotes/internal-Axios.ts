@@ -12,6 +12,6 @@ export const internalAxios = Axios.create({
 export const authAxios = Axios.create({
   baseURL: server,
   headers: {
-    //Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
   },
 });

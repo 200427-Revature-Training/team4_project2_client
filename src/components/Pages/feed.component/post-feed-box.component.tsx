@@ -4,6 +4,7 @@ import { SocialEvent } from '../../../models/Event';
 import { useHistory } from 'react-router';
 import { Post } from '../../../models/Post';
 
+
 const useStyles = makeStyles({
     root: {
         minWidth: 600,
@@ -25,6 +26,7 @@ const useStyles = makeStyles({
 
 interface PostFeedBoxComponentProps {
     post: Post;
+    userId: number;
 }
 
 export const PostFeedBoxComponent: React.FC<PostFeedBoxComponentProps> = (props) => {

@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Theme, createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import SkipNextIcon from '@material-ui/icons/SkipNext';
+import * as feedRemote from '../../../remotes/feed.remote';
+import { User } from '../../../models/User';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -35,22 +34,42 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const FeedProfileComponent: React.FC = () => {
+interface FeedProfileComponentProps {
+    userId: number;
+}
+
+export const FeedProfileComponent: React.FC<FeedProfileComponentProps> = (props) => {
     const classes = useStyles();
     const theme = useTheme();
+    const [userInfo, setUserInfo] = useState<User>();
+
+
+    useEffect(() => {
+        loadUserInfo();
+    }, [])
+
+    const loadUserInfo = async () => {
+        console.log(props.userId);
+        const retrievedUserInfo: any = await feedRemote.getUserByUserId(props.userId)
+        console.log(retrievedUserInfo.data);
+        setUserInfo(retrievedUserInfo.data);
+    }
 
     return (
         <Card className={classes.root}>
             <div className={classes.details}>
                 <CardContent className={classes.content}>
+                    <AccountCircleIcon fontSize="large" />
                     <Typography component="h5" variant="h5">
-                        PROFILE HEADLINE
-            </Typography>
+                        {userInfo?.username}
+                    </Typography>
                     <Typography variant="subtitle1" color="textSecondary">
-                        USERNAME
-            </Typography>
+                        {userInfo?.email}
+                    </Typography>
                 </CardContent>
                 <div className={classes.controls}>
+                    {/* {userInfo?.firstName}
+                    {userInfo?.lastName} */}
                 </div>
             </div>
             <CardMedia

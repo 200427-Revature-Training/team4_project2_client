@@ -1,7 +1,7 @@
 import React from 'react';
 import { SocialEvent } from '../../../models/Event';
 import { EventCardComponent } from './event-card.component';
-import { Grid } from '@material-ui/core';
+import { Grid, Container } from '@material-ui/core';
 
 
 interface JoinEventComponentProps {
@@ -26,12 +26,13 @@ export const JoinEventComponent: React.FC<JoinEventComponentProps> = (props) => 
 
     return (
         <div>
-            <h2>{props.socialEventType}</h2>
+            <Container maxWidth="lg" disableGutters> 
             <section>
                 <Grid container direction="row" spacing={4} alignItems="flex-start">
                     {renderEventCardComponents()}
                 </Grid>
-            </section>
+                </section>
+            </Container>
         </div>
     );
 }
