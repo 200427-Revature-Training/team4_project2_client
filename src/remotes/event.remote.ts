@@ -10,7 +10,7 @@ export const getSocialEventByTypeId = async (socialEventTypeId: number) => {
     {
       headers: {
         Authorization:
-          "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ6aW5vZ3JlIiwiZXhwIjoxNTkzNzY2MDQ4LCJpYXQiOjE1OTM3NDgwNDh9.7a2zpOTN0oEPI9RdcMTnq4cxYvtqvcdZM5aFueD0MaTuFuvj7p6LFosW4yMsaTlPjCuDykMo_8UpnvF7sqkctQ",
+          "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2OXRla2FzaGkiLCJleHAiOjE1OTM4NDM4ODEsImlhdCI6MTU5MzgyNTg4MX0.Ri2s2Ez1oDLsFFLfwhZme_6sf1ZxVTU_5g6v_GV4NzHi2olIzLPwlTng4umzfSQdrl3sTR0oE67OK0qVX-QPxQ",
       },
     }
   );
