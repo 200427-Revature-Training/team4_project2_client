@@ -48,16 +48,12 @@
   text-overflow: ellipsis;
   white-space: wrap;
   overflow: hidden;
+  font-size: 1.2rem;
 }
 
 #forum-post-container {
   margin-left: auto;
   margin-top: 0.8%;
-  margin-right: 8%;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 1;
 }
 
 #other-forum-links {
@@ -72,6 +68,9 @@
   width: 40vw;
   min-width: 15vw;
   margin-left: auto;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  overflow: hidden;
 }
 
 #interact-pane {
@@ -110,9 +109,31 @@
   margin-top: 2%;
   min-width: 20vw;
 }
-#event-table {
+.event-table {
   margin: auto;
   width: 100%;
   justify-content: center;
   align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.poster-details {
+  display: flex;
+  font-size: 1.4rem;
+  border-bottom: inset 2px #006272;
+}
+.poster-details span:first-of-type {
+  flex: 1;
+}
+#comment-text {
+  font-family: "Titillium Web", sans-serif;
+  color: #006272;
+  font-size: 1.2rem;
+}
+.create-post {
+  flex: 1 100%;
+}
+.tablecell {
+  flex: 1 30%;
 }
