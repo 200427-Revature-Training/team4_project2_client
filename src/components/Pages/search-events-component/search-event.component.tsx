@@ -19,18 +19,17 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             '& > *': {
                 margin: "auto",
-                fontSize: 20,
+                fontSize: 30,
             },
         },
-        
+
 
     }),
 );
 
 interface SearchEventComponentProps {
-getEvent: (eventId: number) => void;
+    getEvent: (eventId: number) => void;
 }
-
 
 export const SearchEventComponent: React.FC<SearchEventComponentProps> = (props) => {
     const classes = useStyles();
@@ -51,7 +50,7 @@ export const SearchEventComponent: React.FC<SearchEventComponentProps> = (props)
             case childViews.joinList: return <JoinEventComponent setView={setView} socialEvents={socialEvents}
                 socialEventType={socialEventType} setSocialEventType={setSocialEventType} getEvent={props.getEvent} />
             case childViews.searchedList: return <SearchListComponent setView={setView} socialEvents={socialEvents}
-                inputSocialEventKey={inputSocialEventKey} getEvent={props.getEvent}/>
+                inputSocialEventKey={inputSocialEventKey} getEvent={props.getEvent} />
             default: return <React.Fragment />
         }
     }
@@ -61,10 +60,10 @@ export const SearchEventComponent: React.FC<SearchEventComponentProps> = (props)
             // props.setSocialEventType(e);
             // const socialEventHolder = props.socialEventType
             // const retrievedSocialEvents = await eventRemote.getAllSocialEvents();
+
             //!Change this to retrieve all social Events and then filter them based on search
             //!Also create Sorting functions for these event cards. 
             const retrievedSocialEvents = await eventRemote.getSocialEventByTitle(inputSocialEventKey)
-            console.log(retrievedSocialEvents);
             setSocialEvents(retrievedSocialEvents);
             setView('JOIN_LIST');
         }
@@ -72,14 +71,14 @@ export const SearchEventComponent: React.FC<SearchEventComponentProps> = (props)
 
     return (
         <React.Fragment>
-            <Container className={classes.root} maxWidth="xl" disableGutters> 
-            <section  id="containerk" />
-            <Button color="inherit" onClick={() => setView('CATEGORY_LIST')}>
+            <Container className={classes.root} maxWidth="xl" disableGutters>
+                <section id="containerk" />
+                <Button color="inherit" onClick={() => setView('CATEGORY_LIST')}>
                     Categories
             </Button>
-            <TextField  id="standard-basic" label="Search" value={inputSocialEventKey}
-                onChange={(e) => setInputSocialEventKey(e.target.value)} onKeyPress={(e) => searchOnEnter(e)} />
-            {getCurrentView()}
+                <TextField id="standard-basic" label="Search" value={inputSocialEventKey}
+                    onChange={(e) => setInputSocialEventKey(e.target.value)} onKeyPress={(e) => searchOnEnter(e)} />
+                {getCurrentView()}
             </Container>
         </React.Fragment>
     );
@@ -87,3 +86,22 @@ export const SearchEventComponent: React.FC<SearchEventComponentProps> = (props)
 
 // backgroundImage: `url(${"../../../images/back.jpeg"})`,
 // image={require ("../../../images/back.jpg")}
+
+//     if (e.key === 'Enter') {
+
+        //         const retrievedSocialEvents = await eventRemote.getAllSocialEvents();
+        //         retrievedSocialEvents.forEach(event => {
+        //             const compare = event.title.includes(inputSocialEventKey)
+        //             if (compare) {
+        //                 addSocialEvent(event);
+        //             }
+        //         })
+        //         setView('JOIN_LIST');
+        //     }
+        // }
+
+        // props.setSocialEventType(e);
+        // const socialEventHolder = props.socialEventType
+        // setSocialEvents(retrievedSocialEvents);
+        //!Change this to retrieve all social Events and then filter them based on search
+        //!Also create Sorting functions for these event cards. 

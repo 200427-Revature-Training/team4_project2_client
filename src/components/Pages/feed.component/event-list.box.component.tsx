@@ -52,7 +52,7 @@ export const EventListBoxComponent: React.FC<EventListBoxComponentProps> = (prop
 
     return (
         <React.Fragment>
-            <div className={classes.rootk}>
+            <div className={classes.rootk} >
             <List component="nav" aria-label="main mailbox folders"> HOSTED EVENTS
                 {renderHostListComponent()}
             </List>
