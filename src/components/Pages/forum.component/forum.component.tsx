@@ -139,7 +139,7 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
                       </tr>
                       <tr className="event-table create-post">
                         <td>
-                          <CreatePostComponent event={event} />
+                          <CreatePostComponent event={id} />
                         </td>
                       </tr>
                     </tbody>
