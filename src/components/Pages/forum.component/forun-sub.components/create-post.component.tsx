@@ -9,6 +9,7 @@ import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import "./create-post-component.css";
 import Fab from "@material-ui/core/Fab";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+import { forumPost } from "../../../../remotes/forum.remote";
 
 const useStyl = makeStyles((theme: Theme) =>
   createStyles({
@@ -29,11 +30,10 @@ export const CreatePostComponent: React.FC<PostProps> = (props) => {
   const clas = useStyl();
   const [open, setOpen] = React.useState(false);
   const [post, setPost] = React.useState("");
-  const [eventId, setEventId] = React.useState();
+  const [eventId, setEventId] = React.useState(props.event);
+  console.log(eventId);
 
-  useEffect(() => {
-    setEventId(props.event.map((e: { id: any }) => e.id));
-  }, []);
+  useEffect(() => {}, []);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -45,12 +45,8 @@ export const CreatePostComponent: React.FC<PostProps> = (props) => {
 
   const handlePost = () => {
     setOpen(false);
-    /*const payload = {
-      image: "image3",
-      postContent: post,
-      creationTime: new Date(Date.now(),
-    };
-    */
+
+    forumPost(post, eventId);
     console.log(post);
   };
   return (
