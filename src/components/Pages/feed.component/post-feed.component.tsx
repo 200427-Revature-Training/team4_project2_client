@@ -11,7 +11,8 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         flexGrow: 1,
-        paddingLeft: 130,
+        paddingLeft: 20,
+        margin: "auto"
     },
     buttonk: {
         fontSize: 30,
@@ -22,11 +23,9 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         maxWidth: 1200,
-
     },
 
 });
-
 
 export const childViews = {
     myPosts: 'MY_POSTS',
@@ -37,6 +36,7 @@ export const childViews = {
 
 interface PostFeedComponentProps {
     userId: number;
+    getEvent: (eventId: number) => void;
 }
 
 export const PostFeedComponent: React.FC<PostFeedComponentProps> = (props) => {
@@ -66,26 +66,26 @@ export const PostFeedComponent: React.FC<PostFeedComponentProps> = (props) => {
                 return Posts.map(post => {
                     return (
                         <div>
-                            <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} />
+                            <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} getEvent={props.getEvent}  />
                         </div>
                     )
                 })
             case childViews.myFollowPosts:
                 return Posts.map(post => {
                     return (
-                        <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} />
+                        <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} getEvent={props.getEvent}  />
                     )
                 })
             case childViews.myLikePosts:
                 return Posts.map(post => {
                     return (
-                        <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} />
+                        <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} getEvent={props.getEvent}  />
                     )
                 })
             case childViews.newPosts:
                 return Posts.map(post => {
                     return (
-                        <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} />
+                        <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} getEvent={props.getEvent}  />
                     )
                 })
         }

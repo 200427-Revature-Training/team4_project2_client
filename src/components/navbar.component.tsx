@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -7,6 +7,11 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import "./navbar.component.css";
 import { Link } from "react-router-dom";
+import * as loginRemote from '../remotes/login.remote';
+import { User } from '../models/User';
+
+
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,11 +28,40 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const NavBarComponent: React.FC = () => {
+  
   const classes = useStyles();
-  const isLoggedIn = false;
-  const [user, setUser] = useState("");
+  let [user, setUser] = useState(false);
+  const [viewChange, setViewChange]= useState(false)
 
-  return (
+
+
+
+  const isAuthenticated = localStorage.getItem('accessToken')
+
+  
+useEffect(() => {
+  loggedIn();
+}, [])
+
+const loggedIn = () =>{
+  if (isAuthenticated){
+    setViewChange(true)
+  }
+}
+
+const displayUsername = async () =>{
+  localStorage.getItem('accessToken')
+  setUser(true)
+}
+
+
+  const endSession = () => {
+    localStorage.removeItem('accessToken');
+    setViewChange(false)
+  }
+
+
+return (
     <div>
       <AppBar position="static" id="navbar-custom">
         <Toolbar>
@@ -38,37 +72,50 @@ export const NavBarComponent: React.FC = () => {
               color="inherit"
             >
               <Typography variant="h6" className={classes.title} id="logo">
-                TempestSociety
+                City Pop
               </Typography>
             </IconButton>
           </Link>
           <Typography variant="h6" className={classes.title} id="logo">
-            {user != "" ? `Welcome ${user}` : "PlaceHolder for user's name"}
+            {user !==false ? `Welcome ${user}` : "PlaceHolder for user's name"}
           </Typography>
+          <Link to="/searchevent" id="nav-buttons">
           <Button color="inherit" id="nav-buttons">
             Events
           </Button>
-          {!isLoggedIn && (
-            <div>
-              <Link to="/login" id="nav-links">
-                <Button color="inherit" id="nav-buttons">
-                  Login
+        </Link>
+        
+        <div hidden={viewChange}>
+          <Link to="/login" id="nav-links">
+            <Button color="inherit" id="nav-buttons">
+              Login
                 </Button>
-              </Link>
+          </Link>
 
-              <Link to="/signup" id="nav-links">
-                <Button color="inherit" id="nav-buttons">
-                  SignUp
+          <Link to="/signup" id="nav-links">
+            <Button color="inherit" id="nav-buttons">
+              SignUp
                 </Button>
-              </Link>
-            </div>
-          )}
-          {isLoggedIn && (
-            <div>
-              <Button>My Events</Button>
-              <Button>Join Event</Button>
-            </div>
-          )}
+          </Link>
+        </div> :
+
+        
+        <div hidden={!viewChange} >
+
+          <Link to="/feed" id="nav-links">
+            <Button color="inherit" id="nav-buttons">
+              Feed
+                </Button>
+          </Link>
+
+          <Link to="/" id="nav-links">
+            <Button color="inherit" id="nav-buttons" onClick={() => endSession()}>Log Out</Button>
+          </Link>
+
+        </div>
+
+        
+
         </Toolbar>
       </AppBar>
     </div>
