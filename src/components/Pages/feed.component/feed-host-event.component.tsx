@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { MenuItem, Select, InputLabel, FormControl, Button, Container, Card } from '@material-ui/core';
+import { MenuItem, Select, InputLabel, FormControl, Button, Modal, Backdrop, Fade } from '@material-ui/core';
 import * as feedRemote from '../../../remotes/feed.remote';
 import * as eventRemote from '../../../remotes/event.remote';
-import { SocialEvent } from '../../../models/Event';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -12,14 +11,21 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             '& > *': {
                 margin: theme.spacing(1),
-                width: '20ch',
+                width: '30ch',
                 padding: 10,
+                display: "flex",
+                flexDirection: "row",
+
+            },
+            '& .MuiTextField-root': {
+                margin: theme.spacing(1),
+                width: '30ch',
             },
         },
         textField: {
             marginLeft: theme.spacing(1),
             marginRight: theme.spacing(1),
-            width: '20ch',
+            width: '40ch',
         },
         formControl: {
             margin: theme.spacing(1),
@@ -29,16 +35,28 @@ const useStyles = makeStyles((theme: Theme) =>
             display: "flex",
         },
         buttonk: {
-
-            fontSize: 20,
+            fontSize: 30,
+        },
+        modal: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        },
+        paper: {
+            backgroundColor: theme.palette.background.paper,
+            border: '2px solid #000',
+            boxShadow: theme.shadows[5],
+            padding: theme.spacing(10, 10, 10),
+            color: "inherit",
+        },
+        resize: {
+            fontSize: 30
         }
     }),
 );
 
 interface FeedHostComponentProps {
     userId: number;
-    setHostSocialEvents: (socialEvents: SocialEvent[]) => void;
-    setAttendSocialEvents: (socialEvents: SocialEvent[]) => void;
 }
 
 export const FeedHostComponent: React.FC<FeedHostComponentProps> = (props) => {
@@ -49,22 +67,15 @@ export const FeedHostComponent: React.FC<FeedHostComponentProps> = (props) => {
     const [socialEventMaxPeople, setSocialEventMaxPeople] = React.useState(0);
     const [socialEventPrice, setSocialEventPrice] = React.useState(0);
     const [socialEventStartDate, setSocialEventStartDate] = React.useState("");
+    const [open, setOpen] = React.useState(false);
 
-    useEffect(() => {
-        loadHostEvents();
-        loadAttendEvents();
-    }, [])
+    const handleOpen = () => {
+        setOpen(true);
+    };
 
-    const loadHostEvents = async () => {
-        const retrievedSocialEvents = await eventRemote.getHostSocialEventByUserId(props.userId)
-        props.setHostSocialEvents(retrievedSocialEvents);
-    }
-
-    const loadAttendEvents = async () => {
-        const retrievedSocialEvents = await feedRemote.getUserByUserId(props.userId)
-        props.setAttendSocialEvents(retrievedSocialEvents.data.events);
-    }
-
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     const submitHostEvent = async () => {
         const payload = {
@@ -73,8 +84,8 @@ export const FeedHostComponent: React.FC<FeedHostComponentProps> = (props) => {
             price: socialEventPrice,
             maxPeople: socialEventMaxPeople,
             startTime: socialEventStartDate,
-            eventType: {id: socialEventTypeId},
-            user: {id: props.userId}
+            eventType: { id: socialEventTypeId },
+            user: { id: props.userId }
         }
 
         try {
@@ -100,51 +111,78 @@ export const FeedHostComponent: React.FC<FeedHostComponentProps> = (props) => {
 
     return (
         <React.Fragment>
-            <div className={classes.buttonRoot} >
-                <Button className={classes.buttonk} color="inherit"
-                    onClick={() => submitHostEvent()}>
-                    Host New Event
+            <div>
+                <div className={classes.buttonRoot} >
+                    <Button className={classes.buttonk} color="inherit" type="button" onClick={handleOpen}>Host Event</Button>{' '}
+                </div>
+                <Modal
+                    aria-labelledby="transition-modal-title"
+                    aria-describedby="transition-modal-description"
+                    className={classes.modal}
+                    open={open}
+                    onClose={handleClose}
+                    closeAfterTransition
+                    BackdropComponent={Backdrop}
+                    BackdropProps={{
+                        timeout: 500,
+                    }}
+                >
+                    <Fade in={open}>
+                        <div className={classes.paper} >
+                            <form className={classes.root} noValidate autoComplete="off" >
+                                <TextField id="standard-basic" label="Title" value={socialEventTitle} onChange={
+                                    (e) => setSocialEventTitle(e.target.value)} InputProps={{ classes: { input: classes.resize } }} />
+                                <TextField id="standard-multiline-static"
+                                    label="Description"
+                                    multiline
+                                    rowsMax={4} value={socialEventDescription} onChange={
+                                        (e) => setSocialEventDescription(e.target.value)} InputProps={{ classes: { input: classes.resize } }} />
+                            </form>
+                            <form className={classes.root} noValidate autoComplete="off" >
+                                <TextField id="standard-basic" type="number" label="Max Attendees" value={socialEventMaxPeople} onChange={
+                                    (e) => setSocialEventMaxPeople(+e.target.value)} InputProps={{ classes: { input: classes.resize } }} />
+                                <TextField size="medium" id="standard-basic" label="Price" value={socialEventPrice} onChange={
+                                    (e) => setSocialEventPrice(+e.target.value)} InputProps={{ classes: { input: classes.resize } }} />
+                            </form>
+                            <form className={classes.root} noValidate autoComplete="off">
+                                <TextField
+                                    id="date"
+                                    label="Start Time"
+                                    type="date"
+                                    defaultValue="2017-05-24"
+                                    className={classes.textField}
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }} value={socialEventStartDate} onChange={
+                                        (e) => setSocialEventStartDate(e.target.value)} InputProps={{ classes: { input: classes.resize } }} />
+                            </form>
+                            <form className={classes.root} noValidate autoComplete="off">
+                                <FormControl className={classes.formControl} >
+                                    <InputLabel id="demo-simple-select-label" >Event Type</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
+                                        value={socialEventTypeId} onChange={handleChange}
+                                    >
+                                        <MenuItem value={1}>Outdoor Activity</MenuItem>
+                                        <MenuItem value={2}>Arts and Crafts</MenuItem>
+                                        <MenuItem value={3}>Board and Video Games</MenuItem>
+                                        <MenuItem value={4}>Exercise Activity</MenuItem>
+                                        <MenuItem value={5}>Convention/Exhibiton</MenuItem>
+                                        <MenuItem value={6}>Technology</MenuItem>
+                                        <MenuItem value={7}>Talk and Discussion</MenuItem>
+                                        <MenuItem value={8}>Other</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </form>
+                            <Button className={classes.buttonk} color="inherit"
+                                onClick={() => submitHostEvent()}>
+                                Host New Event
                 </Button>
+                        </div>
+                    </Fade>
+                </Modal>
             </div>
-            <form className={classes.root} noValidate autoComplete="off" >
-                <TextField id="standard-basic" label="Title" value={socialEventTitle} onChange={
-                    (e) => setSocialEventTitle(e.target.value)} />
-                <TextField id="standard-basic" label="Description" value={socialEventDescription} onChange={
-                    (e) => setSocialEventDescription(e.target.value)} />
-                <TextField id="standard-basic" type="number" label="Max Attendees" value={socialEventMaxPeople} onChange={
-                    (e) => setSocialEventMaxPeople(+e.target.value)} />
-            </form>
-            <form className={classes.root} noValidate autoComplete="off">
-                <TextField id="standard-basic" label="Price" value={socialEventPrice} onChange={
-                    (e) => setSocialEventPrice(+e.target.value)} />
-                <TextField
-                    id="date"
-                    label="Start Time"
-                    type="date"
-                    defaultValue="2017-05-24"
-                    className={classes.textField}
-                    InputLabelProps={{
-                        shrink: true,
-                    }} value={socialEventStartDate} onChange={
-                        (e) => setSocialEventStartDate(e.target.value)} />
-                <FormControl className={classes.formControl} >
-                    <InputLabel id="demo-simple-select-label" >Event Type</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={socialEventTypeId} onChange={handleChange}
-                    >
-                        <MenuItem value={1}>Outdoor Activity</MenuItem>
-                        <MenuItem value={2}>Arts and Crafts</MenuItem>
-                        <MenuItem value={3}>Board and Video Games</MenuItem>
-                        <MenuItem value={4}>Exercise Activity</MenuItem>
-                        <MenuItem value={5}>Convention/Exhibiton</MenuItem>
-                        <MenuItem value={6}>Technology</MenuItem>
-                        <MenuItem value={7}>Talk and Discussion</MenuItem>
-                        <MenuItem value={8}>Other</MenuItem>
-                    </Select>
-                </FormControl>
-            </form>
         </React.Fragment>
     );
 }

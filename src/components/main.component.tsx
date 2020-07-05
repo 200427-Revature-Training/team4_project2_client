@@ -44,7 +44,7 @@ export const MainComponent: React.FC = () => {
                 <ForumComponent eventId={eventId} />
               </Route>
               <Route path="/feed">
-                <MainFeedComponent />
+                <MainFeedComponent getEvent={getEvent} />
               </Route>
             </Switch>
           </div>
