@@ -66,7 +66,7 @@ export const getSocialEventByTitle = async (socialEventTitle: string) => {
 // >>>>>>> bcb7a275824e3ea995fa029971501824a06ada2f
 
 export const getAllSocialEvents = async () => {
-    const response = await authAxios.get<SocialEvent[]>(`/event/allevents`);
+    const response = await authAxios.get<SocialEvent[]>(`/event/external`);
     return response.data.map((socialEvent) => {
         socialEvent.startTime = new Date(socialEvent.startTime);
         return socialEvent;

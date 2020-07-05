@@ -56,7 +56,7 @@ export const FeedProfileComponent: React.FC<FeedProfileComponentProps> = (props)
     }
 
     return (
-        <Card className={classes.root}>
+        <Card className={classes.root} id="containerS">
             <div className={classes.details}>
                 <CardContent className={classes.content}>
                     <AccountCircleIcon fontSize="large" />
@@ -67,10 +67,6 @@ export const FeedProfileComponent: React.FC<FeedProfileComponentProps> = (props)
                         {userInfo?.email}
                     </Typography>
                 </CardContent>
-                <div className={classes.controls}>
-                    {/* {userInfo?.firstName}
-                    {userInfo?.lastName} */}
-                </div>
             </div>
             <CardMedia
                 className={classes.cover}

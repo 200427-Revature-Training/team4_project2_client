@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import { makeStyles, createStyles, Theme, Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button, Popover } from '@material-ui/core';
 import { useHistory } from 'react-router';
 import GradeRoundedIcon from '@material-ui/icons/GradeRounded';
+import "./feed.component.css";
 
 
 const useStyles = makeStyles({
-    root: {
+    rootS: {
         minWidth: 600,
         display: "flex",
         flexGrow: 1,
         margin: "auto",
+        padding: 30
     },
     root2: {
         padding:30,
@@ -32,10 +34,8 @@ export const PostFeedBoxComponent: React.FC<PostFeedBoxComponentProps> = (props)
     const classes = useStyles();
     const history = useHistory();
 
-    console.log(props.post);
-
     return (
-        <Card className={classes.root} >
+        <Card className={classes.rootS} id="containerS">
             <CardActionArea className={classes.root2}>
                 <CardContent>
                     <Typography variant="h5" component="h2">

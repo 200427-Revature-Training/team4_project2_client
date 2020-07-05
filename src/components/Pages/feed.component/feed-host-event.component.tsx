@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { MenuItem, Select, InputLabel, FormControl, Button } from '@material-ui/core';
+import { MenuItem, Select, InputLabel, FormControl, Button, Container, Card } from '@material-ui/core';
 import * as feedRemote from '../../../remotes/feed.remote';
 
 
@@ -10,14 +10,14 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             '& > *': {
                 margin: theme.spacing(1),
-                width: '25ch',
+                width: '20ch',
                 padding: 10,
             },
         },
         textField: {
             marginLeft: theme.spacing(1),
             marginRight: theme.spacing(1),
-            width: '25ch',
+            width: '20ch',
         },
         formControl: {
             margin: theme.spacing(1),
@@ -82,13 +82,13 @@ export const FeedHostComponent: React.FC<FeedHostComponentProps> = (props) => {
 
     return (
         <React.Fragment>
-            <div className={classes.buttonRoot}>
+            <div className={classes.buttonRoot} >
                 <Button className={classes.buttonk} color="inherit"
                     onClick={() => submitHostEvent()}>
                     Host New Event
                 </Button>
             </div>
-            <form className={classes.root} noValidate autoComplete="off">
+            <form className={classes.root} noValidate autoComplete="off" >
                 <TextField id="standard-basic" label="Title" value={socialEventTitle} onChange={
                     (e) => setSocialEventTitle(e.target.value)} />
                 <TextField id="standard-basic" label="Description" value={socialEventDescription} onChange={
