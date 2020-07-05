@@ -164,7 +164,7 @@ export const HomeComponent: React.FC = () => {
         </div>
       </main>
       <footer id="copyright">
-        &copy; 2020 TempestSociety Inc- All Right Reserved
+        &copy; 2020 City Pop Inc- All Right Reserved
       </footer>
     </React.Fragment>
   );

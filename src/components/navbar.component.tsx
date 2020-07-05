@@ -8,11 +8,8 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import "./navbar.component.css";
 import { Link } from "react-router-dom";
-import Axios from 'axios';
-import {authAxios} from '../remotes/internal-Axios'
-import {checkLoginCredentials} from '../remotes/login.remote'
-import { Login } from '../models/login';
-import { FlashAutoOutlined } from "@material-ui/icons";
+import * as loginRemote from '../remotes/login.remote';
+import { User } from '../models/User';
 
 
 
@@ -34,12 +31,15 @@ const useStyles = makeStyles((theme: Theme) =>
 export const NavBarComponent: React.FC = () => {
   
   const classes = useStyles();
-  const [user, setUser] = useState("");
+  let [user, setUser] = useState(false);
   const [viewChange, setViewChange]= useState(false)
-  const [refresh, setRefresh] = useState(true)
+
+
+
 
   const isAuthenticated = localStorage.getItem('accessToken')
 
+  
 useEffect(() => {
   loggedIn();
 }, [])
@@ -50,6 +50,10 @@ const loggedIn = () =>{
   }
 }
 
+const displayUsername = async () =>{
+  localStorage.getItem('accessToken')
+  setUser(true)
+}
 
 
   const endSession = () => {
@@ -69,16 +73,19 @@ return (
               color="inherit"
             >
               <Typography variant="h6" className={classes.title} id="logo">
-                TempestSociety
+                City Pop
               </Typography>
             </IconButton>
           </Link>
           <Typography variant="h6" className={classes.title} id="logo">
-            {user != "" ? `Welcome ${user}` : "PlaceHolder for user's name"}
+            {user !==false ? `Welcome ${user}` : "PlaceHolder for user's name"}
           </Typography>
           <Button color="inherit" id="nav-buttons">
             Events
           </Button>
+        <Link to="/searchevent" id="nav-links">
+          <Button color="inherit" id="nav-buttons">Category</Button>
+        </Link>
         
         <div hidden={viewChange}>
           <Link to="/login" id="nav-links">
@@ -96,7 +103,12 @@ return (
 
         
         <div hidden={!viewChange} >
+          <Link to="/feed" id="nav-links">
+          <Button color="inherit" id="nav-buttons">Feed </Button>
+          </Link>
+          <Link to="/myevent" id="nav-links">
           <Button color="inherit" id="nav-buttons">My Events</Button>
+          </Link>
           <Button color="inherit" id="nav-buttons">Join Event</Button>
           <Link to="/" id="nav-links">
             <Button color="inherit" id="nav-buttons" onClick={() => endSession()}>Log Out</Button>

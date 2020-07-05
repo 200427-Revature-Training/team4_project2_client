@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './login.component.css';
 import { Link, useHistory } from 'react-router-dom';
 import * as loginRemote from '../../../remotes/login.remote';
+import { TrendingUpSharp } from '@material-ui/icons';
 
 export const LoginComponent: React.FC = () => {
 const history = useHistory();
 const [inputUsername, setInputUsername] = useState('');
 const [inputUserPassword, setInputUserPassword] = useState('');
+const [state, setState] = useState<number>();
+const [update, setUpdate]=useState<any>();
     
 
 useEffect(() => {}, [])
@@ -27,7 +30,7 @@ const setInformation = async () => {
         localStorage.setItem('firstName', firstName);
         localStorage.setItem('lastname', lastName);
         localStorage.setItem('email', email);
-        history.push('/myevent');
+        history.push('/feed');
     }
 
     const addLoginCredentials = async () => {
@@ -38,10 +41,15 @@ const setInformation = async () => {
         try {
             response = await loginRemote.checkLoginCredentials(payload);
             await setInformation();
+            window.location.reload(false)
         } catch { 
             alert('Incorrect username and/or password')
             }
+        
         } 
+
+
+        
         
 
 return (
