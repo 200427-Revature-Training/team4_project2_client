@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { makeStyles, createStyles, Theme, Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button, Popover } from '@material-ui/core';
-import { SocialEvent } from '../../../models/Event';
+import React, { useState, useEffect } from 'react';
+import { makeStyles, Button } from '@material-ui/core';
 import { useHistory } from 'react-router';
 import { PostFeedBoxComponent } from './post-feed-box.component';
 import { Post } from '../../../models/Post';
@@ -21,12 +20,13 @@ const useStyles = makeStyles({
     },
     boxk: {
         display: "flex",
+        flexDirection: "column",
+        maxWidth: 1200,
+
     },
 
 });
 
-//!get userd ID from local storage or cookie
-const userId = 1;
 
 export const childViews = {
     myPosts: 'MY_POSTS',
@@ -36,7 +36,6 @@ export const childViews = {
 };
 
 interface PostFeedComponentProps {
-    // socialEvent: SocialEvent;
     userId: number;
 }
 
@@ -49,8 +48,14 @@ export const PostFeedComponent: React.FC<PostFeedComponentProps> = (props) => {
     // const [myLikePosts, setMyLikePosts] = useState<Post[]>([]);
     const [view, setView] = useState<'MY_POSTS' | 'MY_FOLLOW_POSTS' | 'MY_LIKE_POSTS' | 'NEW_POSTS'>('MY_POSTS');
 
+    useEffect(() => {
+        if (Posts.length == 0) {
+            setViewAndFeed('MY_POSTS');
+        }
+    }, [])
+
     const setViewAndFeed = async (e: any) => {
-        const retrievedPosts = await eventRemote.getPostsByUserId(userId);
+        const retrievedPosts = await eventRemote.getPostsByUserId(props.userId);
         setPosts(retrievedPosts);
         setView(e);
     }
@@ -58,32 +63,26 @@ export const PostFeedComponent: React.FC<PostFeedComponentProps> = (props) => {
     const renderPostBoxComponents = () => {
         switch (view) {
             case childViews.myPosts:
-                // let retrievedPosts = await eventRemote.getPostsByUserId(userId);
-                // setPosts(retrievedPosts);
                 return Posts.map(post => {
                     return (
-                        <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} />
+                        <div>
+                            <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} />
+                        </div>
                     )
                 })
             case childViews.myFollowPosts:
-                // retrievedPosts = await eventRemote.getPostsByFollowUserId(userId);
-                // setPosts(retrievedPosts);
                 return Posts.map(post => {
                     return (
                         <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} />
                     )
                 })
             case childViews.myLikePosts:
-                // retrievedPosts = await eventRemote.getPostsByLikeUserId(userId);
-                // setPosts(retrievedPosts);
                 return Posts.map(post => {
                     return (
                         <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} />
                     )
                 })
             case childViews.newPosts:
-                // retrievedPosts = await eventRemote.getAllPosts();
-                // setPosts(retrievedPosts);
                 return Posts.map(post => {
                     return (
                         <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} />
@@ -93,7 +92,7 @@ export const PostFeedComponent: React.FC<PostFeedComponentProps> = (props) => {
     }
 
     return (
-        <div className={classes.rootk}>
+        <div className={classes.rootk} >
             <section>
                 <Button className={classes.buttonk} color="inherit"
                     onClick={(e) => setViewAndFeed('MY_POSTS')}>

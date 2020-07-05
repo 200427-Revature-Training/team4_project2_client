@@ -9,6 +9,7 @@ interface SearchListComponentProps {
     socialEvents: SocialEvent[];
     inputSocialEventKey: string;
     getEvent: (eventId: number) => void;
+    userId: number;
 }
 
 export const SearchListComponent: React.FC<SearchListComponentProps> = (props) => {
@@ -16,7 +17,9 @@ export const SearchListComponent: React.FC<SearchListComponentProps> = (props) =
     const renderEventCardComponents =  () => {
         // props.setSocialEvents(retrievedSocialEvents);
         return props.socialEvents.map(socialEvent => {
-            return (<EventCardComponent key={socialEvent.id} socialEvent={socialEvent} getEvent={props.getEvent}></EventCardComponent>)
+            return (<EventCardComponent key={socialEvent.id} socialEvent={socialEvent} 
+                                        getEvent={props.getEvent} userId={props.userId}>
+                    </EventCardComponent>)
         })
     }
 

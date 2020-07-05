@@ -49,14 +49,12 @@ export const FeedProfileComponent: React.FC<FeedProfileComponentProps> = (props)
     }, [])
 
     const loadUserInfo = async () => {
-        console.log(props.userId);
         const retrievedUserInfo: any = await feedRemote.getUserByUserId(props.userId)
-        console.log(retrievedUserInfo.data);
         setUserInfo(retrievedUserInfo.data);
     }
 
     return (
-        <Card className={classes.root}>
+        <Card className={classes.root} id="containerS">
             <div className={classes.details}>
                 <CardContent className={classes.content}>
                     <AccountCircleIcon fontSize="large" />
@@ -67,10 +65,6 @@ export const FeedProfileComponent: React.FC<FeedProfileComponentProps> = (props)
                         {userInfo?.email}
                     </Typography>
                 </CardContent>
-                <div className={classes.controls}>
-                    {/* {userInfo?.firstName}
-                    {userInfo?.lastName} */}
-                </div>
             </div>
             <CardMedia
                 className={classes.cover}

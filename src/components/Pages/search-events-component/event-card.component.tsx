@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles, createStyles, Theme, Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button, Popover } from '@material-ui/core';
 import { SocialEvent } from '../../../models/Event';
 import { useHistory } from 'react-router';
@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
         containerk: {
             display: 'flex',
             paddingTop: 40,
-            
+
         },
         rootk: {
             maxWidth: 345,
@@ -27,7 +27,8 @@ const useStyles = makeStyles((theme: Theme) =>
         typography: {
             padding: theme.spacing(1),
             minHeight: 140,
-            minWidth: 300,
+            minWidth: 250,
+            margin: "auto"
         },
     }),
 );
@@ -35,6 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
 interface EventCardComponentProps {
     socialEvent: SocialEvent;
     getEvent: (eventId: number) => void;
+    userId: number;
 }
 
 export const EventCardComponent: React.FC<EventCardComponentProps> = ({ socialEvent, getEvent }) => {
@@ -51,51 +53,46 @@ export const EventCardComponent: React.FC<EventCardComponentProps> = ({ socialEv
     };
 
     const handleJoin = async (socialEventId: number) => {
-        // const userId = localStorage.getItem('userId')
-        const userId = 1;
+        const userId = localStorage.getItem('userId')
         if (!userId) {
-        alert("please login to join events")
+            alert("please login to join events")
         } else if (!userId && !socialEventId) {
-        alert("This Social Event Doesnt Exist Anymore")
+            alert("This Social Event Doesnt Exist Anymore")
         } else {
-        const payload = {
-            id: userId,
-            events: [{id: socialEventId}]
-        }
-        console.log(payload);
-        try {
-            const addedSocialEvent = await attendRemote.addSocialEventToAttendingList(payload);
-            alert("add was sucessful")
-        } catch {
-        alert("Oops You enconuntered and Error that has nothing to do with us")
+            const payload = {
+                id: userId,
+                events: [{ id: socialEventId }]
+            }
+            console.log(payload);
+            try {
+                const addedSocialEvent = await attendRemote.addSocialEventToAttendingList(payload);
+                alert("add was sucessful")
+            } catch {
+                alert("Oops You enconuntered and Error that has nothing to do with us")
+            }
         }
     }
-}
 
     const handleRedirect = (e: number) => {
         //pass the social event id to the next page
-        getEvent(e);
         // navigating to detail
         // cache["user"] = user;
         // history.push("/template");
-
         // rendering /template
         // const user = cache["user"] // also handle an empty cache?
-
+        getEvent(e);
         history.push('/forum');
-        //history push to the next page? and use a cache to store values or local storage. 
     }
 
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
 
     return (
-        <Card className={classes.rootk} id="event-card">
-            <CardActionArea>
+        <Card className={classes.rootk} id="event-card" >
+            <CardActionArea onClick={() => handleRedirect(socialEvent.id)} id="containerM">
                 <CardMedia
                     className={classes.mediak}
                 // image="/static/images/cards/contemplative-reptile.jpg"
-                // title="Contemplative Reptile"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
@@ -134,8 +131,11 @@ export const EventCardComponent: React.FC<EventCardComponentProps> = ({ socialEv
                 >
                     <Typography className={classes.typography}>
                         <tr>{socialEvent.description}</tr>
+                        <br />
                         Price: <tr>{socialEvent.price}</tr>
+                        <br />
                         Max Participants: <tr>{socialEvent.maxPeople}</tr>
+                        <br />
                         Starting Time:<tr>{socialEvent.startTime.toISOString()}</tr>
                     </Typography>
                 </Popover>

@@ -80,11 +80,10 @@ return (
           <Typography variant="h6" className={classes.title} id="logo">
             {user !==false ? `Welcome ${user}` : "PlaceHolder for user's name"}
           </Typography>
+          <Link to="/searchevent" id="nav-buttons">
           <Button color="inherit" id="nav-buttons">
             Events
           </Button>
-        <Link to="/searchevent" id="nav-links">
-          <Button color="inherit" id="nav-buttons">Category</Button>
         </Link>
         
         <div hidden={viewChange}>
@@ -103,13 +102,13 @@ return (
 
         
         <div hidden={!viewChange} >
+
           <Link to="/feed" id="nav-links">
-          <Button color="inherit" id="nav-buttons">Feed </Button>
+            <Button color="inherit" id="nav-buttons">
+              Feed
+                </Button>
           </Link>
-          <Link to="/myevent" id="nav-links">
-          <Button color="inherit" id="nav-buttons">My Events</Button>
-          </Link>
-          <Button color="inherit" id="nav-buttons">Join Event</Button>
+
           <Link to="/" id="nav-links">
             <Button color="inherit" id="nav-buttons" onClick={() => endSession()}>Log Out</Button>
           </Link>
