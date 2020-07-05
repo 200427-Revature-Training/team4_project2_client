@@ -11,6 +11,7 @@ interface JoinEventComponentProps {
     setSocialEventType: (str: 'OUTDOORS' | 'ARTS_CRAFTS' | 'BOARD_VIDEO_GAMES' | 'EXERCISE' |
         'CONVENTIONS' | 'TECH' | 'TALK_DISCUSSION' | 'OTHER' | '') => void;
     getEvent: (eventId: number) => void;
+    userId: number;
 }
 
 export const JoinEventComponent: React.FC<JoinEventComponentProps> = (props) => {
@@ -19,7 +20,9 @@ export const JoinEventComponent: React.FC<JoinEventComponentProps> = (props) => 
             return props.socialEvents.map(socialEvent => {
                 return (
                     <Grid item xl={3} sm={3}>
-                        <EventCardComponent key={socialEvent.id} socialEvent={socialEvent} getEvent={props.getEvent}></EventCardComponent>
+                        <EventCardComponent key={socialEvent.id} socialEvent={socialEvent} 
+                                            getEvent={props.getEvent} userId={props.userId}
+                        ></EventCardComponent>
                     </Grid>)
             })
     }

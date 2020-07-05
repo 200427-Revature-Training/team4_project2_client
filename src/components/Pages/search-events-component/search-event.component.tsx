@@ -38,31 +38,26 @@ export const SearchEventComponent: React.FC<SearchEventComponentProps> = (props)
     const [inputSocialEventKey, setInputSocialEventKey] = useState('');
     const [socialEventType, setSocialEventType] = useState<'OUTDOORS' | 'ARTS_CRAFTS' | 'BOARD_VIDEO_GAMES' | 'EXERCISE' |
         'CONVENTIONS' | 'TECH' | 'TALK_DISCUSSION' | 'OTHER' | ''>('');
+    const userId = +JSON.parse(JSON.stringify(localStorage.getItem("userId")));
 
-    const addSocialEvent = (socialEvent: SocialEvent) => {
-        setSocialEvents([...socialEvents, socialEvent]);
-    }
+    // const addSocialEvent = (socialEvent: SocialEvent) => {
+    //     setSocialEvents([...socialEvents, socialEvent]);
+    // }
 
     const getCurrentView = () => {
         switch (view) {
             case childViews.categoryList: return <CategoryListComponent setView={setView} socialEvents={socialEvents}
                 setSocialEventType={setSocialEventType} socialEventType={socialEventType} setSocialEvents={setSocialEvents} />;
-            case childViews.joinList: return <JoinEventComponent setView={setView} socialEvents={socialEvents}
+            case childViews.joinList: return <JoinEventComponent setView={setView} socialEvents={socialEvents} userId={userId}
                 socialEventType={socialEventType} setSocialEventType={setSocialEventType} getEvent={props.getEvent} />
             case childViews.searchedList: return <SearchListComponent setView={setView} socialEvents={socialEvents}
-                inputSocialEventKey={inputSocialEventKey} getEvent={props.getEvent} />
+                inputSocialEventKey={inputSocialEventKey} getEvent={props.getEvent} userId={userId} />
             default: return <React.Fragment />
         }
     }
 
     const searchOnEnter = async (e: any) => {
         if (e.key === 'Enter') {
-            // props.setSocialEventType(e);
-            // const socialEventHolder = props.socialEventType
-            // const retrievedSocialEvents = await eventRemote.getAllSocialEvents();
-
-            //!Change this to retrieve all social Events and then filter them based on search
-            //!Also create Sorting functions for these event cards. 
             const retrievedSocialEvents = await eventRemote.getSocialEventByTitle(inputSocialEventKey)
             setSocialEvents(retrievedSocialEvents);
             setView('JOIN_LIST');

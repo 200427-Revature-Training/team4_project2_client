@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { MenuItem, Select, InputLabel, FormControl, Button, Container, Card } from '@material-ui/core';
 import * as feedRemote from '../../../remotes/feed.remote';
+import * as eventRemote from '../../../remotes/event.remote';
+import { SocialEvent } from '../../../models/Event';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -35,6 +37,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface FeedHostComponentProps {
     userId: number;
+    setHostSocialEvents: (socialEvents: SocialEvent[]) => void;
+    setAttendSocialEvents: (socialEvents: SocialEvent[]) => void;
 }
 
 export const FeedHostComponent: React.FC<FeedHostComponentProps> = (props) => {
@@ -45,6 +49,21 @@ export const FeedHostComponent: React.FC<FeedHostComponentProps> = (props) => {
     const [socialEventMaxPeople, setSocialEventMaxPeople] = React.useState(0);
     const [socialEventPrice, setSocialEventPrice] = React.useState(0);
     const [socialEventStartDate, setSocialEventStartDate] = React.useState("");
+
+    useEffect(() => {
+        loadHostEvents();
+        loadAttendEvents();
+    }, [])
+
+    const loadHostEvents = async () => {
+        const retrievedSocialEvents = await eventRemote.getHostSocialEventByUserId(props.userId)
+        props.setHostSocialEvents(retrievedSocialEvents);
+    }
+
+    const loadAttendEvents = async () => {
+        const retrievedSocialEvents = await feedRemote.getUserByUserId(props.userId)
+        props.setAttendSocialEvents(retrievedSocialEvents.data.events);
+    }
 
 
     const submitHostEvent = async () => {
@@ -59,7 +78,6 @@ export const FeedHostComponent: React.FC<FeedHostComponentProps> = (props) => {
         }
 
         try {
-            console.log(payload);
             feedRemote.hostNewSocialEvent(payload);
             await setInformation();
         } catch {
