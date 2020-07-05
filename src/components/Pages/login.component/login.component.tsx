@@ -2,19 +2,20 @@ import React, { useState, useEffect } from 'react';
 import './login.component.css';
 import { Link, useHistory } from 'react-router-dom';
 import * as loginRemote from '../../../remotes/login.remote';
+import { TrendingUpSharp } from '@material-ui/icons';
 
 export const LoginComponent: React.FC = () => {
+const history = useHistory();
+const [inputUsername, setInputUsername] = useState('');
+const [inputUserPassword, setInputUserPassword] = useState('');
+const [state, setState] = useState<number>();
+const [update, setUpdate]=useState<any>();
     
-    const history = useHistory();
-    const [inputUsername, setInputUsername] = useState('');
-    const [inputUserPassword, setInputUserPassword] = useState('');
-    const [alert, setAlert] = useState(false);
 
-    useEffect(() => {
-    }, [])
+useEffect(() => {}, [])
 
-    let response: any;
-    const setInformation = async () => {
+let response: any;
+const setInformation = async () => {
         setInputUsername('');
         setInputUserPassword('');
         const authToken = response.data.token;
@@ -29,12 +30,20 @@ export const LoginComponent: React.FC = () => {
             username: inputUsername,
             password: inputUserPassword
         };
-
         try {
             response = await loginRemote.checkLoginCredentials(payload);
             await setInformation();
-        } catch { setAlert(true) };
-    }
+            window.location.reload(false)
+        } catch { 
+            alert('Incorrect username and/or password')
+            }
+        
+        } 
+
+
+        
+        
+
 return (
         <div className="wrapper">
 
@@ -65,7 +74,7 @@ return (
                     </form>
                 
                 <div className="logIn">
-                <button type="submit" onClick={() => addLoginCredentials()}>Log In</button>
+                <button type="submit" onClick={() => addLoginCredentials()} >Log In</button>
                     <small> 
                         <Link to="/signup">
                             Don't have an account? Create one
