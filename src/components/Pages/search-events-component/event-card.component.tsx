@@ -36,25 +36,13 @@ const useStyles = makeStyles((theme: Theme) =>
 interface EventCardComponentProps {
     socialEvent: SocialEvent;
     getEvent: (eventId: number) => void;
+    userId: number;
 }
 
 export const EventCardComponent: React.FC<EventCardComponentProps> = ({ socialEvent, getEvent }) => {
     const classes = useStyles();
     const history = useHistory();
     const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
-    // const [disabled, setDisabled] = useState(false);
-    // const isUser = typeof(localStorage.getItem('userId')) === "number";
-
-    // useEffect(() => {
-    //     decideDisabled()}, [])
-
-    //     const decideDisabled = () => {
-    //         if(isUser) {
-    //             setDisabled(true);
-    //         } else {
-    //             setDisabled(false);
-    //         }
-    //     }
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
@@ -65,8 +53,7 @@ export const EventCardComponent: React.FC<EventCardComponentProps> = ({ socialEv
     };
 
     const handleJoin = async (socialEventId: number) => {
-        // const userId = localStorage.getItem('userId')
-        const userId = 1;
+        const userId = localStorage.getItem('userId')
         if (!userId) {
             alert("please login to join events")
         } else if (!userId && !socialEventId) {

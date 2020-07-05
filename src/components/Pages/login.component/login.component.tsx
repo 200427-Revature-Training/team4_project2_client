@@ -18,11 +18,10 @@ export const LoginComponent: React.FC = () => {
         setInputUsername('');
         setInputUserPassword('');
         const authToken = response.data.token;
-        const userId = response.data.userId;
+        const decodeValue = JSON.parse(window.atob(authToken.split('.')[1]))
         localStorage.setItem('accessToken', authToken);
-        localStorage.setItem('userId', userId);
-        console.log(response.data)
-        history.push('/myevent');
+        localStorage.setItem('userId', decodeValue.id);
+        history.push('/feed');
     }
 
     const addLoginCredentials = async () => {
@@ -32,9 +31,7 @@ export const LoginComponent: React.FC = () => {
         };
 
         try {
-            console.log(payload);
             response = await loginRemote.checkLoginCredentials(payload);
-            console.log(response);
             await setInformation();
         } catch { setAlert(true) };
     }

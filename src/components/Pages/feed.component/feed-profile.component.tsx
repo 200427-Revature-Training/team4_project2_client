@@ -49,9 +49,7 @@ export const FeedProfileComponent: React.FC<FeedProfileComponentProps> = (props)
     }, [])
 
     const loadUserInfo = async () => {
-        console.log(props.userId);
         const retrievedUserInfo: any = await feedRemote.getUserByUserId(props.userId)
-        console.log(retrievedUserInfo.data);
         setUserInfo(retrievedUserInfo.data);
     }
 

@@ -30,9 +30,7 @@ export const MainFeedComponent: React.FC = () => {
     const classes = useStyles();
     const [hostSocialEvents, setHostSocialEvents] = useState<SocialEvent[]>([]);
     const [attendSocialEvents, setAttendSocialEvents] = useState<SocialEvent[]>([]);
-
-    const userId = 1;
-    // const userId = localStorage.getItem("userId");
+    const userId = +JSON.parse(JSON.stringify(localStorage.getItem("userId")));
 
     useEffect(() => {
         loadHostEvents();
@@ -55,7 +53,7 @@ export const MainFeedComponent: React.FC = () => {
             <section className={classes.rootk} >
                 <FeedProfileComponent userId={userId} />
                 <div className={classes.fragmentk}>
-                    <FeedHostComponent userId={userId} />
+                    <FeedHostComponent userId={userId} setHostSocialEvents={setHostSocialEvents} setAttendSocialEvents={setAttendSocialEvents} />
                 </div>
             </section>
             <section className={classes.fragmentk}>
