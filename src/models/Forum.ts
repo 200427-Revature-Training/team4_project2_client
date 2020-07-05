@@ -1,29 +1,43 @@
 export interface Event {
   id: number;
-  description: string;
+  title: string;
   image: string;
-  maxPeople: number;
   price: number;
   startTime: Date;
-  title: string;
-  eventTypeId: number;
-  hostId: number;
+  maxPeople: number;
+  description: string;
+  eventType: {
+    id: number;
+    eventType: string;
+  };
 }
 
 export interface Post {
   id: number;
+  image: string;
   postContent: string;
   creationTime: Date;
-  image: string;
-  eventId: number;
-  userId: number;
+  user: {
+    id: number;
+    username: string;
+    userPassword: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+  };
 }
 
 export interface Comment {
   id: number;
+  image: string;
   commentContent: string;
   creationTime: Date;
-  image: string;
-  postId: number;
-  userId: number;
+  user: {
+    id: number;
+    username: string;
+    userPassword: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+  };
 }

@@ -16,6 +16,8 @@ import {
   getForumComment,
 } from "../../../remotes/forum.remote";
 import { Event, Post, Comment } from "../../../models/Forum";
+import { CreatePostComponent } from "./forun-sub.components/create-post.component";
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -65,14 +67,14 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
   const classe = useStyle();
   const clas = useStyl();
   const [id, setId] = useState(props.eventId);
-  const [event, setEvent] = useState<Event[]>();
+  const [event, setEvent] = useState<Event[]>([]);
   const [post, setPost] = useState<Post[]>();
   const [comment, setComment] = useState<Comment[]>();
 
   const handleClick = async () => {
     if (id != "") {
       const temp = await getForumEvent(id);
-      setEvent(temp);
+      setEvent([temp]);
 
       const temp1 = await getForumPost(id);
       setPost(temp1);
@@ -82,7 +84,6 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
   useEffect(() => {
     handleClick();
   }, []);
-
   const handleComment = async (id: number) => {
     const temp = await getForumComment(id.toString());
     setComment(temp);
@@ -123,14 +124,25 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
                   className={classe.title}
                   id="event-text"
                 >
-                  {e.title}
+                  {e.title.toLocaleUpperCase()}
                   <article>{e.description}</article>
-                  <table cellPadding="5" cellSpacing="2" id="event-table">
-                    <tr>
-                      <td>Price: {e.price}</td>
-                      <td>Max Attendees: {e.maxPeople}</td>
-                      <td>Start Date: {e.startTime}</td>
-                    </tr>
+                  <table
+                    cellPadding="10"
+                    cellSpacing="5"
+                    className="event-table"
+                  >
+                    <tbody>
+                      <tr className="tablecell">
+                        <td>Price: {e.price}</td>
+                        <td>Max Attendees: {e.maxPeople}</td>
+                        <td>Start Date: {e.startTime}</td>
+                      </tr>
+                      <tr className="event-table create-post">
+                        <td>
+                          <CreatePostComponent event={event} />
+                        </td>
+                      </tr>
+                    </tbody>
                   </table>
                 </Typography>
               </Paper>
@@ -150,8 +162,10 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
                       className={classe.title}
                       id="forum-main-text"
                     >
-                      Title <br />
-                      <span id="post-date">{p.creationTime}</span>
+                      <div className="poster-details">
+                        <span id="poster-name">{p.user.username}</span>
+                        <span id="poster-date">{p.creationTime}</span>
+                      </div>
                       <article>{p.postContent}</article>
                     </Typography>
                   </Paper>
@@ -173,8 +187,19 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
                       {comment?.map((c) => {
                         return (
                           <ExpansionPanelDetails key={c.id}>
-                            <Typography>
-                              {c.creationTime} {c.commentContent}
+                            <Typography id="comment-text">
+                              <div className="poster-details">
+                                <span id="poster-name">{c.user.username}</span>
+                                <span id="poster-date">{c.creationTime}</span>
+                              </div>
+                              <article>
+                                {c.commentContent}
+                                Lorem ipsum dolor sit amet consectetur,
+                                adipisicing elit. Doloremque voluptas beatae
+                                inventore fugit, suscipit atque labore ex est
+                                iusto corporis. Maiores atque in deserunt
+                                dignissimos dolor ipsam, quia dolorum quo. yar
+                              </article>
                             </Typography>
                           </ExpansionPanelDetails>
                         );
