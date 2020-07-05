@@ -7,7 +7,6 @@ import { PostFeedComponent } from './post-feed.component';
 import { FeedProfileComponent } from './feed-profile.component';
 import { FeedHostComponent } from './feed-host-event.component';
 import * as feedRemote from '../../../remotes/feed.remote';
-import { red } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -26,11 +25,16 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const MainFeedComponent: React.FC = () => {
+interface MainFeedComponentProps {
+    getEvent: (eventId: number) => void;
+}
+
+export const MainFeedComponent: React.FC<MainFeedComponentProps> = (props) => {
     const classes = useStyles();
     const [hostSocialEvents, setHostSocialEvents] = useState<SocialEvent[]>([]);
     const [attendSocialEvents, setAttendSocialEvents] = useState<SocialEvent[]>([]);
     const userId = +JSON.parse(JSON.stringify(localStorage.getItem("userId")));
+    // const [refresh, setRefresh] = useState(false);
 
     useEffect(() => {
         loadHostEvents();
@@ -49,17 +53,17 @@ export const MainFeedComponent: React.FC = () => {
 
     return (
         <React.Fragment >
-            <Container  maxWidth="xl" disableGutters className={classes.containerL} >
-            <section className={classes.rootk} >
-                <FeedProfileComponent userId={userId} />
-                <div className={classes.fragmentk}>
-                    <FeedHostComponent userId={userId} setHostSocialEvents={setHostSocialEvents} setAttendSocialEvents={setAttendSocialEvents} />
-                </div>
-            </section>
-            <section className={classes.fragmentk}>
-                <EventListBoxComponent hostSocialEvents={hostSocialEvents} attendSocialEvents={attendSocialEvents} />
-                <PostFeedComponent userId={userId}/>
-            </section>
+            <Container maxWidth="xl" disableGutters className={classes.containerL} >
+                <section className={classes.rootk} >
+                    <FeedProfileComponent userId={userId} />
+                    <div className={classes.fragmentk}>
+                        <FeedHostComponent userId={userId} />
+                    </div>
+                </section>
+                <section className={classes.fragmentk}>
+                    <EventListBoxComponent hostSocialEvents={hostSocialEvents} attendSocialEvents={attendSocialEvents} getEvent={props.getEvent} />
+                    <PostFeedComponent userId={userId} getEvent={props.getEvent}  />
+                </section>
             </Container>
         </React.Fragment>
     );
