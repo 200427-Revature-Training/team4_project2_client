@@ -13,11 +13,12 @@ export const getForumPost = async (eventpost: string) => {
 
 export const getForumComment = async (eventpost: string) => {
   const response = await authAxios.get<Comment[]>(
-    `comment?postId/${eventpost}`
+    `comment?postId=${eventpost}`
   );
   return response.data;
 };
 export const forumPost = async (post: any, event: any) => {
+  const tempId = localStorage.getItem("userId");
   const response = await authAxios.post(`/post`, {
     image: "image2",
     postContent: post,
@@ -26,7 +27,23 @@ export const forumPost = async (post: any, event: any) => {
       id: event,
     },
     user: {
-      id: 1,
+      id: parseInt(tempId ? tempId : ""),
+    },
+  });
+  return response;
+};
+
+export const forumComment = async (comment: any, postId: any) => {
+  const tempId = localStorage.getItem("userId");
+  const response = await authAxios.post(`/comment`, {
+    image: "image2",
+    commentContent: comment,
+    creationTime: new Date(Date.now()),
+    post: {
+      id: postId,
+    },
+    user: {
+      id: parseInt(tempId ? tempId : ""),
     },
   });
   return response;

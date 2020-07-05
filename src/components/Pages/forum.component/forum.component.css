@@ -78,9 +78,19 @@
   justify-content: center;
 }
 
-#comments {
+.comment-head {
+  font-family: "Titillium Web", sans-serif;
   color: #006272;
   font-size: 1.2rem;
+  display: flex;
+  flex-flow: row wrap;
+}
+.add-comment {
+  flex: 1 30%;
+  margin-left: 40px;
+}
+#comments {
+  flex: 1 50%;
 }
 #c {
   margin: 0;

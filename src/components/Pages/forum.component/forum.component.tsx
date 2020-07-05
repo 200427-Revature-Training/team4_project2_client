@@ -17,6 +17,7 @@ import {
 } from "../../../remotes/forum.remote";
 import { Event, Post, Comment } from "../../../models/Forum";
 import { CreatePostComponent } from "./forun-sub.components/create-post.component";
+import { CreateCommentComponent } from "./forun-sub.components/create-comment.component";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -69,6 +70,7 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
   const [id, setId] = useState(props.eventId);
   const [event, setEvent] = useState<Event[]>([]);
   const [post, setPost] = useState<Post[]>();
+  const [postId, setPostId] = useState<number>();
   const [comment, setComment] = useState<Comment[]>();
 
   const handleClick = async () => {
@@ -85,6 +87,7 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
     handleClick();
   }, []);
   const handleComment = async (id: number) => {
+    setPostId(id);
     const temp = await getForumComment(id.toString());
     setComment(temp);
   };
@@ -180,8 +183,13 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                       >
-                        <Typography className={clas.heading} id="comments">
-                          Comments
+                        <Typography className={clas.heading}>
+                          <div className="comment-head">
+                            <span className="comments">Comments</span>
+                            <span className="comments add-comment">
+                              <CreateCommentComponent postId={postId} />
+                            </span>
+                          </div>
                         </Typography>
                       </ExpansionPanelSummary>
                       {comment?.map((c) => {
@@ -230,9 +238,6 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
           </Grid>
         </Grid>
       </section>
-      <Fab aria-label="like" color="secondary" onClick={() => handleClick()}>
-        <FavoriteIcon />
-      </Fab>
       <footer id="copyright">
         &copy; 2020 TempestSociety Inc- All Right Reserved
       </footer>
