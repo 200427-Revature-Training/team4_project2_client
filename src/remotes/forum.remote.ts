@@ -17,8 +17,17 @@ export const getForumComment = async (eventpost: string) => {
   );
   return response.data;
 };
-export const forumPost = async (payload: any) => {
-  return authAxios.post(`/post`, {
-    data: payload,
+export const forumPost = async (post: any, event: any) => {
+  const response = await authAxios.post(`/post`, {
+    image: "image2",
+    postContent: post,
+    creationTime: new Date(Date.now()),
+    event: {
+      id: event,
+    },
+    user: {
+      id: 1,
+    },
   });
+  return response;
 };
