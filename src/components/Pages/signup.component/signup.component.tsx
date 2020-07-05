@@ -49,7 +49,7 @@ export const SignUpComponent: React.FC = () => {
         setEnterUsername('');
         setEnteruserEmail('');
         setEnteruserPassword('');
-        history.push('/myevent');
+        history.push('/login');
     }
 
     const inputNewAccountInfo = async () => {
@@ -61,11 +61,11 @@ export const SignUpComponent: React.FC = () => {
         }
 
         const payload = {
-            userFirstName: enteruserFirstName,
-            userLastName: enteruserLastName,
+            firstName: enteruserFirstName,
+            lastName: enteruserLastName,
             username: enterUsername,
-            userEmail: enteruserEmail,
-            userPassword: enteruserPassword
+            email: enteruserEmail,
+            password: enteruserPassword
         };
 
         try {

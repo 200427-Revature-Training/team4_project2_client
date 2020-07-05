@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -8,6 +8,14 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import "./navbar.component.css";
 import { Link } from "react-router-dom";
+import Axios from 'axios';
+import {authAxios} from '../remotes/internal-Axios'
+import {checkLoginCredentials} from '../remotes/login.remote'
+import { Login } from '../models/login';
+import { FlashAutoOutlined } from "@material-ui/icons";
+
+
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -24,11 +32,33 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const NavBarComponent: React.FC = () => {
+  
   const classes = useStyles();
-  const isLoggedIn = false;
   const [user, setUser] = useState("");
+  const [viewChange, setViewChange]= useState(false)
+  const [refresh, setRefresh] = useState(true)
 
-  return (
+  const isAuthenticated = localStorage.getItem('accessToken')
+
+useEffect(() => {
+  loggedIn();
+}, [])
+
+const loggedIn = () =>{
+  if (isAuthenticated){
+    setViewChange(true)
+  }
+}
+
+
+
+  const endSession = () => {
+    localStorage.removeItem('accessToken');
+    setViewChange(false)
+  }
+
+
+return (
     <div>
       <AppBar position="static" id="navbar-custom">
         <Toolbar>
@@ -49,27 +79,33 @@ export const NavBarComponent: React.FC = () => {
           <Button color="inherit" id="nav-buttons">
             Events
           </Button>
-          {!isLoggedIn && (
-            <div>
-              <Link to="/login" id="nav-links">
-                <Button color="inherit" id="nav-buttons">
-                  Login
+        
+        <div hidden={viewChange}>
+          <Link to="/login" id="nav-links">
+            <Button color="inherit" id="nav-buttons">
+              Login
                 </Button>
-              </Link>
+          </Link>
 
-              <Link to="/signup" id="nav-links">
-                <Button color="inherit" id="nav-buttons">
-                  SignUp
+          <Link to="/signup" id="nav-links">
+            <Button color="inherit" id="nav-buttons">
+              SignUp
                 </Button>
-              </Link>
-            </div>
-          )}
-          {isLoggedIn && (
-            <div>
-              <Button>My Events</Button>
-              <Button>Join Event</Button>
-            </div>
-          )}
+          </Link>
+        </div> :
+
+        
+        <div hidden={!viewChange} >
+          <Button color="inherit" id="nav-buttons">My Events</Button>
+          <Button color="inherit" id="nav-buttons">Join Event</Button>
+          <Link to="/" id="nav-links">
+            <Button color="inherit" id="nav-buttons" onClick={() => endSession()}>Log Out</Button>
+          </Link>
+
+        </div>
+
+        
+
         </Toolbar>
       </AppBar>
     </div>

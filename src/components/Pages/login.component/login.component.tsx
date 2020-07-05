@@ -27,7 +27,6 @@ const setInformation = async () => {
         localStorage.setItem('firstName', firstName);
         localStorage.setItem('lastname', lastName);
         localStorage.setItem('email', email);
-        console.log(response.data)
         history.push('/myevent');
     }
 
@@ -36,16 +35,14 @@ const setInformation = async () => {
             username: inputUsername,
             password: inputUserPassword
         };
-  
         try {
-            console.log(payload);
             response = await loginRemote.checkLoginCredentials(payload);
-            console.log(response)
             await setInformation();
         } catch { 
             alert('Incorrect username and/or password')
             }
         } 
+        
 
 return (
         <div className="wrapper">
@@ -77,7 +74,7 @@ return (
                     </form>
                 
                 <div className="logIn">
-                <button type="submit" onClick={() => addLoginCredentials()}>Log In</button>
+                <button type="submit" onClick={() => addLoginCredentials()} >Log In</button>
                     <small> 
                         <Link to="/signup">
                             Don't have an account? Create one
