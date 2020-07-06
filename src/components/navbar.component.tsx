@@ -7,8 +7,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import "./navbar.component.css";
 import { Link } from "react-router-dom";
-import * as loginRemote from "../remotes/login.remote";
-import { User } from "../models/User";
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -26,8 +25,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const NavBarComponent: React.FC = () => {
   const classes = useStyles();
-  let [user, setUser] = useState(false);
-  const [viewChange, setViewChange] = useState(false);
+  const [viewChange, setViewChange]= useState(false)
+
+
+
 
   const isAuthenticated = localStorage.getItem("accessToken");
 
@@ -35,16 +36,12 @@ export const NavBarComponent: React.FC = () => {
     loggedIn();
   }, []);
 
-  const loggedIn = () => {
-    if (isAuthenticated) {
-      setViewChange(true);
-    }
-  };
+const loggedIn = () =>{
+  if (isAuthenticated){
+    setViewChange(true)
+  }
+}
 
-  const displayUsername = async () => {
-    localStorage.getItem("accessToken");
-    setUser(true);
-  };
 
   const endSession = () => {
     localStorage.removeItem("accessToken");
@@ -67,7 +64,7 @@ export const NavBarComponent: React.FC = () => {
             </IconButton>
           </Link>
           <Typography variant="h6" className={classes.title} id="logo">
-            Keep The Fun Going
+            
           </Typography>
           <Link to="/searchevent" id="nav-buttons">
             <Button color="inherit" id="nav-buttons">

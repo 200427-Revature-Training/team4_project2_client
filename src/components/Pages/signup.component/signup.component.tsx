@@ -72,7 +72,9 @@ export const SignUpComponent: React.FC = () => {
             response = await signupRemote.createNewAccount(payload);
             console.log(response);
             await setInfo();
-        } catch { setAlert(true) };
+        } catch { setAlert(true)
+            alert('Username already exists')
+        };
     }
     
 
