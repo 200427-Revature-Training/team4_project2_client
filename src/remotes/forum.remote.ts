@@ -1,8 +1,13 @@
-import { internalAxios, authAxios } from "./internal-Axios";
+import { authAxios } from "./internal-Axios";
 import { Event, Post, Comment } from "../models/Forum";
 
 export const getForumEvent = async (eventpost: string) => {
   const response = await authAxios.get(`/event/external/eventId/${eventpost}`);
+  return response.data;
+};
+
+export const getAllEvent = async () => {
+  const response = await authAxios.get<Event[]>("/event/external/");
   return response.data;
 };
 

@@ -27,7 +27,6 @@ export interface CommentProps {
 }
 
 export const CreateCommentComponent: React.FC<CommentProps> = (props) => {
-  console.log(props.postId);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [comment, setComment] = React.useState("");

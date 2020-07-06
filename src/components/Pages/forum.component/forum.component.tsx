@@ -14,6 +14,7 @@ import {
   getForumPost,
   getForumEvent,
   getForumComment,
+  getAllEvent,
 } from "../../../remotes/forum.remote";
 import { Event, Post, Comment } from "../../../models/Forum";
 import { CreatePostComponent } from "./forun-sub.components/create-post.component";
@@ -63,11 +64,11 @@ interface ForumProps {
 }
 
 export const ForumComponent: React.FC<ForumProps> = (props) => {
-  //console.log(props.eventId);
   const classes = useStyles();
   const classe = useStyle();
   const clas = useStyl();
   const [id, setId] = useState(props.eventId);
+  const [other, setOther] = useState<Event[]>([]);
   const [event, setEvent] = useState<Event[]>([]);
   const [post, setPost] = useState<Post[]>();
   const [postId, setPostId] = useState<number>();
@@ -80,6 +81,10 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
 
       const temp1 = await getForumPost(id);
       setPost(temp1);
+
+      const temp2 = await getAllEvent();
+      const filter = temp2.filter((o) => o.id != id);
+      setOther(filter);
     }
   };
 
@@ -92,6 +97,18 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
     setComment(temp);
   };
 
+  const handleOther = async (e: any) => {
+    const temp = await getForumEvent(e);
+    setEvent([temp]);
+
+    const temp1 = await getForumPost(e);
+    setPost(temp1);
+
+    const temp2 = await getAllEvent();
+    const filter = temp2.filter((o) => o.id != e);
+    setOther(filter);
+  };
+
   return (
     <div className={classes.root} id="forum-container">
       <Grid container spacing={0}>
@@ -102,17 +119,23 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
               className={classe.title}
               id="forum-rules-text"
             >
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio
-              aliquam eligendi obcaecati veritatis sint tempora, quibusdam
-              debitis, porro, saepe blanditiis numquam! Officiis blanditiis eum
-              labore alias eaque deleniti, iusto impedit. Lorem ipsum dolor sit
-              amet consectetur adipisicing elit. Reiciendis aliquid ipsa sit
-              cumque doloribus provident aut placeat sint rem accusantium nisi
-              veniam a ipsam, corrupti velit consequuntur iusto, numquam
-              aperiam! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quisquam ipsum, iure atque doloremque pariatur quae illum tempora
-              laboriosam velit, eligendi dolore esse magnam cum dolorum aperiam
-              minima cupiditate et expedita.
+              Please read the following rules carefully, as violation of any of
+              them may result in termination of your account.
+              <ol id="rules-list">
+                <li>Do not post copyright-infringing material.</li>
+                <li>Do not post “offensive” posts, links or images.</li>
+                <li>Remain respectful of other members at all times.</li>
+                <li>
+                  Please do not spam. The definition of spam is an irrelevant or
+                  advertising post. Any post considered spam will be removed.
+                </li>
+                <li>
+                  {" "}
+                  Please do not post threads text in all CAPITALS since this is
+                  considered to be shouting and is not necessary.
+                </li>
+              </ol>
+              HAVE FUN!!!
             </Typography>
           </Paper>
         </Grid>
@@ -127,8 +150,8 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
                   className={classe.title}
                   id="event-text"
                 >
-                  {e.title.toLocaleUpperCase()}
-                  <article>{e.description}</article>
+                  <span id="title">{e.title.toLocaleUpperCase()}</span>
+                  <article>{e.description.toUpperCase()}</article>
                   <table
                     cellPadding="10"
                     cellSpacing="5"
@@ -197,17 +220,13 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
                           <ExpansionPanelDetails key={c.id}>
                             <Typography id="comment-text">
                               <div className="poster-details">
-                                <span id="poster-name">{c.user.username}</span>
+                                <span id="poster-name">
+                                  {c.user.username} {"\u00A0"}
+                                  {"\u00A0"}
+                                </span>
                                 <span id="poster-date">{c.creationTime}</span>
                               </div>
-                              <article>
-                                {c.commentContent}
-                                Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit. Doloremque voluptas beatae
-                                inventore fugit, suscipit atque labore ex est
-                                iusto corporis. Maiores atque in deserunt
-                                dignissimos dolor ipsam, quia dolorum quo. yar
-                              </article>
+                              <article>{c.commentContent}</article>
                             </Typography>
                           </ExpansionPanelDetails>
                         );
@@ -226,13 +245,15 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
                 id="forum-rules-text"
               >
                 Other Forums
-                <ul id="other-forum-links">
-                  <li>Because Science</li>
-                  <li>YOLO</li>
-                  <li>Muffin Man Did what now?</li>
-                  <li>G-Max One Blow</li>
-                  <li>Potato AI</li>
-                </ul>
+                {other.slice(0, 6).map((o) => {
+                  return (
+                    <ul id="other-forum-links">
+                      <li key={o.id} onClick={() => handleOther(o.id)}>
+                        {o.description.toUpperCase()}
+                      </li>
+                    </ul>
+                  );
+                })}
               </Typography>
             </Paper>
           </Grid>
@@ -244,9 +265,3 @@ export const ForumComponent: React.FC<ForumProps> = (props) => {
     </div>
   );
 };
-/*
-{posts?.map((p) => {
-  return (
-);
-})}
-*/

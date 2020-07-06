@@ -19,6 +19,15 @@
   text-overflow: ellipsis;
   white-space: wrap;
   overflow: hidden;
+  font-size: 1.4rem;
+  font-weight: bolder;
+}
+#rules-list {
+  font-size: 1.3rem;
+}
+
+#title {
+  font-weight: bold;
 }
 
 #forum-proper {
@@ -57,9 +66,16 @@
 }
 
 #other-forum-links {
-  font-size: 1.2rem;
+  font-size: 1rem;
   list-style: square;
+  cursor: pointer;
 }
+
+#other-forum-links:hover {
+  font-size: 1.2rem;
+  transition: 0.5s;
+}
+
 #post-date {
   font-size: 0.9rem;
 }

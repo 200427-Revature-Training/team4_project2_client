@@ -31,7 +31,6 @@ export const CreatePostComponent: React.FC<PostProps> = (props) => {
   const [open, setOpen] = React.useState(false);
   const [post, setPost] = React.useState("");
   const [eventId, setEventId] = React.useState(props.event);
-  //console.log(eventId);
 
   //useEffect(() => {}, []);
 
