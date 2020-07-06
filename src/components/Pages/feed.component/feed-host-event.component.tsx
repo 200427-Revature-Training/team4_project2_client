@@ -34,8 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         modal: {
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'flex-end',
         },
         paper: {
             backgroundColor: theme.palette.background.paper,
@@ -46,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) =>
             maxWidth: 300,
         },
         resize: {
-            fontSize: 25
+            fontSize: 20
         }
     }),
 );
