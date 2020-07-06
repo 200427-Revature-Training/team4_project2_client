@@ -1,0 +1,342 @@
+INSERT INTO public.users (email,first_name,last_name,user_password,username) VALUES
+('Kei@Kei.com','Kei','Keilson','$2b$10$3U1nowvIaZ6U5VuUioYWIeNdTnvkUbFTBVEggLYqFjriYJ64P2rFm','Kei2020')
+,('Mitch@Mitch.com','Mitch','Mitchellson','$2b$10$3U1nowvIaZ6U5VuUioYWIeNdTnvkUbFTBVEggLYqFjriYJ64P2rFm','Mitch2020')
+,('bebop@frontside.com','bukadiri','trawally','$2a$10$UcWljOP3hoU94S.6osGH5OmQQFNIdOmwuJzU/ANK8Hqrowx4nWnxC','CowboyBebop')
+,('mew@mewtwo.com','mew','mewtwo','$2a$10$1XHLt5EyZSV34Q8wUtA5ReycZPjMWOgAW8zsKvmPN1iWYpOQQh9GO','mew')
+,('heads0@marriott.com','Hastie','Eads','$2a$10$D.P6UHWn5FtP66XP8Z3Wb.bc8jBYYJ5/22kSatirJNMGHN26WqLz6','heads0')
+,('rharcase1@indiegogo.com','Rockwell','Harcase','$2a$10$iGuMRX6lXy/pdpkQxti65u/B/.WjCktfD4Oqwy27M9Rz4u8Z1ZX4m','rharcase1')
+,('itowne2@gravatar.com','Ingar','Towne','$2a$10$y8XQ43M7i3DqWBHoinmPB.TYDkixFo32.7us2Y3gwjLoJhPTWye36','itowne2')
+,('amuff3@furl.net','Adaline','Muff','$2a$10$tf14X2IYpjEHlR73MKSm5emQx7gcq62yR/fyJw1IAn415yj8WtouS','amuff3')
+,('afirks4@list-manage.com','Aubert','Firks','$2a$10$2V9HkYaY46R4sB.bjBPniuxbUPFzjzIAOvd2zamCdvCTsNMrn1RSC','afirks4')
+,('afannon5@parallels.com','Amye','Fannon','$2a$10$OiLgL4Lrt6ctuR3LWFqlCOqomb.toEnnj6o0dWNTjcojXH26ZjJcO','afannon5')
+;
+INSERT INTO public.users (email,first_name,last_name,user_password,username) VALUES
+('rmerigot6@cargocollective.com','Renie','Merigot','$2a$10$6yYTcz.2P.of4A8AvM2bE.Kln3ARPDfV.iE8hIXpDUqto2WnC.O7W','rmerigot6')
+,('kalthrop7@example.com','Kay','Althrop','$2a$10$/WDMBxOFlmwaLQ5DvfVmXuZTD9rbXVDaRswoQi9YU3BBPoE5aq/dS','kalthrop7')
+,('rmerigot6@cargocollective.com','michel','charles','$2a$10$GYFehoCvioiIFHZAX/g4Beq0b1y.zB16aM3NubW133zFQIszR4El2','michel')
+,('rmerigot6@cargocollective.com','Pongatee','Wongthawesap','$2a$10$qK4/XNxl9rzn3ocLdYwDHu1JQ.ayxtSaEIjMSOvQ43Tgo1wdEOPUW','kei')
+,('rmerigot6@cargocollective.com','Keith','Salzman','$2a$10$RLIjDI3Q90uW0/7yYwmHduWHJmibd/uxfUAdmzOlUqWq5rnXMNCBW','keith')
+,('rmerigot6@cargocollective.com','Bukadiri','Trawally','$2a$10$G0PWbf2bjmlhsGPVG.ah4ecJnZtM.fieUTaSZ/FBCJ8VdcVbIDceu','haji')
+;
+
+insert into user_locations (user_id, state, city, street_name, street_number) values (1, 'Texas', 'Beaumont', 'Arrowood', '628');
+insert into user_locations (user_id, state, city, street_name, street_number) values (6, 'Texas', 'Spring', 'Mccormick', '852');
+insert into user_locations (user_id, state, city, street_name, street_number) values (7, 'Utah', 'Ogden', 'Anniversary', '644');
+insert into user_locations (user_id, state, city, street_name, street_number) values (15, 'Missouri', 'Kansas City', 'Karstens', '213');
+insert into user_locations (user_id, state, city, street_name, street_number) values (10, 'California', 'Inglewood', 'Mayer', '413');
+insert into user_locations (user_id, state, city, street_name, street_number) values (7, 'Ohio', 'Toledo', 'Sutteridge', '021');
+insert into user_locations (user_id, state, city, street_name, street_number) values (12, 'Texas', 'El Paso', 'Del Mar', '764');
+insert into user_locations (user_id, state, city, street_name, street_number) values (6, 'Nevada', 'Las Vegas', 'Independence', '933');
+insert into user_locations (user_id, state, city, street_name, street_number) values (9, 'Idaho', 'Idaho Falls', 'Macpherson', '365');
+insert into user_locations (user_id, state, city, street_name, street_number) values (7, 'Texas', 'Beaumont', 'Schurz', '986');
+insert into user_locations (user_id, state, city, street_name, street_number) values (8, 'California', 'Ventura', 'Laurel', '743');
+insert into user_locations (user_id, state, city, street_name, street_number) values (16, 'Illinois', 'Schaumburg', 'Eastlawn', '758');
+insert into user_locations (user_id, state, city, street_name, street_number) values (15, 'District of Columbia', 'Washington', 'Swallow', '199');
+insert into user_locations (user_id, state, city, street_name, street_number) values (1, 'Utah', 'Salt Lake City', 'Crest Line', '921');
+insert into user_locations (user_id, state, city, street_name, street_number) values (3, 'Nebraska', 'Omaha', 'Jenna', '306');
+insert into user_locations (user_id, state, city, street_name, street_number) values (9, 'Nevada', 'North Las Vegas', 'Kropf', '706');
+
+INSERT INTO event_types (event_type) VALUES
+('convention'),
+('outdoor'),
+('arts & crafts'),
+('board & video games'),
+('exercise'),
+('technology'),
+('talks & discussions'),
+('other');
+
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('synergize value-added supply-chains', 'image0', 360, 780, '2020-02-03', 'convention7', 6, 16);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('architect back-end partnerships', 'image6', 260, 880, '2020-03-05', 'convention4', 2, 8);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('harness sticky web-readiness', 'image4', 220, 860, '2020-01-22', 'convention7', 1, 14);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('morph sticky metrics', 'image1', 280, 500, '2020-06-04', 'convention0', 2, 14);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('architect robust metrics', 'image7', 270, 950, '2020-01-10', 'convention0', 1, 1);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('evolve dynamic deliverables', 'image4', 120, 630, '2020-05-07', 'convention2', 5, 12);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('deliver efficient networks', 'image5', 440, 750, '2020-04-15', 'convention8', 7, 1);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('transition enterprise niches', 'image7', 190, 710, '2020-03-11', 'convention3', 4, 1);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('syndicate cross-platform ROI', 'image8', 470, 120, '2020-02-28', 'convention8', 1, 10);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('streamline real-time functionalities', 'image5', 340, 910, '2020-01-31', 'convention1', 2, 2);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('maximize turn-key initiatives', 'image6', 370, 70, '2020-06-08', 'convention1', 7, 1);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('integrate visionary initiatives', 'image0', 480, 520, '2020-03-16', 'convention4', 6, 4);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('visualize 24/365 schemas', 'image0', 470, 440, '2020-03-07', 'convention1', 7, 4);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('strategize bricks-and-clicks users', 'image6', 150, 830, '2020-04-27', 'convention8', 6, 3);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('visualize B2C action-items', 'image9', 60, 260, '2020-02-13', 'convention6', 3, 16);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('recontextualize frictionless synergies', 'image7', 480, 750, '2020-01-13', 'convention5', 6, 11);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('unleash innovative initiatives', 'image4', 240, 890, '2020-02-25', 'convention1', 4, 1);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('integrate granular partnerships', 'image2', 400, 770, '2020-02-20', 'convention4', 3, 12);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('synthesize clicks-and-mortar web services', 'image9', 80, 730, '2020-03-18', 'convention1', 7, 1);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('expedite dot-com portals', 'image6', 260, 60, '2020-06-29', 'convention9', 8, 9);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('leverage 24/365 infomediaries', 'image6', 340, 900, '2020-04-21', 'convention1', 2, 8);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('target synergistic users', 'image9', 400, 510, '2020-04-14', 'convention1', 5, 16);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('facilitate visionary content', 'image9', 280, 580, '2020-05-09', 'convention8', 4, 12);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('incentivize dynamic schemas', 'image7', 250, 780, '2020-01-21', 'convention8', 5, 16);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('orchestrate end-to-end e-services', 'image3', 500, 540, '2020-01-20', 'convention1', 6, 11);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('enhance proactive paradigms', 'image3', 460, 150, '2020-02-26', 'convention9', 1, 15);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('incubate scalable systems', 'image0', 260, 430, '2020-04-15', 'convention8', 4, 5);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('reinvent collaborative communities', 'image8', 70, 240, '2020-02-21', 'convention2', 3, 15);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('brand front-end infomediaries', 'image7', 400, 420, '2020-01-18', 'convention6', 1, 4);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('utilize next-generation relationships', 'image5', 390, 580, '2020-03-17', 'convention8', 7, 1);
+
+insert into event_locations (event_id, state, city, street_name, street_number) values (13, 'Oklahoma', 'Oklahoma City', 'Granby', '3');
+insert into event_locations (event_id, state, city, street_name, street_number) values (16, 'New York', 'Albany', 'La Follette', '6');
+insert into event_locations (event_id, state, city, street_name, street_number) values (30, 'Ohio', 'Hamilton', 'Moland', '24');
+insert into event_locations (event_id, state, city, street_name, street_number) values (8, 'Missouri', 'Saint Louis', 'Thierer', '247');
+insert into event_locations (event_id, state, city, street_name, street_number) values (30, 'Texas', 'Waco', 'Bonner', '4292');
+insert into event_locations (event_id, state, city, street_name, street_number) values (20, 'California', 'Chico', 'Algoma', '34346');
+insert into event_locations (event_id, state, city, street_name, street_number) values (25, 'Colorado', 'Aurora', 'American', '0');
+insert into event_locations (event_id, state, city, street_name, street_number) values (17, 'South Carolina', 'Spartanburg', 'Ronald Regan', '313');
+insert into event_locations (event_id, state, city, street_name, street_number) values (28, 'Michigan', 'Grand Rapids', 'Kropf', '9');
+insert into event_locations (event_id, state, city, street_name, street_number) values (21, 'California', 'San Diego', 'Melvin', '81');
+insert into event_locations (event_id, state, city, street_name, street_number) values (11, 'California', 'Riverside', 'Swallow', '300');
+insert into event_locations (event_id, state, city, street_name, street_number) values (12, 'District of Columbia', 'Washington', 'Dryden', '0');
+insert into event_locations (event_id, state, city, street_name, street_number) values (29, 'Louisiana', 'Lafayette', 'International', '87304');
+insert into event_locations (event_id, state, city, street_name, street_number) values (26, 'Florida', 'Clearwater', 'Alpine', '3558');
+insert into event_locations (event_id, state, city, street_name, street_number) values (28, 'Colorado', 'Colorado Springs', 'Sutherland', '54');
+insert into event_locations (event_id, state, city, street_name, street_number) values (26, 'New York', 'New Hyde Park', 'Hintze', '4');
+insert into event_locations (event_id, state, city, street_name, street_number) values (26, 'District of Columbia', 'Washington', 'Farragut', '13');
+insert into event_locations (event_id, state, city, street_name, street_number) values (25, 'Massachusetts', 'New Bedford', 'Shelley', '250');
+insert into event_locations (event_id, state, city, street_name, street_number) values (14, 'Washington', 'Vancouver', 'Comanche', '73');
+insert into event_locations (event_id, state, city, street_name, street_number) values (10, 'California', 'Corona', 'Morrow', '396');
+insert into event_locations (event_id, state, city, street_name, street_number) values (8, 'Texas', 'Houston', 'Menomonie', '89545');
+insert into event_locations (event_id, state, city, street_name, street_number) values (21, 'Texas', 'San Antonio', 'Quincy', '36268');
+insert into event_locations (event_id, state, city, street_name, street_number) values (23, 'Illinois', 'Bloomington', 'Utah', '14560');
+insert into event_locations (event_id, state, city, street_name, street_number) values (18, 'New York', 'Jamaica', 'Logan', '0926');
+insert into event_locations (event_id, state, city, street_name, street_number) values (26, 'Louisiana', 'Metairie', 'Anhalt', '51');
+insert into event_locations (event_id, state, city, street_name, street_number) values (11, 'Arizona', 'Scottsdale', 'Hintze', '70');
+insert into event_locations (event_id, state, city, street_name, street_number) values (6, 'Washington', 'Spokane', 'American Ash', '42536');
+insert into event_locations (event_id, state, city, street_name, street_number) values (16, 'Florida', 'Fort Lauderdale', 'Monument', '7');
+insert into event_locations (event_id, state, city, street_name, street_number) values (26, 'Oklahoma', 'Oklahoma City', 'Reindahl', '9343');
+insert into event_locations (event_id, state, city, street_name, street_number) values (9, 'Florida', 'North Port', 'New Castle', '92');
+
+insert into user_events (event_id, attend_id) values (12, 5);
+insert into user_events (event_id, attend_id) values (6, 15);
+insert into user_events (event_id, attend_id) values (13, 3);
+insert into user_events (event_id, attend_id) values (1, 3);
+insert into user_events (event_id, attend_id) values (9, 2);
+insert into user_events (event_id, attend_id) values (21, 15);
+insert into user_events (event_id, attend_id) values (10, 7);
+insert into user_events (event_id, attend_id) values (10, 6);
+insert into user_events (event_id, attend_id) values (17, 16);
+insert into user_events (event_id, attend_id) values (4, 13);
+insert into user_events (event_id, attend_id) values (18, 4);
+insert into user_events (event_id, attend_id) values (3, 6);
+insert into user_events (event_id, attend_id) values (3, 1);
+insert into user_events (event_id, attend_id) values (26, 5);
+insert into user_events (event_id, attend_id) values (24, 3);
+insert into user_events (event_id, attend_id) values (25, 8);
+insert into user_events (event_id, attend_id) values (6, 16);
+insert into user_events (event_id, attend_id) values (11, 12);
+insert into user_events (event_id, attend_id) values (30, 7);
+insert into user_events (event_id, attend_id) values (10, 1);
+insert into user_events (event_id, attend_id) values (6, 16);
+insert into user_events (event_id, attend_id) values (26, 11);
+insert into user_events (event_id, attend_id) values (25, 12);
+insert into user_events (event_id, attend_id) values (14, 6);
+insert into user_events (event_id, attend_id) values (3, 11);
+insert into user_events (event_id, attend_id) values (21, 13);
+insert into user_events (event_id, attend_id) values (15, 3);
+insert into user_events (event_id, attend_id) values (10, 11);
+insert into user_events (event_id, attend_id) values (5, 11);
+insert into user_events (event_id, attend_id) values (9, 7);
+
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Implemented discrete groupware', 'image9', '2020-06-20', 3, 10);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Phased zero administration artificial intelligence', 'image8', '2020-05-31', 2, 7);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Distributed stable customer loyalty', 'image1', '2020-02-17', 4, 3);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Progressive radical Graphical User Interface', 'image1', '2020-01-28', 17, 8);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Customer-focused national hardware', 'image0', '2020-03-11', 5, 5);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Multi-lateral coherent database', 'image0', '2020-06-23', 2, 7);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Function-based intangible firmware', 'image7', '2020-06-19', 24, 9);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Down-sized modular archive', 'image4', '2020-05-14', 28, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Distributed fault-tolerant migration', 'image5', '2020-04-23', 7, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Open-architected foreground orchestration', 'image0', '2020-03-24', 30, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Grass-roots encompassing frame', 'image8', '2020-01-29', 9, 6);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Persevering 3rd generation encoding', 'image2', '2020-03-29', 14, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Team-oriented needs-based capacity', 'image4', '2020-06-05', 29, 1);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Focused fault-tolerant parallelism', 'image1', '2020-03-24', 22, 14);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Expanded optimal neural-net', 'image9', '2020-05-21', 30, 15);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Total incremental conglomeration', 'image5', '2020-04-26', 18, 13);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Re-contextualized coherent structure', 'image6', '2020-04-25', 8, 3);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Multi-channelled regional interface', 'image8', '2020-05-31', 29, 3);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Implemented explicit support', 'image7', '2020-04-20', 2, 4);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Realigned explicit budgetary management', 'image6', '2020-03-17', 3, 6);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Organic intangible open architecture', 'image6', '2020-01-14', 21, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Distributed reciprocal paradigm', 'image1', '2020-06-27', 25, 4);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Adaptive national challenge', 'image3', '2020-06-22', 28, 6);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Automated non-volatile frame', 'image9', '2020-02-28', 26, 4);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Managed intangible synergy', 'image3', '2020-03-10', 16, 2);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Inverse bi-directional workforce', 'image5', '2020-02-27', 28, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Optional homogeneous projection', 'image2', '2020-01-23', 26, 14);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Extended composite leverage', 'image0', '2020-03-02', 13, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Customer-focused intangible neural-net', 'image9', '2020-01-24', 14, 1);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Function-based actuating parallelism', 'image7', '2020-04-08', 16, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Down-sized disintermediate core', 'image5', '2020-01-08', 26, 2);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Versatile modular approach', 'image7', '2020-03-30', 15, 14);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Optimized directional service-desk', 'image8', '2020-05-06', 6, 8);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Decentralized reciprocal alliance', 'image4', '2020-05-12', 4, 2);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Grass-roots bifurcated synergy', 'image5', '2020-05-14', 19, 7);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Synchronised grid-enabled focus group', 'image9', '2020-04-10', 22, 3);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Networked stable groupware', 'image0', '2020-05-09', 18, 7);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Re-engineered content-based matrix', 'image0', '2020-04-21', 7, 15);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Proactive foreground utilisation', 'image5', '2020-06-05', 10, 2);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Pre-emptive logistical task-force', 'image3', '2020-01-28', 14, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Profound asynchronous middleware', 'image5', '2020-02-08', 1, 5);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Re-engineered leading edge implementation', 'image7', '2020-03-16', 24, 16);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Monitored motivating moderator', 'image9', '2020-05-10', 26, 13);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Networked impactful projection', 'image1', '2020-02-09', 10, 14);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Multi-layered systemic architecture', 'image3', '2020-05-31', 15, 9);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Synchronised disintermediate parallelism', 'image4', '2020-02-23', 10, 13);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Enhanced local core', 'image4', '2020-06-17', 20, 10);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Distributed coherent moderator', 'image8', '2020-01-30', 18, 15);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Cloned discrete workforce', 'image2', '2020-04-20', 2, 10);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Cloned hybrid open architecture', 'image0', '2020-05-23', 15, 6);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Business-focused asymmetric forecast', 'image3', '2020-05-21', 9, 6);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Streamlined neutral interface', 'image6', '2020-06-02', 30, 15);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Digitized needs-based standardization', 'image0', '2020-03-08', 20, 13);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Inverse homogeneous solution', 'image6', '2020-06-17', 13, 8);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Synergistic non-volatile capacity', 'image3', '2020-04-09', 14, 1);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Phased 6th generation toolset', 'image7', '2020-02-13', 17, 16);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Universal global orchestration', 'image1', '2020-03-11', 27, 10);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Ergonomic even-keeled flexibility', 'image7', '2020-02-20', 16, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Managed foreground internet solution', 'image0', '2020-03-22', 1, 2);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Phased well-modulated definition', 'image1', '2020-01-28', 30, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Compatible mobile approach', 'image1', '2020-07-03', 16, 16);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Grass-roots high-level moratorium', 'image1', '2020-06-17', 4, 16);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Programmable motivating attitude', 'image0', '2020-03-22', 23, 7);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Innovative object-oriented time-frame', 'image2', '2020-05-05', 4, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Reverse-engineered fresh-thinking forecast', 'image4', '2020-06-04', 3, 16);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Synchronised holistic access', 'image3', '2020-04-11', 11, 9);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Extended heuristic frame', 'image4', '2020-05-19', 17, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Cross-group multi-state frame', 'image1', '2020-02-09', 16, 13);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Horizontal client-server orchestration', 'image8', '2020-06-09', 15, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Enterprise-wide zero defect focus group', 'image5', '2020-05-25', 23, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Open-source bifurcated projection', 'image2', '2020-03-13', 18, 16);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Triple-buffered static methodology', 'image0', '2020-04-25', 14, 13);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Persistent homogeneous parallelism', 'image1', '2020-03-31', 1, 16);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Function-based transitional system engine', 'image8', '2020-03-06', 28, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('De-engineered system-worthy projection', 'image4', '2020-05-22', 8, 4);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Expanded needs-based definition', 'image4', '2020-01-20', 9, 7);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Cross-group bi-directional hub', 'image1', '2020-02-26', 19, 10);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('User-friendly content-based archive', 'image7', '2020-01-09', 2, 6);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Ergonomic radical interface', 'image3', '2020-03-22', 26, 7);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Polarised methodical core', 'image9', '2020-03-18', 8, 3);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Ergonomic dedicated circuit', 'image4', '2020-01-12', 13, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Triple-buffered attitude-oriented Graphic Interface', 'image6', '2020-06-23', 8, 8);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Balanced discrete hardware', 'image3', '2020-05-10', 6, 2);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Reverse-engineered transitional artificial intelligence', 'image7', '2020-05-26', 9, 9);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Implemented secondary functionalities', 'image7', '2020-02-21', 6, 15);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Inverse composite algorithm', 'image1', '2020-03-23', 25, 3);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Virtual 6th generation policy', 'image5', '2020-02-22', 24, 15);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Stand-alone grid-enabled forecast', 'image2', '2020-06-11', 21, 8);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Synergized dynamic hierarchy', 'image2', '2020-01-07', 6, 16);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Networked zero administration policy', 'image2', '2020-04-07', 10, 14);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Persistent demand-driven productivity', 'image3', '2020-04-19', 3, 9);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Mandatory content-based leverage', 'image3', '2020-04-30', 2, 3);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Reduced motivating pricing structure', 'image9', '2020-02-11', 3, 2);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Vision-oriented discrete groupware', 'image5', '2020-06-13', 27, 10);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Multi-channelled grid-enabled internet solution', 'image5', '2020-04-13', 14, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Multi-channelled upward-trending architecture', 'image5', '2020-04-29', 18, 6);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Triple-buffered mission-critical extranet', 'image4', '2020-01-11', 24, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Advanced optimal pricing structure', 'image2', '2020-02-17', 17, 2);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('De-engineered local intranet', 'image9', '2020-06-01', 25, 13);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Managed encompassing function', 'image1', '2020-03-20', 23, 16);
+
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (15, 19, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.', 'image63', '2019-09-17');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (14, 58, 'Fusce consequat.', 'image64', '2019-08-16');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (14, 85, 'Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.', 'image57', '2020-04-07');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (11, 44, 'In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat.', 'image21', '2020-05-31');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (8, 38, 'Nullam molestie nibh in lectus.', 'image97', '2019-09-29');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (14, 63, 'Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.', 'image51', '2020-02-18');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (12, 4, 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.', 'image94', '2020-05-13');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (15, 74, 'In congue. Etiam justo.', 'image03', '2020-07-04');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (5, 1, 'Proin risus.', 'image64', '2020-02-12');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (13, 44, 'Donec vitae nisi.', 'image16', '2019-10-10');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (10, 98, 'Quisque id justo sit amet sapien dignissim vestibulum.', 'image28', '2019-11-17');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (2, 98, 'Nulla suscipit ligula in lacus.', 'image27', '2019-11-09');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (6, 42, 'Aenean fermentum.', 'image19', '2020-04-12');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (7, 61, 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.', 'image46', '2020-01-20');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (15, 60, 'Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 'image37', '2020-06-22');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (10, 3, 'Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.', 'image36', '2020-06-30');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (4, 97, 'Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.', 'image28', '2020-06-21');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (10, 95, 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.', 'image67', '2019-11-21');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (6, 19, 'Curabitur gravida nisi at nibh.', 'image18', '2019-09-11');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (13, 54, 'In congue. Etiam justo.', 'image65', '2020-01-14');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (8, 58, 'Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.', 'image47', '2020-06-02');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (9, 75, 'Etiam pretium iaculis justo. In hac habitasse platea dictumst.', 'image26', '2019-11-21');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (13, 56, 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.', 'image19', '2020-02-17');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (1, 26, 'Curabitur at ipsum ac tellus semper interdum.', 'image78', '2020-04-19');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (13, 17, 'Morbi a ipsum.', 'image82', '2020-05-30');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (1, 89, 'Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', 'image72', '2020-01-10');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (11, 5, 'Donec dapibus. Duis at velit eu est congue elementum.', 'image18', '2019-11-30');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (6, 81, 'Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', 'image53', '2020-04-28');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (1, 71, 'Proin at turpis a pede posuere nonummy. Integer non velit.', 'image38', '2020-05-22');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (9, 13, 'Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum.', 'image03', '2020-03-05');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (13, 72, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus.', 'image56', '2020-04-17');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (5, 87, 'Integer a nibh.', 'image01', '2019-10-04');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (13, 65, 'Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', 'image39', '2020-01-26');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (13, 17, 'Maecenas pulvinar lobortis est.', 'image53', '2020-06-10');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (10, 44, 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.', 'image84', '2019-07-26');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (6, 52, 'Nullam molestie nibh in lectus.', 'image92', '2020-05-18');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (8, 54, 'Aenean lectus. Pellentesque eget nunc.', 'image56', '2019-07-13');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (15, 56, 'Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.', 'image60', '2020-05-24');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (11, 43, 'Fusce consequat.', 'image06', '2019-08-05');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (6, 77, 'Ut at dolor quis odio consequat varius.', 'image90', '2020-05-28');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (11, 59, 'Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 'image22', '2019-11-15');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (1, 74, 'Integer ac neque. Duis bibendum.', 'image06', '2020-05-01');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (5, 26, 'Maecenas tincidunt lacus at velit.', 'image34', '2020-05-19');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (5, 100, 'In blandit ultrices enim.', 'image57', '2019-08-26');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (16, 53, 'Phasellus in felis.', 'image17', '2019-11-02');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (16, 99, 'Maecenas pulvinar lobortis est. Phasellus sit amet erat.', 'image03', '2019-10-09');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (15, 52, 'Vivamus tortor. Duis mattis egestas metus.', 'image21', '2020-04-30');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (8, 30, 'Ut tellus. Nulla ut erat id mauris vulputate elementum.', 'image73', '2019-12-16');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (13, 31, 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 'image50', '2020-03-11');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (14, 89, 'Morbi non quam nec dui luctus rutrum. Nulla tellus.', 'image34', '2020-01-10');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (14, 21, 'Proin eu mi. Nulla ac enim.', 'image85', '2020-06-12');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (16, 62, 'Donec ut dolor.', 'image27', '2020-04-20');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (9, 68, 'Fusce consequat. Nulla nisl.', 'image25', '2020-05-06');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (3, 59, 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus.', 'image54', '2019-08-04');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (2, 74, 'In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat.', 'image81', '2019-11-12');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (7, 3, 'In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.', 'image53', '2019-10-01');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (2, 28, 'Nulla tellus. In sagittis dui vel nisl.', 'image14', '2019-07-29');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (16, 80, 'Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.', 'image53', '2019-10-21');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (12, 84, 'Proin at turpis a pede posuere nonummy. Integer non velit.', 'image24', '2020-05-23');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (12, 7, 'Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.', 'image13', '2019-12-10');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (4, 4, 'In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.', 'image34', '2020-01-19');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (5, 94, 'Morbi ut odio.', 'image21', '2019-09-18');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (9, 66, 'Nunc rhoncus dui vel sem.', 'image78', '2020-02-21');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (4, 2, 'Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', 'image64', '2020-02-20');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (13, 66, 'Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.', 'image22', '2020-01-23');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (12, 12, 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', 'image81', '2019-11-09');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (3, 14, 'Sed sagittis.', 'image84', '2020-03-07');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (10, 100, 'Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.', 'image25', '2019-07-12');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (3, 7, 'Mauris ullamcorper purus sit amet nulla.', 'image11', '2020-01-21');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (6, 82, 'Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', 'image54', '2019-09-28');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (9, 6, 'Mauris ullamcorper purus sit amet nulla.', 'image13', '2020-02-11');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (12, 27, 'Sed accumsan felis. Ut at dolor quis odio consequat varius.', 'image43', '2020-03-26');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (4, 13, 'In congue. Etiam justo.', 'image72', '2020-04-14');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (14, 62, 'Sed vel enim sit amet nunc viverra dapibus.', 'image61', '2019-12-06');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (12, 56, 'Aenean lectus.', 'image35', '2020-03-05');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (16, 26, 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.', 'image29', '2019-07-23');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (4, 5, 'Nulla nisl.', 'image58', '2020-03-21');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (13, 100, 'Vestibulum rutrum rutrum neque.', 'image09', '2020-02-12');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (11, 17, 'Etiam justo.', 'image24', '2020-06-25');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (5, 60, 'Morbi non quam nec dui luctus rutrum. Nulla tellus.', 'image68', '2020-05-21');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (8, 39, 'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.', 'image44', '2020-04-13');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (15, 94, 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.', 'image17', '2020-02-15');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (11, 95, 'Phasellus in felis.', 'image87', '2020-03-06');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (2, 86, 'Nulla ac enim.', 'image64', '2020-06-08');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (14, 46, 'Aenean fermentum. Donec ut mauris eget massa tempor convallis.', 'image99', '2020-06-26');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (15, 28, 'Integer ac leo.', 'image30', '2019-08-06');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (13, 2, 'Phasellus in felis.', 'image55', '2020-01-06');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (11, 6, 'Integer non velit.', 'image05', '2020-03-05');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (13, 98, 'Nulla tellus. In sagittis dui vel nisl.', 'image36', '2019-12-25');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (12, 41, 'Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.', 'image51', '2020-05-04');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (9, 17, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 'image75', '2020-02-25');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (12, 89, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices.', 'image48', '2020-01-21');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (3, 28, 'Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.', 'image32', '2020-06-10');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (4, 12, 'Maecenas pulvinar lobortis est. Phasellus sit amet erat.', 'image09', '2019-08-13');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (15, 89, 'Vestibulum sed magna at nunc commodo placerat.', 'image77', '2019-08-18');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (16, 63, 'Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.', 'image76', '2019-12-23');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (5, 29, 'Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.', 'image86', '2019-07-11');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (9, 98, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus.', 'image70', '2019-09-29');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (1, 2, 'Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.', 'image05', '2019-10-14');
+insert into user_comments (user_id, post_id, comment_content, image, creation_time) values (13, 83, 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.', 'image05', '2020-03-14');

@@ -5,14 +5,10 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import "./navbar.component.css";
 import { Link } from "react-router-dom";
-import * as loginRemote from '../remotes/login.remote';
-import { User } from '../models/User';
-
-
-
+import * as loginRemote from "../remotes/login.remote";
+import { User } from "../models/User";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -29,40 +25,33 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const NavBarComponent: React.FC = () => {
-  
   const classes = useStyles();
   let [user, setUser] = useState(false);
-  const [viewChange, setViewChange]= useState(false)
+  const [viewChange, setViewChange] = useState(false);
 
+  const isAuthenticated = localStorage.getItem("accessToken");
 
+  useEffect(() => {
+    loggedIn();
+  }, []);
 
+  const loggedIn = () => {
+    if (isAuthenticated) {
+      setViewChange(true);
+    }
+  };
 
-  const isAuthenticated = localStorage.getItem('accessToken')
-
-  
-useEffect(() => {
-  loggedIn();
-}, [])
-
-const loggedIn = () =>{
-  if (isAuthenticated){
-    setViewChange(true)
-  }
-}
-
-const displayUsername = async () =>{
-  localStorage.getItem('accessToken')
-  setUser(true)
-}
-
+  const displayUsername = async () => {
+    localStorage.getItem("accessToken");
+    setUser(true);
+  };
 
   const endSession = () => {
-    localStorage.removeItem('accessToken');
-    setViewChange(false)
-  }
+    localStorage.removeItem("accessToken");
+    setViewChange(false);
+  };
 
-
-return (
+  return (
     <div>
       <AppBar position="static" id="navbar-custom">
         <Toolbar>
@@ -78,45 +67,44 @@ return (
             </IconButton>
           </Link>
           <Typography variant="h6" className={classes.title} id="logo">
-            {user !==false ? `Welcome ${user}` : "PlaceHolder for user's name"}
+            Keep The Fun Going
           </Typography>
           <Link to="/searchevent" id="nav-buttons">
-          <Button color="inherit" id="nav-buttons">
-            Events
-          </Button>
-        </Link>
-        
-        <div hidden={viewChange}>
-          <Link to="/login" id="nav-links">
             <Button color="inherit" id="nav-buttons">
-              Login
-                </Button>
+              Events
+            </Button>
           </Link>
+          <div hidden={viewChange}>
+            <Link to="/login" id="nav-links">
+              <Button color="inherit" id="nav-buttons">
+                Login
+              </Button>
+            </Link>
 
-          <Link to="/signup" id="nav-links">
-            <Button color="inherit" id="nav-buttons">
-              SignUp
-                </Button>
-          </Link>
-        </div> :
+            <Link to="/signup" id="nav-links">
+              <Button color="inherit" id="nav-buttons">
+                SignUp
+              </Button>
+            </Link>
+          </div>{" "}
+          :
+          <div hidden={!viewChange}>
+            <Link to="/feed" id="nav-links">
+              <Button color="inherit" id="nav-buttons">
+                Feed
+              </Button>
+            </Link>
 
-        
-        <div hidden={!viewChange} >
-
-          <Link to="/feed" id="nav-links">
-            <Button color="inherit" id="nav-buttons">
-              Feed
-                </Button>
-          </Link>
-
-          <Link to="/" id="nav-links">
-            <Button color="inherit" id="nav-buttons" onClick={() => endSession()}>Log Out</Button>
-          </Link>
-
-        </div>
-
-        
-
+            <Link to="/" id="nav-links">
+              <Button
+                color="inherit"
+                id="nav-buttons"
+                onClick={() => endSession()}
+              >
+                Log Out
+              </Button>
+            </Link>
+          </div>
         </Toolbar>
       </AppBar>
     </div>
