@@ -26,7 +26,7 @@
 main > div {
   color: white;
   width: 100vw;
-  height: 70vh;
+  height: 75vh;
   margin: 0;
 }
 
@@ -54,7 +54,9 @@ section {
 }
 #card-section {
   margin: auto;
+  height: 40vh;
 }
+
 #text-display {
   font-family: "Titillium Web", sans-serif;
   color: #006272;
@@ -80,4 +82,7 @@ section {
 
 section {
   color: #006272;
+}
+#text-display {
+  font-weight: bold;
 }

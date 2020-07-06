@@ -9,9 +9,6 @@ import "./navbar.component.css";
 import { Link } from "react-router-dom";
 
 
-
-
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -27,19 +24,17 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const NavBarComponent: React.FC = () => {
-  
   const classes = useStyles();
   const [viewChange, setViewChange]= useState(false)
 
 
 
 
-  const isAuthenticated = localStorage.getItem('accessToken')
+  const isAuthenticated = localStorage.getItem("accessToken");
 
-  
-useEffect(() => {
-  loggedIn();
-}, [])
+  useEffect(() => {
+    loggedIn();
+  }, []);
 
 const loggedIn = () =>{
   if (isAuthenticated){
@@ -48,14 +43,12 @@ const loggedIn = () =>{
 }
 
 
-
   const endSession = () => {
-    localStorage.removeItem('accessToken');
-    setViewChange(false)
-  }
+    localStorage.removeItem("accessToken");
+    setViewChange(false);
+  };
 
-
-return (
+  return (
     <div>
       <AppBar position="static" id="navbar-custom">
         <Toolbar>
@@ -74,42 +67,41 @@ return (
             
           </Typography>
           <Link to="/searchevent" id="nav-buttons">
-          <Button color="inherit" id="nav-buttons">
-            Events
-          </Button>
-        </Link>
-        
-        <div hidden={viewChange}>
-          <Link to="/login" id="nav-links">
             <Button color="inherit" id="nav-buttons">
-              Login
-                </Button>
+              Events
+            </Button>
           </Link>
+          <div hidden={viewChange}>
+            <Link to="/login" id="nav-links">
+              <Button color="inherit" id="nav-buttons">
+                Login
+              </Button>
+            </Link>
 
-          <Link to="/signup" id="nav-links">
-            <Button color="inherit" id="nav-buttons">
-              SignUp
-                </Button>
-          </Link>
-        </div> :
+            <Link to="/signup" id="nav-links">
+              <Button color="inherit" id="nav-buttons">
+                SignUp
+              </Button>
+            </Link>
+          </div>{" "}
+          :
+          <div hidden={!viewChange}>
+            <Link to="/feed" id="nav-links">
+              <Button color="inherit" id="nav-buttons">
+                Feed
+              </Button>
+            </Link>
 
-        
-        <div hidden={!viewChange} >
-
-          <Link to="/feed" id="nav-links">
-            <Button color="inherit" id="nav-buttons">
-              Feed
-                </Button>
-          </Link>
-
-          <Link to="/" id="nav-links">
-            <Button color="inherit" id="nav-buttons" onClick={() => endSession()}>Log Out</Button>
-          </Link>
-
-        </div>
-
-        
-
+            <Link to="/" id="nav-links">
+              <Button
+                color="inherit"
+                id="nav-buttons"
+                onClick={() => endSession()}
+              >
+                Log Out
+              </Button>
+            </Link>
+          </div>
         </Toolbar>
       </AppBar>
     </div>
