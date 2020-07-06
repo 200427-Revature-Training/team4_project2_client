@@ -3,7 +3,6 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { MenuItem, Select, InputLabel, FormControl, Button, Modal, Backdrop, Fade } from '@material-ui/core';
 import * as feedRemote from '../../../remotes/feed.remote';
-import * as eventRemote from '../../../remotes/event.remote';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -11,46 +10,42 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             '& > *': {
                 margin: theme.spacing(1),
-                width: '30ch',
                 padding: 10,
                 display: "flex",
                 flexDirection: "row",
-
             },
             '& .MuiTextField-root': {
                 margin: theme.spacing(1),
-                width: '30ch',
             },
         },
         textField: {
             marginLeft: theme.spacing(1),
             marginRight: theme.spacing(1),
-            width: '40ch',
         },
         formControl: {
             margin: theme.spacing(1),
-            minWidth: 120,
         },
         buttonRoot: {
             display: "flex",
+            position: "inherit",
         },
         buttonk: {
             fontSize: 30,
         },
         modal: {
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'flex-end',
         },
         paper: {
             backgroundColor: theme.palette.background.paper,
             border: '2px solid #000',
             boxShadow: theme.shadows[5],
-            padding: theme.spacing(10, 10, 10),
+            padding: theme.spacing(5, 5, 5),
             color: "inherit",
+            maxWidth: 300,
         },
         resize: {
-            fontSize: 30
+            fontSize: 20
         }
     }),
 );
@@ -91,6 +86,7 @@ export const FeedHostComponent: React.FC<FeedHostComponentProps> = (props) => {
         try {
             feedRemote.hostNewSocialEvent(payload);
             await setInformation();
+            window.location.reload();
         } catch {
             alert("Your event could not be hosted at this time")
         }
@@ -155,8 +151,6 @@ export const FeedHostComponent: React.FC<FeedHostComponentProps> = (props) => {
                                         shrink: true,
                                     }} value={socialEventStartDate} onChange={
                                         (e) => setSocialEventStartDate(e.target.value)} InputProps={{ classes: { input: classes.resize } }} />
-                            </form>
-                            <form className={classes.root} noValidate autoComplete="off">
                                 <FormControl className={classes.formControl} >
                                     <InputLabel id="demo-simple-select-label" >Event Type</InputLabel>
                                     <Select

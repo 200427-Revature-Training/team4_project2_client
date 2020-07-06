@@ -7,26 +7,28 @@ import Typography from '@material-ui/core/Typography';
 import * as feedRemote from '../../../remotes/feed.remote';
 import { User } from '../../../models/User';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { CardActionArea } from '@material-ui/core';
+import { green, teal } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             display: 'flex',
+            flexDirection: "row",
+            flexGrow: 1
         },
         details: {
-            paddingLeft: 20,
-            display: 'flex',
+            padding: 40,
             minWidth: 1000,
+            display: "flex",
+            
         },
-        content: {
+        subDetails: {
+            display: "flex",
+            flexGrow: 1
         },
-        cover: {
-        },
-        controls: {
-        },
-        playIcon: {
-        },
+
     }),
 );
 
@@ -51,22 +53,16 @@ export const FeedProfileComponent: React.FC<FeedProfileComponentProps> = (props)
 
     return (
         <Card className={classes.root} id="containerS">
-            <div className={classes.details}>
-                <CardContent className={classes.content}>
-                    <AccountCircleIcon fontSize="large" />
-                    <Typography component="h5" variant="h5">
-                        {userInfo?.username}
+            <CardActionArea  >
+                <CardContent className={classes.details}>
+                    <AccountCircleIcon  style={{ fontSize: 60, color: teal[500] }} />
+                    <Typography component="h5" variant="h3"style={{ color: teal[500] }} className={classes.subDetails}>
+                        {userInfo?.username} {userInfo?.email}
                     </Typography>
-                    <Typography variant="subtitle1" color="textSecondary">
-                        {userInfo?.email}
-                    </Typography>
+                    <Typography  color="textSecondary" component="h5" variant="h3" className={classes.subDetails}>
+                    </Typography> 
                 </CardContent>
-            </div>
-            <CardMedia
-                className={classes.cover}
-                image="/static/images/cards/live-from-space.jpg"
-                title="Live from space album cover"
-            />
+            </CardActionArea>
         </Card>
     );
 }

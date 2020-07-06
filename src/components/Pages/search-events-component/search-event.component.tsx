@@ -22,8 +22,6 @@ const useStyles = makeStyles((theme: Theme) =>
                 fontSize: 30,
             },
         },
-
-
     }),
 );
 
@@ -39,10 +37,7 @@ export const SearchEventComponent: React.FC<SearchEventComponentProps> = (props)
     const [socialEventType, setSocialEventType] = useState<'OUTDOORS' | 'ARTS_CRAFTS' | 'BOARD_VIDEO_GAMES' | 'EXERCISE' |
         'CONVENTIONS' | 'TECH' | 'TALK_DISCUSSION' | 'OTHER' | ''>('');
     const userId = +JSON.parse(JSON.stringify(localStorage.getItem("userId")));
-
-    // const addSocialEvent = (socialEvent: SocialEvent) => {
-    //     setSocialEvents([...socialEvents, socialEvent]);
-    // }
+    const copy: React.SetStateAction<SocialEvent[]> = [];
 
     const getCurrentView = () => {
         switch (view) {
@@ -58,8 +53,14 @@ export const SearchEventComponent: React.FC<SearchEventComponentProps> = (props)
 
     const searchOnEnter = async (e: any) => {
         if (e.key === 'Enter') {
-            const retrievedSocialEvents = await eventRemote.getSocialEventByTitle(inputSocialEventKey)
-            setSocialEvents(retrievedSocialEvents);
+            const retrievedSocialEvents = await eventRemote.getAllSocialEvents();
+            console.log(retrievedSocialEvents);
+            retrievedSocialEvents.forEach(function (event) {
+                if (event.title.includes(inputSocialEventKey)) {
+                    copy.push(event);
+                }
+            })
+            setSocialEvents(copy);
             setView('JOIN_LIST');
         }
     }
@@ -79,6 +80,16 @@ export const SearchEventComponent: React.FC<SearchEventComponentProps> = (props)
     );
 }
 
+    //     if (e.key === 'Enter') {
+    //         const retrievedSocialEvents = await eventRemote.getSocialEventByTitle(inputSocialEventKey)
+    //         setSocialEvents(retrievedSocialEvents);
+    //         setView('JOIN_LIST');
+    //     }
+    // }
+
+// const addSocialEvent = (socialEvent: SocialEvent) => {
+    //     setSocialEvents([...socialEvents, socialEvent]);
+    // }
 // backgroundImage: `url(${"../../../images/back.jpeg"})`,
 // image={require ("../../../images/back.jpg")}
 

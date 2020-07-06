@@ -64,7 +64,7 @@ const loggedIn = () =>{
             </IconButton>
           </Link>
           <Typography variant="h6" className={classes.title} id="logo">
-            
+          Keep The Fun Going
           </Typography>
           <Link to="/searchevent" id="nav-buttons">
             <Button color="inherit" id="nav-buttons">
