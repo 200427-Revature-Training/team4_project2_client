@@ -17,17 +17,13 @@ const useStyles = makeStyles((theme: Theme) =>
         details: {
             paddingLeft: 20,
             display: 'flex',
-            minWidth: 600,
-
+            minWidth: 1000,
         },
         content: {
-
         },
         cover: {
-
         },
         controls: {
-
         },
         playIcon: {
         },

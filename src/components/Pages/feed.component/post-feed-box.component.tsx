@@ -11,7 +11,7 @@ const useStyles = makeStyles({
         display: "flex",
         flexGrow: 1,
         margin: "auto",
-        padding: 30
+        padding: 0
     },
     root2: {
         padding:30,
@@ -28,15 +28,23 @@ const useStyles = makeStyles({
 interface PostFeedBoxComponentProps {
     post: any;
     userId: number;
+    getEvent: (eventId: number) => void; 
 }
 
 export const PostFeedBoxComponent: React.FC<PostFeedBoxComponentProps> = (props) => {
     const classes = useStyles();
     const history = useHistory();
 
+    const handleRedirect = (e: number) => {
+        props.getEvent(e);
+        history.push('/forum');
+    }
+
     return (
-        <Card className={classes.rootS} id="containerS">
-            <CardActionArea className={classes.root2}>
+        <React.Fragment>
+            <br />
+        <Card className={classes.rootS} id="containerN">
+            <CardActionArea className={classes.root2} onClick={() => handleRedirect(props.post.event.id)}>
                 <CardContent>
                     <Typography variant="h5" component="h2">
                         <GradeRoundedIcon />
@@ -51,5 +59,7 @@ export const PostFeedBoxComponent: React.FC<PostFeedBoxComponentProps> = (props)
                 </CardContent>
             </CardActionArea>
         </Card>
+        <br />
+        </React.Fragment>
     )
 }
