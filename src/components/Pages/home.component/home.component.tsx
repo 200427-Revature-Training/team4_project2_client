@@ -59,12 +59,12 @@ export const HomeComponent: React.FC = () => {
             the greatest events around. Check out some of our featured events
             below!!!
           </Typography>
-          <section>
+          <section id="b">
             <Card className={classe.root} id="card-section">
               <CardActionArea>
                 <CardMedia
                   className={classe.media}
-                  image="/static/images/cards/contemplative-reptile.jpg"
+                  image={require("../../../images/games.jpg")}
                   title="Contemplative Reptile"
                 />
                 <CardContent>
@@ -74,7 +74,7 @@ export const HomeComponent: React.FC = () => {
                     component="h2"
                     id="text-display"
                   >
-                    Lizard
+                    {"Board & Video Games"}
                   </Typography>
                   <Typography
                     variant="body2"
@@ -82,9 +82,11 @@ export const HomeComponent: React.FC = () => {
                     component="p"
                     id="text-display"
                   >
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
+                    There are at least two kinds of games. One could be called
+                    finite, the other infinite. A finite game is played for the
+                    purpose of winning, an infinite game for the purpose of
+                    continuing the play. <br />
+                    —James P. Carse
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -93,7 +95,7 @@ export const HomeComponent: React.FC = () => {
               <CardActionArea>
                 <CardMedia
                   className={classe.media}
-                  image="/static/images/cards/contemplative-reptile.jpg"
+                  image={require("../../../images/tech.jpg")}
                   title="Contemplative Reptile"
                 />
                 <CardContent>
@@ -103,7 +105,7 @@ export const HomeComponent: React.FC = () => {
                     component="h2"
                     id="text-display"
                   >
-                    Lizard
+                    Technology
                   </Typography>
                   <Typography
                     variant="body2"
@@ -111,9 +113,8 @@ export const HomeComponent: React.FC = () => {
                     component="p"
                     id="text-display"
                   >
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
+                    "It has become appallingly obvious that our technology has
+                    exceeded our humanity." <br />— Albert Einsteing
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -122,7 +123,7 @@ export const HomeComponent: React.FC = () => {
               <CardActionArea>
                 <CardMedia
                   className={classe.media}
-                  image="/static/images/cards/contemplative-reptile.jpg"
+                  image={require("../../../images/exercise.png")}
                   title="Contemplative Reptile"
                 />
                 <CardContent>
@@ -132,7 +133,7 @@ export const HomeComponent: React.FC = () => {
                     component="h2"
                     id="text-display"
                   >
-                    Lizard
+                    Exercise
                   </Typography>
                   <Typography
                     variant="body2"
@@ -140,9 +141,9 @@ export const HomeComponent: React.FC = () => {
                     component="p"
                     id="text-display"
                   >
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
+                    “The last three or four reps is what makes the muscle grow.
+                    This area of pain divides a champion from someone who is not
+                    a champion.” <br />— Arnold Schwarzenegger,
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -150,7 +151,7 @@ export const HomeComponent: React.FC = () => {
           </section>
           <section>
             <Typography variant="h4" className={classes.title} id="tag-line">
-              Nothing interests you above? Then click below to search for more.
+              Click below to search for all our events!!!
             </Typography>
           </section>
           <section id="event-button-container">

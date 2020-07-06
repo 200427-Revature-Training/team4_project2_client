@@ -1,0 +1,342 @@
+INSERT INTO public.users (email,first_name,last_name,user_password,username) VALUES
+('Kei@Kei.com','Kei','Keilson','$2b$10$3U1nowvIaZ6U5VuUioYWIeNdTnvkUbFTBVEggLYqFjriYJ64P2rFm','Kei2020')
+,('Mitch@Mitch.com','Mitch','Mitchellson','$2b$10$3U1nowvIaZ6U5VuUioYWIeNdTnvkUbFTBVEggLYqFjriYJ64P2rFm','Mitch2020')
+,('bebop@frontside.com','bukadiri','trawally','$2a$10$UcWljOP3hoU94S.6osGH5OmQQFNIdOmwuJzU/ANK8Hqrowx4nWnxC','CowboyBebop')
+,('mew@mewtwo.com','mew','mewtwo','$2a$10$1XHLt5EyZSV34Q8wUtA5ReycZPjMWOgAW8zsKvmPN1iWYpOQQh9GO','mew')
+,('heads0@marriott.com','Hastie','Eads','$2a$10$D.P6UHWn5FtP66XP8Z3Wb.bc8jBYYJ5/22kSatirJNMGHN26WqLz6','heads0')
+,('rharcase1@indiegogo.com','Rockwell','Harcase','$2a$10$iGuMRX6lXy/pdpkQxti65u/B/.WjCktfD4Oqwy27M9Rz4u8Z1ZX4m','rharcase1')
+,('itowne2@gravatar.com','Ingar','Towne','$2a$10$y8XQ43M7i3DqWBHoinmPB.TYDkixFo32.7us2Y3gwjLoJhPTWye36','itowne2')
+,('amuff3@furl.net','Adaline','Muff','$2a$10$tf14X2IYpjEHlR73MKSm5emQx7gcq62yR/fyJw1IAn415yj8WtouS','amuff3')
+,('afirks4@list-manage.com','Aubert','Firks','$2a$10$2V9HkYaY46R4sB.bjBPniuxbUPFzjzIAOvd2zamCdvCTsNMrn1RSC','afirks4')
+,('afannon5@parallels.com','Amye','Fannon','$2a$10$OiLgL4Lrt6ctuR3LWFqlCOqomb.toEnnj6o0dWNTjcojXH26ZjJcO','afannon5')
+;
+INSERT INTO public.users (email,first_name,last_name,user_password,username) VALUES
+('rmerigot6@cargocollective.com','Renie','Merigot','$2a$10$6yYTcz.2P.of4A8AvM2bE.Kln3ARPDfV.iE8hIXpDUqto2WnC.O7W','rmerigot6')
+,('kalthrop7@example.com','Kay','Althrop','$2a$10$/WDMBxOFlmwaLQ5DvfVmXuZTD9rbXVDaRswoQi9YU3BBPoE5aq/dS','kalthrop7')
+,('rmerigot6@cargocollective.com','michel','charles','$2a$10$GYFehoCvioiIFHZAX/g4Beq0b1y.zB16aM3NubW133zFQIszR4El2','michel')
+,('rmerigot6@cargocollective.com','Pongatee','Wongthawesap','$2a$10$qK4/XNxl9rzn3ocLdYwDHu1JQ.ayxtSaEIjMSOvQ43Tgo1wdEOPUW','kei')
+,('rmerigot6@cargocollective.com','Keith','Salzman','$2a$10$RLIjDI3Q90uW0/7yYwmHduWHJmibd/uxfUAdmzOlUqWq5rnXMNCBW','keith')
+,('rmerigot6@cargocollective.com','Bukadiri','Trawally','$2a$10$G0PWbf2bjmlhsGPVG.ah4ecJnZtM.fieUTaSZ/FBCJ8VdcVbIDceu','haji')
+;
+
+insert into user_locations (user_id, state, city, street_name, street_number) values (1, 'Texas', 'Beaumont', 'Arrowood', '628');
+insert into user_locations (user_id, state, city, street_name, street_number) values (6, 'Texas', 'Spring', 'Mccormick', '852');
+insert into user_locations (user_id, state, city, street_name, street_number) values (7, 'Utah', 'Ogden', 'Anniversary', '644');
+insert into user_locations (user_id, state, city, street_name, street_number) values (15, 'Missouri', 'Kansas City', 'Karstens', '213');
+insert into user_locations (user_id, state, city, street_name, street_number) values (10, 'California', 'Inglewood', 'Mayer', '413');
+insert into user_locations (user_id, state, city, street_name, street_number) values (7, 'Ohio', 'Toledo', 'Sutteridge', '021');
+insert into user_locations (user_id, state, city, street_name, street_number) values (12, 'Texas', 'El Paso', 'Del Mar', '764');
+insert into user_locations (user_id, state, city, street_name, street_number) values (6, 'Nevada', 'Las Vegas', 'Independence', '933');
+insert into user_locations (user_id, state, city, street_name, street_number) values (9, 'Idaho', 'Idaho Falls', 'Macpherson', '365');
+insert into user_locations (user_id, state, city, street_name, street_number) values (7, 'Texas', 'Beaumont', 'Schurz', '986');
+insert into user_locations (user_id, state, city, street_name, street_number) values (8, 'California', 'Ventura', 'Laurel', '743');
+insert into user_locations (user_id, state, city, street_name, street_number) values (16, 'Illinois', 'Schaumburg', 'Eastlawn', '758');
+insert into user_locations (user_id, state, city, street_name, street_number) values (15, 'District of Columbia', 'Washington', 'Swallow', '199');
+insert into user_locations (user_id, state, city, street_name, street_number) values (1, 'Utah', 'Salt Lake City', 'Crest Line', '921');
+insert into user_locations (user_id, state, city, street_name, street_number) values (3, 'Nebraska', 'Omaha', 'Jenna', '306');
+insert into user_locations (user_id, state, city, street_name, street_number) values (9, 'Nevada', 'North Las Vegas', 'Kropf', '706');
+
+INSERT INTO event_types (event_type) VALUES
+('convention'),
+('outdoor'),
+('arts & crafts'),
+('board & video games'),
+('exercise'),
+('technology'),
+('talks & discussions'),
+('other');
+
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('synergize value-added supply-chains', 'image0', 360, 780, '2020-02-03', 'convention7', 6, 16);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('architect back-end partnerships', 'image6', 260, 880, '2020-03-05', 'convention4', 2, 8);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('harness sticky web-readiness', 'image4', 220, 860, '2020-01-22', 'convention7', 1, 14);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('morph sticky metrics', 'image1', 280, 500, '2020-06-04', 'convention0', 2, 14);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('architect robust metrics', 'image7', 270, 950, '2020-01-10', 'convention0', 1, 1);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('evolve dynamic deliverables', 'image4', 120, 630, '2020-05-07', 'convention2', 5, 12);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('deliver efficient networks', 'image5', 440, 750, '2020-04-15', 'convention8', 7, 1);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('transition enterprise niches', 'image7', 190, 710, '2020-03-11', 'convention3', 4, 1);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('syndicate cross-platform ROI', 'image8', 470, 120, '2020-02-28', 'convention8', 1, 10);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('streamline real-time functionalities', 'image5', 340, 910, '2020-01-31', 'convention1', 2, 2);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('maximize turn-key initiatives', 'image6', 370, 70, '2020-06-08', 'convention1', 7, 1);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('integrate visionary initiatives', 'image0', 480, 520, '2020-03-16', 'convention4', 6, 4);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('visualize 24/365 schemas', 'image0', 470, 440, '2020-03-07', 'convention1', 7, 4);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('strategize bricks-and-clicks users', 'image6', 150, 830, '2020-04-27', 'convention8', 6, 3);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('visualize B2C action-items', 'image9', 60, 260, '2020-02-13', 'convention6', 3, 16);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('recontextualize frictionless synergies', 'image7', 480, 750, '2020-01-13', 'convention5', 6, 11);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('unleash innovative initiatives', 'image4', 240, 890, '2020-02-25', 'convention1', 4, 1);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('integrate granular partnerships', 'image2', 400, 770, '2020-02-20', 'convention4', 3, 12);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('synthesize clicks-and-mortar web services', 'image9', 80, 730, '2020-03-18', 'convention1', 7, 1);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('expedite dot-com portals', 'image6', 260, 60, '2020-06-29', 'convention9', 8, 9);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('leverage 24/365 infomediaries', 'image6', 340, 900, '2020-04-21', 'convention1', 2, 8);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('target synergistic users', 'image9', 400, 510, '2020-04-14', 'convention1', 5, 16);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('facilitate visionary content', 'image9', 280, 580, '2020-05-09', 'convention8', 4, 12);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('incentivize dynamic schemas', 'image7', 250, 780, '2020-01-21', 'convention8', 5, 16);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('orchestrate end-to-end e-services', 'image3', 500, 540, '2020-01-20', 'convention1', 6, 11);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('enhance proactive paradigms', 'image3', 460, 150, '2020-02-26', 'convention9', 1, 15);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('incubate scalable systems', 'image0', 260, 430, '2020-04-15', 'convention8', 4, 5);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('reinvent collaborative communities', 'image8', 70, 240, '2020-02-21', 'convention2', 3, 15);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('brand front-end infomediaries', 'image7', 400, 420, '2020-01-18', 'convention6', 1, 4);
+insert into events (description, image , max_people, price, start_time, title, event_type_id, host_id) values ('utilize next-generation relationships', 'image5', 390, 580, '2020-03-17', 'convention8', 7, 1);
+
+insert into event_locations (event_id, state, city, street_name, street_number) values (13, 'Oklahoma', 'Oklahoma City', 'Granby', '3');
+insert into event_locations (event_id, state, city, street_name, street_number) values (16, 'New York', 'Albany', 'La Follette', '6');
+insert into event_locations (event_id, state, city, street_name, street_number) values (30, 'Ohio', 'Hamilton', 'Moland', '24');
+insert into event_locations (event_id, state, city, street_name, street_number) values (8, 'Missouri', 'Saint Louis', 'Thierer', '247');
+insert into event_locations (event_id, state, city, street_name, street_number) values (30, 'Texas', 'Waco', 'Bonner', '4292');
+insert into event_locations (event_id, state, city, street_name, street_number) values (20, 'California', 'Chico', 'Algoma', '34346');
+insert into event_locations (event_id, state, city, street_name, street_number) values (25, 'Colorado', 'Aurora', 'American', '0');
+insert into event_locations (event_id, state, city, street_name, street_number) values (17, 'South Carolina', 'Spartanburg', 'Ronald Regan', '313');
+insert into event_locations (event_id, state, city, street_name, street_number) values (28, 'Michigan', 'Grand Rapids', 'Kropf', '9');
+insert into event_locations (event_id, state, city, street_name, street_number) values (21, 'California', 'San Diego', 'Melvin', '81');
+insert into event_locations (event_id, state, city, street_name, street_number) values (11, 'California', 'Riverside', 'Swallow', '300');
+insert into event_locations (event_id, state, city, street_name, street_number) values (12, 'District of Columbia', 'Washington', 'Dryden', '0');
+insert into event_locations (event_id, state, city, street_name, street_number) values (29, 'Louisiana', 'Lafayette', 'International', '87304');
+insert into event_locations (event_id, state, city, street_name, street_number) values (26, 'Florida', 'Clearwater', 'Alpine', '3558');
+insert into event_locations (event_id, state, city, street_name, street_number) values (28, 'Colorado', 'Colorado Springs', 'Sutherland', '54');
+insert into event_locations (event_id, state, city, street_name, street_number) values (26, 'New York', 'New Hyde Park', 'Hintze', '4');
+insert into event_locations (event_id, state, city, street_name, street_number) values (26, 'District of Columbia', 'Washington', 'Farragut', '13');
+insert into event_locations (event_id, state, city, street_name, street_number) values (25, 'Massachusetts', 'New Bedford', 'Shelley', '250');
+insert into event_locations (event_id, state, city, street_name, street_number) values (14, 'Washington', 'Vancouver', 'Comanche', '73');
+insert into event_locations (event_id, state, city, street_name, street_number) values (10, 'California', 'Corona', 'Morrow', '396');
+insert into event_locations (event_id, state, city, street_name, street_number) values (8, 'Texas', 'Houston', 'Menomonie', '89545');
+insert into event_locations (event_id, state, city, street_name, street_number) values (21, 'Texas', 'San Antonio', 'Quincy', '36268');
+insert into event_locations (event_id, state, city, street_name, street_number) values (23, 'Illinois', 'Bloomington', 'Utah', '14560');
+insert into event_locations (event_id, state, city, street_name, street_number) values (18, 'New York', 'Jamaica', 'Logan', '0926');
+insert into event_locations (event_id, state, city, street_name, street_number) values (26, 'Louisiana', 'Metairie', 'Anhalt', '51');
+insert into event_locations (event_id, state, city, street_name, street_number) values (11, 'Arizona', 'Scottsdale', 'Hintze', '70');
+insert into event_locations (event_id, state, city, street_name, street_number) values (6, 'Washington', 'Spokane', 'American Ash', '42536');
+insert into event_locations (event_id, state, city, street_name, street_number) values (16, 'Florida', 'Fort Lauderdale', 'Monument', '7');
+insert into event_locations (event_id, state, city, street_name, street_number) values (26, 'Oklahoma', 'Oklahoma City', 'Reindahl', '9343');
+insert into event_locations (event_id, state, city, street_name, street_number) values (9, 'Florida', 'North Port', 'New Castle', '92');
+
+insert into user_events (event_id, attend_id) values (12, 5);
+insert into user_events (event_id, attend_id) values (6, 15);
+insert into user_events (event_id, attend_id) values (13, 3);
+insert into user_events (event_id, attend_id) values (1, 3);
+insert into user_events (event_id, attend_id) values (9, 2);
+insert into user_events (event_id, attend_id) values (21, 15);
+insert into user_events (event_id, attend_id) values (10, 7);
+insert into user_events (event_id, attend_id) values (10, 6);
+insert into user_events (event_id, attend_id) values (17, 16);
+insert into user_events (event_id, attend_id) values (4, 13);
+insert into user_events (event_id, attend_id) values (18, 4);
+insert into user_events (event_id, attend_id) values (3, 6);
+insert into user_events (event_id, attend_id) values (3, 1);
+insert into user_events (event_id, attend_id) values (26, 5);
+insert into user_events (event_id, attend_id) values (24, 3);
+insert into user_events (event_id, attend_id) values (25, 8);
+insert into user_events (event_id, attend_id) values (6, 16);
+insert into user_events (event_id, attend_id) values (11, 12);
+insert into user_events (event_id, attend_id) values (30, 7);
+insert into user_events (event_id, attend_id) values (10, 1);
+insert into user_events (event_id, attend_id) values (6, 16);
+insert into user_events (event_id, attend_id) values (26, 11);
+insert into user_events (event_id, attend_id) values (25, 12);
+insert into user_events (event_id, attend_id) values (14, 6);
+insert into user_events (event_id, attend_id) values (3, 11);
+insert into user_events (event_id, attend_id) values (21, 13);
+insert into user_events (event_id, attend_id) values (15, 3);
+insert into user_events (event_id, attend_id) values (10, 11);
+insert into user_events (event_id, attend_id) values (5, 11);
+insert into user_events (event_id, attend_id) values (9, 7);
+
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Implemented discrete groupware', 'image9', '2020-06-20', 3, 10);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Phased zero administration artificial intelligence', 'image8', '2020-05-31', 2, 7);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Distributed stable customer loyalty', 'image1', '2020-02-17', 4, 3);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Progressive radical Graphical User Interface', 'image1', '2020-01-28', 17, 8);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Customer-focused national hardware', 'image0', '2020-03-11', 5, 5);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Multi-lateral coherent database', 'image0', '2020-06-23', 2, 7);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Function-based intangible firmware', 'image7', '2020-06-19', 24, 9);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Down-sized modular archive', 'image4', '2020-05-14', 28, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Distributed fault-tolerant migration', 'image5', '2020-04-23', 7, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Open-architected foreground orchestration', 'image0', '2020-03-24', 30, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Grass-roots encompassing frame', 'image8', '2020-01-29', 9, 6);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Persevering 3rd generation encoding', 'image2', '2020-03-29', 14, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Team-oriented needs-based capacity', 'image4', '2020-06-05', 29, 1);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Focused fault-tolerant parallelism', 'image1', '2020-03-24', 22, 14);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Expanded optimal neural-net', 'image9', '2020-05-21', 30, 15);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Total incremental conglomeration', 'image5', '2020-04-26', 18, 13);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Re-contextualized coherent structure', 'image6', '2020-04-25', 8, 3);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Multi-channelled regional interface', 'image8', '2020-05-31', 29, 3);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Implemented explicit support', 'image7', '2020-04-20', 2, 4);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Realigned explicit budgetary management', 'image6', '2020-03-17', 3, 6);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Organic intangible open architecture', 'image6', '2020-01-14', 21, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Distributed reciprocal paradigm', 'image1', '2020-06-27', 25, 4);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Adaptive national challenge', 'image3', '2020-06-22', 28, 6);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Automated non-volatile frame', 'image9', '2020-02-28', 26, 4);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Managed intangible synergy', 'image3', '2020-03-10', 16, 2);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Inverse bi-directional workforce', 'image5', '2020-02-27', 28, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Optional homogeneous projection', 'image2', '2020-01-23', 26, 14);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Extended composite leverage', 'image0', '2020-03-02', 13, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Customer-focused intangible neural-net', 'image9', '2020-01-24', 14, 1);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Function-based actuating parallelism', 'image7', '2020-04-08', 16, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Down-sized disintermediate core', 'image5', '2020-01-08', 26, 2);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Versatile modular approach', 'image7', '2020-03-30', 15, 14);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Optimized directional service-desk', 'image8', '2020-05-06', 6, 8);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Decentralized reciprocal alliance', 'image4', '2020-05-12', 4, 2);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Grass-roots bifurcated synergy', 'image5', '2020-05-14', 19, 7);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Synchronised grid-enabled focus group', 'image9', '2020-04-10', 22, 3);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Networked stable groupware', 'image0', '2020-05-09', 18, 7);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Re-engineered content-based matrix', 'image0', '2020-04-21', 7, 15);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Proactive foreground utilisation', 'image5', '2020-06-05', 10, 2);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Pre-emptive logistical task-force', 'image3', '2020-01-28', 14, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Profound asynchronous middleware', 'image5', '2020-02-08', 1, 5);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Re-engineered leading edge implementation', 'image7', '2020-03-16', 24, 16);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Monitored motivating moderator', 'image9', '2020-05-10', 26, 13);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Networked impactful projection', 'image1', '2020-02-09', 10, 14);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Multi-layered systemic architecture', 'image3', '2020-05-31', 15, 9);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Synchronised disintermediate parallelism', 'image4', '2020-02-23', 10, 13);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Enhanced local core', 'image4', '2020-06-17', 20, 10);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Distributed coherent moderator', 'image8', '2020-01-30', 18, 15);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Cloned discrete workforce', 'image2', '2020-04-20', 2, 10);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Cloned hybrid open architecture', 'image0', '2020-05-23', 15, 6);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Business-focused asymmetric forecast', 'image3', '2020-05-21', 9, 6);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Streamlined neutral interface', 'image6', '2020-06-02', 30, 15);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Digitized needs-based standardization', 'image0', '2020-03-08', 20, 13);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Inverse homogeneous solution', 'image6', '2020-06-17', 13, 8);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Synergistic non-volatile capacity', 'image3', '2020-04-09', 14, 1);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Phased 6th generation toolset', 'image7', '2020-02-13', 17, 16);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Universal global orchestration', 'image1', '2020-03-11', 27, 10);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Ergonomic even-keeled flexibility', 'image7', '2020-02-20', 16, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Managed foreground internet solution', 'image0', '2020-03-22', 1, 2);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Phased well-modulated definition', 'image1', '2020-01-28', 30, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Compatible mobile approach', 'image1', '2020-07-03', 16, 16);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Grass-roots high-level moratorium', 'image1', '2020-06-17', 4, 16);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Programmable motivating attitude', 'image0', '2020-03-22', 23, 7);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Innovative object-oriented time-frame', 'image2', '2020-05-05', 4, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Reverse-engineered fresh-thinking forecast', 'image4', '2020-06-04', 3, 16);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Synchronised holistic access', 'image3', '2020-04-11', 11, 9);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Extended heuristic frame', 'image4', '2020-05-19', 17, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Cross-group multi-state frame', 'image1', '2020-02-09', 16, 13);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Horizontal client-server orchestration', 'image8', '2020-06-09', 15, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Enterprise-wide zero defect focus group', 'image5', '2020-05-25', 23, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Open-source bifurcated projection', 'image2', '2020-03-13', 18, 16);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Triple-buffered static methodology', 'image0', '2020-04-25', 14, 13);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Persistent homogeneous parallelism', 'image1', '2020-03-31', 1, 16);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Function-based transitional system engine', 'image8', '2020-03-06', 28, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('De-engineered system-worthy projection', 'image4', '2020-05-22', 8, 4);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Expanded needs-based definition', 'image4', '2020-01-20', 9, 7);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Cross-group bi-directional hub', 'image1', '2020-02-26', 19, 10);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('User-friendly content-based archive', 'image7', '2020-01-09', 2, 6);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Ergonomic radical interface', 'image3', '2020-03-22', 26, 7);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Polarised methodical core', 'image9', '2020-03-18', 8, 3);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Ergonomic dedicated circuit', 'image4', '2020-01-12', 13, 11);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Triple-buffered attitude-oriented Graphic Interface', 'image6', '2020-06-23', 8, 8);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Balanced discrete hardware', 'image3', '2020-05-10', 6, 2);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Reverse-engineered transitional artificial intelligence', 'image7', '2020-05-26', 9, 9);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Implemented secondary functionalities', 'image7', '2020-02-21', 6, 15);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Inverse composite algorithm', 'image1', '2020-03-23', 25, 3);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Virtual 6th generation policy', 'image5', '2020-02-22', 24, 15);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Stand-alone grid-enabled forecast', 'image2', '2020-06-11', 21, 8);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Synergized dynamic hierarchy', 'image2', '2020-01-07', 6, 16);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Networked zero administration policy', 'image2', '2020-04-07', 10, 14);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Persistent demand-driven productivity', 'image3', '2020-04-19', 3, 9);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Mandatory content-based leverage', 'image3', '2020-04-30', 2, 3);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Reduced motivating pricing structure', 'image9', '2020-02-11', 3, 2);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Vision-oriented discrete groupware', 'image5', '2020-06-13', 27, 10);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Multi-channelled grid-enabled internet solution', 'image5', '2020-04-13', 14, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Multi-channelled upward-trending architecture', 'image5', '2020-04-29', 18, 6);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Triple-buffered mission-critical extranet', 'image4', '2020-01-11', 24, 12);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Advanced optimal pricing structure', 'image2', '2020-02-17', 17, 2);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('De-engineered local intranet', 'image9', '2020-06-01', 25, 13);
+insert into posts (post_content, image , creation_time, event_id, user_id) values ('Managed encompassing function', 'image1', '2020-03-20', 23, 16);
+
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Fundamental attitude-oriented pricing structure', 'image9', '2020-03-26', 8, 13);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Open-source dedicated orchestration', 'image0', '2020-02-21', 20, 3);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Stand-alone high-level throughput', 'image7', '2020-07-02', 23, 9);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Digitized clear-thinking service-desk', 'image2', '2020-04-04', 9, 13);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Virtual coherent open architecture', 'image2', '2020-01-27', 14, 11);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Re-engineered analyzing complexity', 'image4', '2020-03-16', 14, 15);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Function-based grid-enabled framework', 'image2', '2020-02-16', 20, 8);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Extended discrete monitoring', 'image7', '2020-02-11', 24, 15);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Fundamental intangible support', 'image1', '2020-06-06', 22, 5);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Innovative didactic functionalities', 'image2', '2020-03-18', 12, 6);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Ergonomic coherent circuit', 'image9', '2020-03-20', 27, 11);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Progressive transitional initiative', 'image5', '2020-05-20', 9, 15);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Enhanced exuding internet solution', 'image3', '2020-05-04', 23, 9);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Upgradable radical function', 'image5', '2020-01-06', 7, 2);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Balanced cohesive moratorium', 'image6', '2020-05-04', 29, 8);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Total motivating conglomeration', 'image2', '2020-03-16', 18, 6);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Open-source eco-centric portal', 'image0', '2020-05-25', 29, 9);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Universal 4th generation application', 'image6', '2020-05-11', 22, 8);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Streamlined maximized framework', 'image3', '2020-02-20', 3, 11);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Multi-lateral systematic portal', 'image6', '2020-06-29', 7, 10);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Re-contextualized client-driven collaboration', 'image1', '2020-02-22', 18, 14);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Customer-focused global structure', 'image5', '2020-02-18', 15, 3);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Exclusive actuating complexity', 'image0', '2020-06-04', 28, 4);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Centralized hybrid complexity', 'image6', '2020-06-14', 8, 8);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Assimilated leading edge customer loyalty', 'image5', '2020-02-24', 23, 14);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Diverse 4th generation alliance', 'image1', '2020-05-17', 19, 2);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Streamlined impactful application', 'image4', '2020-01-21', 10, 4);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Operative analyzing database', 'image5', '2020-06-01', 24, 13);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Universal didactic workforce', 'image2', '2020-03-05', 22, 10);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Streamlined explicit approach', 'image3', '2020-01-05', 1, 1);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Implemented background policy', 'image1', '2020-05-19', 7, 3);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Programmable fault-tolerant application', 'image9', '2020-01-23', 9, 8);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Seamless reciprocal moratorium', 'image1', '2020-03-22', 20, 13);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Team-oriented 4th generation interface', 'image7', '2020-01-14', 22, 12);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Cross-platform multimedia model', 'image5', '2020-06-24', 3, 15);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Total attitude-oriented knowledge base', 'image8', '2020-01-20', 5, 1);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Innovative impactful secured line', 'image0', '2020-05-07', 23, 7);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Proactive discrete encryption', 'image0', '2020-04-18', 20, 2);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Intuitive actuating Graphic Interface', 'image4', '2020-05-07', 26, 11);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Seamless zero tolerance data-warehouse', 'image2', '2020-02-05', 22, 2);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Networked motivating analyzer', 'image0', '2020-02-27', 22, 5);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Multi-layered 24/7 flexibility', 'image2', '2020-04-25', 21, 4);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Face to face 4th generation paradigm', 'image8', '2020-05-27', 11, 12);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('De-engineered web-enabled projection', 'image0', '2020-02-09', 4, 5);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Advanced didactic migration', 'image2', '2020-05-08', 28, 10);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Organized holistic product', 'image0', '2020-03-17', 23, 4);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Optimized encompassing parallelism', 'image2', '2020-04-10', 21, 5);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Reverse-engineered optimizing intranet', 'image1', '2020-01-21', 2, 6);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Object-based 5th generation superstructure', 'image8', '2020-01-22', 17, 7);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Multi-channelled mobile archive', 'image8', '2020-03-04', 7, 14);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Realigned modular help-desk', 'image8', '2020-04-25', 28, 3);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Visionary bi-directional support', 'image4', '2020-02-09', 27, 8);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Reactive maximized intranet', 'image0', '2020-01-29', 15, 14);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Exclusive transitional algorithm', 'image5', '2020-02-24', 4, 3);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Organic impactful emulation', 'image5', '2020-03-26', 2, 6);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Reduced exuding matrix', 'image0', '2020-04-23', 29, 7);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Expanded clear-thinking matrix', 'image2', '2020-04-03', 20, 3);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Grass-roots 6th generation projection', 'image7', '2020-03-25', 15, 5);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Ameliorated composite knowledge base', 'image0', '2020-03-15', 23, 4);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Reverse-engineered 4th generation alliance', 'image4', '2020-03-05', 2, 4);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Function-based logistical function', 'image0', '2020-05-08', 8, 9);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Networked intermediate artificial intelligence', 'image3', '2020-02-24', 6, 14);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Switchable regional open system', 'image5', '2020-02-25', 21, 7);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Up-sized static product', 'image1', '2020-03-20', 13, 15);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Universal attitude-oriented collaboration', 'image1', '2020-01-05', 13, 3);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Progressive 3rd generation info-mediaries', 'image4', '2020-03-20', 19, 1);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Optional bottom-line knowledge user', 'image7', '2020-04-21', 6, 1);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Versatile foreground firmware', 'image5', '2020-03-02', 26, 16);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Ameliorated eco-centric capacity', 'image6', '2020-04-11', 25, 15);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Configurable cohesive architecture', 'image2', '2020-03-06', 19, 10);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Reverse-engineered grid-enabled structure', 'image4', '2020-03-21', 19, 13);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Extended empowering parallelism', 'image7', '2020-02-20', 25, 8);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Inverse explicit functionalities', 'image3', '2020-05-03', 2, 8);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Implemented dedicated paradigm', 'image0', '2020-04-01', 10, 1);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Open-source reciprocal application', 'image1', '2020-01-21', 21, 1);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Cross-group well-modulated neural-net', 'image7', '2020-05-31', 22, 10);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Streamlined demand-driven moratorium', 'image0', '2020-03-18', 7, 10);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Intuitive real-time hierarchy', 'image4', '2020-04-12', 28, 1);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Adaptive multimedia service-desk', 'image8', '2020-01-21', 14, 15);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Organized static local area network', 'image4', '2020-05-22', 14, 1);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Implemented homogeneous application', 'image1', '2020-01-15', 1, 10);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Decentralized content-based infrastructure', 'image0', '2020-01-19', 15, 13);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Right-sized analyzing Graphical User Interface', 'image5', '2020-02-03', 4, 14);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Reactive stable application', 'image7', '2020-04-10', 17, 10);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Optional eco-centric hardware', 'image7', '2020-03-12', 20, 4);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Function-based directional Graphical User Interface', 'image5', '2020-06-12', 13, 6);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Future-proofed local pricing structure', 'image6', '2020-01-05', 17, 2);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Realigned grid-enabled success', 'image4', '2020-04-09', 28, 13);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Innovative local process improvement', 'image7', '2020-05-15', 13, 6);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Implemented dynamic capacity', 'image8', '2020-06-21', 23, 6);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Multi-lateral fresh-thinking middleware', 'image5', '2020-05-06', 10, 7);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Exclusive client-server challenge', 'image5', '2020-04-25', 17, 3);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Integrated non-volatile portal', 'image7', '2020-04-09', 10, 1);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Object-based tertiary capacity', 'image7', '2020-07-03', 22, 8);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Mandatory dedicated structure', 'image9', '2020-06-08', 25, 9);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Reactive tangible capacity', 'image7', '2020-02-19', 8, 4);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Open-source stable flexibility', 'image2', '2020-03-02', 17, 9);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Focused homogeneous installation', 'image8', '2020-04-14', 27, 15);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Diverse heuristic capability', 'image7', '2020-04-28', 10, 7);
+insert into user_comments (comment_content, image , creation_time, post_id, user_id) values ('Configurable zero administration alliance', 'image0', '2020-01-04', 8, 11);
