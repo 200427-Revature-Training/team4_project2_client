@@ -84,3 +84,18 @@ export const getPostsByLikeUserId = async (userId: number) => {
     });
 };
 
+export const getCommentsByUserId = async (userId: number) => {
+    const response = await authAxios.get<Post[]>(`/comment?userId=${userId}`);
+    return response.data.map((comment) => {
+        comment.createDate = new Date(comment.createDate);
+        return comment;
+    });
+};
+
+export const getNewPosts = async (userId: number) => {
+    const response = await authAxios.get<Post[]>(`/post`);
+    return response.data.map((post) => {
+        post.createDate = new Date(post.createDate);
+        return post;
+    });
+};

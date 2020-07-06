@@ -7,7 +7,7 @@ import "./feed.component.css";
 
 const useStyles = makeStyles({
     rootS: {
-        minWidth: 600,
+        minWidth: 1000,
         display: "flex",
         flexGrow: 1,
         margin: "auto",
@@ -29,32 +29,51 @@ interface PostFeedBoxComponentProps {
     post: any;
     userId: number;
     getEvent: (eventId: number) => void; 
+    view: String;
 }
 
 export const PostFeedBoxComponent: React.FC<PostFeedBoxComponentProps> = (props) => {
     const classes = useStyles();
     const history = useHistory();
+    let id;
+    let username;
+    let content;
+    let title;
 
     const handleRedirect = (e: number) => {
         props.getEvent(e);
         history.push('/forum');
     }
 
+    if (props.view === 'MY_POSTS') {
+        id = 'containerN'
+        username = props.post.user.username;
+        content = props.post.postContent;
+        title = props.post.event.title
+        
+    } else if (props.view === 'NEW_POSTS') {
+        id = 'containerO'
+        username = props.post.user.username;
+        content = props.post.postContent;
+        title = props.post.event.title
+    }
+    //  | 'MY_FOLLOW_POSTS' | 'MY_LIKE_POSTS' | 'NEW_POSTS')
+
     return (
         <React.Fragment>
             <br />
-        <Card className={classes.rootS} id="containerN">
+        <Card className={classes.rootS} id={id}>
             <CardActionArea className={classes.root2} onClick={() => handleRedirect(props.post.event.id)}>
                 <CardContent>
                     <Typography variant="h5" component="h2">
                         <GradeRoundedIcon />
-                        {props.post.user.username}
+                        {username}
                     </Typography>
                     <Typography variant="h5" component="h2">
-                        {props.post.postContent}
+                        {content}
                     </Typography>
                     <Typography variant="h5" component="h2">
-                        {props.post.event.title}
+                        {title}
                     </Typography>
                 </CardContent>
             </CardActionArea>

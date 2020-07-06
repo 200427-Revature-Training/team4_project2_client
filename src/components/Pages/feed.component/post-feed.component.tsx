@@ -43,6 +43,7 @@ export const PostFeedComponent: React.FC<PostFeedComponentProps> = (props) => {
     const classes = useStyles();
     const history = useHistory();
     const [Posts, setPosts] = useState<Post[]>([]);
+    const [Comments, setComments] = useState<Comment[]>([]);
     // const [myFollowPosts, setMyFollowPosts] = useState<Post[]>([]);
     // const [newPosts, setNewPosts] = useState<Post[]>([]);
     // const [myLikePosts, setMyLikePosts] = useState<Post[]>([]);
@@ -55,8 +56,14 @@ export const PostFeedComponent: React.FC<PostFeedComponentProps> = (props) => {
     }, [])
 
     const setViewAndFeed = async (e: any) => {
-        const retrievedPosts = await eventRemote.getPostsByUserId(props.userId);
-        setPosts(retrievedPosts);
+        let retrievedPosts: Post[];
+        if(e === 'MY_POSTS') {
+            retrievedPosts = await eventRemote.getPostsByUserId(props.userId);
+            setPosts(retrievedPosts);
+        } else if (e === 'NEW_POSTS') {
+            retrievedPosts = await eventRemote.getNewPosts(props.userId);
+            setPosts(retrievedPosts);
+        } 
         setView(e);
     }
 
@@ -65,27 +72,27 @@ export const PostFeedComponent: React.FC<PostFeedComponentProps> = (props) => {
             case childViews.myPosts:
                 return Posts.map(post => {
                     return (
-                        <div>
-                            <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} getEvent={props.getEvent}  />
+                        <div >
+                            <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} getEvent={props.getEvent} view={view}  />
                         </div>
                     )
                 })
             case childViews.myFollowPosts:
                 return Posts.map(post => {
                     return (
-                        <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} getEvent={props.getEvent}  />
+                        <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} getEvent={props.getEvent} view={view}  />
                     )
                 })
             case childViews.myLikePosts:
                 return Posts.map(post => {
                     return (
-                        <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} getEvent={props.getEvent}  />
+                        <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} getEvent={props.getEvent}  view={view} />
                     )
                 })
             case childViews.newPosts:
                 return Posts.map(post => {
                     return (
-                        <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} getEvent={props.getEvent}  />
+                        <PostFeedBoxComponent userId={props.userId} key={post.id} post={post} getEvent={props.getEvent} view={view}  />
                     )
                 })
         }
@@ -100,15 +107,15 @@ export const PostFeedComponent: React.FC<PostFeedComponentProps> = (props) => {
                 </Button>
                 <Button className={classes.buttonk} color="inherit"
                     onClick={() => setView('MY_FOLLOW_POSTS')}>
-                    Follow Posts
+                    My Comments
                 </Button>
                 <Button className={classes.buttonk} color="inherit"
                     onClick={() => setView('MY_LIKE_POSTS')}>
-                    New Posts
+                    Liked Posts
             </Button>
                 <Button className={classes.buttonk} color="inherit"
-                    onClick={() => setView('NEW_POSTS')}>
-                    Liked Posts
+                    onClick={() => setViewAndFeed('NEW_POSTS')}>
+                    New Posts
             </Button>
             </section>
             <section className={classes.boxk} >
