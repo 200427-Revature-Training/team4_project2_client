@@ -5,11 +5,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import "./navbar.component.css";
 import { Link } from "react-router-dom";
-import * as loginRemote from '../remotes/login.remote';
-import { User } from '../models/User';
+
 
 
 
@@ -31,7 +29,6 @@ const useStyles = makeStyles((theme: Theme) =>
 export const NavBarComponent: React.FC = () => {
   
   const classes = useStyles();
-  let [user, setUser] = useState(false);
   const [viewChange, setViewChange]= useState(false)
 
 
@@ -50,10 +47,6 @@ const loggedIn = () =>{
   }
 }
 
-const displayUsername = async () =>{
-  localStorage.getItem('accessToken')
-  setUser(true)
-}
 
 
   const endSession = () => {
@@ -78,7 +71,7 @@ return (
             </IconButton>
           </Link>
           <Typography variant="h6" className={classes.title} id="logo">
-            {user !==false ? `Welcome ${user}` : "PlaceHolder for user's name"}
+            
           </Typography>
           <Link to="/searchevent" id="nav-buttons">
           <Button color="inherit" id="nav-buttons">
