@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+#create-c-button-text,
+#cancel-c-button-text,
+#confirm-c-button-text {
+  background-color: white;
+  color: #006272;
+  font-size: 1.2rem;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: bold;
+}
+
+#cancel-c-button-text {
+  margin-right: auto;
+}
+
+#cancel-c-button-text,
+#confirm-c-button-text {
+  width: 10vw;
+}
+#create-c-button-text {
+  width: 12vw;
+  height: 2vh;
+  font-weight: normal;
+}
+#create-commentt-textarea {
+  font-family: "Titillium Web", sans-serif;
+  color: #006272;
+  font-size: 1rem;
+}
+#alert-dialog-title {
+  font-family: "Titillium Web", sans-serif;
+  color: #006272;
+  font-size: 1.2rem;
+}
+
+.add-button {
+  display: flex;
+  flex-flow: row wrap;
+  padding-left: 5px;
+}
+.add-icon {
+  flex: 1;
+}
